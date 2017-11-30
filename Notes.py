@@ -98,10 +98,11 @@
 
 
 response = ""
-# while response != "Hello":
-#     response = input("Say\"Hello\"")
+while response != "Hello":
+    response = input("Say\"Hello\"")
 
-print ("Hello \nWorld")  # \n means newline
+print("Hello \nWorld")  # \n means newline
 
-import random  #imports should be at the top of the code
-print (random.randint(0,6))
+import random  # imports should be at the top of the code
+
+print(random.randint(0, 6))
