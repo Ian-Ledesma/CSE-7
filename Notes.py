@@ -1,17 +1,21 @@
 # # # # # print('Hello World')
 # # # # #
+
 # # # # # # Ian Ledesma (Use ctrl +/ to toggle comments)
 # # # # #
+
 # # # # # print(3 + 5)
 # # # # # print(5 - 3)
 # # # # # print(5 * 3)
 # # # # # print(6 / 2)
 # # # # # print(3 ** 2)
 # # # # #
+
 # # # # # print()
 # # # # # print('See if you can figure this out')
 # # # # # print(20 % 12 )
 # # # # #
+
 # # # # # #Variable
 # # # # # car_name = "Weibe Mobile"
 # # # # # car_type = "Lamborghini Sesto Elemento"
@@ -49,9 +53,9 @@
 # # # # say_hi("Ian")
 # # # #
 # # # #
-# # # # def birthday(age):
-# # # #     age += 1  # age = age + 1
-# # # #
+# def birthday(age):
+# # # # #     age += 1  # age = age + 1
+# # # # #
 # # # #     say_hi("Ian")
 # # # #     print  ("Ian is 14. Next year:")
 # # # #     birthday (15)
@@ -101,8 +105,8 @@ response = ""
 while response != "Hello":
     response = input("Say\"Hello\"")
 
-print("Hello \nWorld")  # \n means newline
+print("Hello \nWorld")  #\n means newline
 
-import random  # imports should be at the top of the code
+import random  #imports should be at the top of the code
 
 print(random.randint(0, 6))
