@@ -1,8 +1,11 @@
 import random
-number = (random.randint(0, 51))
-print(number)
+num = (random.randint(0, 51))
+print(num)
 
-def()
+
+
+
+
 
 # Get a number
 # Get a number (input) from the user

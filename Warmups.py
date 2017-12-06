@@ -30,11 +30,11 @@
 #     print(name + ".py")
 #
 
-#12.6.17
+# 12.6.17
 
 
-def add(num1, num2 ,num3):
-    print (num1 + num2 + num3)
+def add(num1, num2, num3):
+    print(num1 + num2 + num3)
 
 
-add(69,420,666)
+add(69, 666, 420)
