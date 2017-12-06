@@ -37,4 +37,4 @@ def add(num1, num2 ,num3):
     print (num1 + num2 + num3)
 
 
-add(67,1155,47)
+add(69,420,666)
