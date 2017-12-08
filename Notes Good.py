@@ -119,5 +119,5 @@ print(1 < 0 or 5> 1)
 c = "1"
 print(c ==1) #False - c is a string, 1 is a number
 print(int(c) == 1) #True - compares two ints
-print(int(c == str(1))    #True - compares two strings
+print(int(c == str(1)) #True - compares two strings
 
