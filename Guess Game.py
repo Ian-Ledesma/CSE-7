@@ -4,6 +4,7 @@ num = (random.randint(0, 51))
 guess = input("Pick a number between 0 and 50")
 turns = 5
 
+# Describes ONE turn. The while loop is the game controller.
 while guess != num:
     if guess > str(num):
         print("Come now, a bit HIGHER")
