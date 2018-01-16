@@ -11,16 +11,16 @@ while money > 0:
     roll = (die_01 + die_02)
     best_rounds = 0
     max_money = 0
-    if money > max_money:
-        money = max_money
-    elif rounds > best_rounds :
-        best_round = rounds
-    elif roll == 7:
+
+    if roll == 7:
         money += 4
         rounds += 1
     elif roll != 7:
         money -= 1
         rounds += 1
+        if money > max_money:
+            money = max_money
+
 
         print("You've got %s dollars" % money)
         print("You played %s rounds" % rounds)
