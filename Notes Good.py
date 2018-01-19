@@ -122,32 +122,54 @@
 
 #  Lists
 
-the_count = [1, 2, 3, 4, 5]
-characters = ["graves", "Dory", "Boots", "Dora", "Shrek", "Obi-wan"]
-print(characters[0])
-print(characters[4])
+# the_count = [1, 2, 3, 4, 5]
+# characters = ["graves", "Dory", "Boots", "Dora", "Shrek", "Obi-wan"]
+# print(characters[0])
+# print(characters[4])
+#
+# print(len(characters))  # Gives you the length of the list
+#
+# #  Going through lists
+# for char in characters:
+#     print(char)
+#
+# for num in the_count:
+#     print(num ** 2)
+#
+# len(characters)
+# range(3)  # Makes a list of the numbers from 0 to 2
+# range(len(characters))  # Makes a list of  ALL INDICES
+#
+# for num in range(len(characters)):
+#     char = characters[num]
+#     print("The character at index %d is %s" % (num, char))
+#
+# str1 = "Hello World!"
+# listOne = list(str1)
+# print(listOne)
+# listOne[11] = '.'
+# print(listOne)
+# newStr = "".join(listOne)
+# print(newStr)
+# print(listOne[-2])
+#
+# # adding stuff to a list
+# characters.append("Ironman/Batman/whom ever you want")
+# print(characters)
+#
+# # Removing things fromm the list
+# characters.remove("Carl")
+# print(characters)
+#
+# characters.pop(6)
+# print(characters)
+# the string class
+import string
+print(string.ascii_letters)
+print(string.ascii_lowercase)
+print(string.digits)
+print(string.punctuation)
 
-print(len(characters))  # Gives you the length of the list
-
-#  Going through lists
-for char in characters:
-    print(char)
-
-for num in the_count:
-    print(num ** 2)
-
-len(characters)
-range(3)  # Makes a list of the numbers from 0 to 2
-range(len(characters))  # Makes a list of  ALL INDICES
-
-for num in range(len(characters)):
-    char = characters[num]
-    print("The character at index %d is %s" % (num, char))
-
-str1 = "Hello World!"
-listOne = list(str1)
-print(listOne)
-listOne[11] = '.'
-print(listOne)
-newStr = "".join(listOne)
-print(newStr)
+strTwo = 'ThIs sEntENce iS uNuSuAL'
+lowercase = strTwo.lower()
+print(lowercase)
