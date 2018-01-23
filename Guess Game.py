@@ -19,6 +19,5 @@ while guess != num:
 
     if turns == 0:
 
-
-# Add 5 guesses
+# >Add 5 guesses
 # >Add variable to the # of iterations
