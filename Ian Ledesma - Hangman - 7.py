@@ -1,20 +1,23 @@
 import random
 
 turns = 10
-the_count = [1, 2, 3, 4, 5, 6, 7, 8, 9, 10]
-word_bank = ["Church", "School", "Respect", "Women", "Cinema", "School_Appropriate_Beverage", "Character", "Obesity",
-             "Life", "School_Appropriate_Substance"]
-List_form = []
+word_bank = ["Church", "School", "Respect", "Women", "Cinema", "School Appropriate Beverage", "Character", "Obesity",
+             "Life", "School Appropriate Substance"]
 letters_guessed = []
 
-random.choice(word_bank)
-print(random.choice(word_bank))
+rand = random.choice(word_bank)
+random_word = rand.lower()
+print(random_word)
 
-guess = input("Guess beesh.")
-print("%s? Perhaps..." % guess)
 
-letters_guessed.append(input)
+while turns != 0:
+    guess = input("Guess beesh.")
+    letters_guessed.append(guess)
+    turns -= 1
+    print("%s? Perhaps..." % guess)
+
 print(letters_guessed)
+
 
 """
 Outline of Hangman
