@@ -9,14 +9,22 @@ rand = random.choice(word_bank)
 random_word = rand.lower()
 print(random_word)
 
-
 while turns != 0:
+    output = []
+    for letter in random_word:
+        if letter in letters_guessed:
+            output.append(letter)
+        else:
+            output.append("_")
+    print(output)
     guess = input("Guess beesh.")
     letters_guessed.append(guess)
     turns -= 1
     print("%s? Perhaps..." % guess)
 
+
 print(letters_guessed)
+
 
 
 """
