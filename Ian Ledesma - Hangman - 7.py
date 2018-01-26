@@ -14,12 +14,16 @@ while turns != 0:
     for letter in random_word:
         if letter in letters_guessed:
             output.append(letter)
+
         else:
             output.append("_")
+            turns -= 1
+
+
     print(output)
     guess = input("Guess beesh.")
     letters_guessed.append(guess)
-    turns -= 1
+
     print("%s? Perhaps..." % guess)
 
 
