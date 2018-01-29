@@ -7,18 +7,19 @@ letters_guessed = []
 
 rand = random.choice(word_bank)
 random_word = rand.lower()
-print(random_word)
 
-while turns != 0:
+right_letter = len(random_word)
+
+
+while turns != 0 or right_letter != 0:
     output = []
     for letter in random_word:
         if letter in letters_guessed:
             output.append(letter)
-
+            right_letter -= 1
         else:
             output.append("_")
             turns -= 1
-
 
     print(output)
     guess = input("Guess beesh.")
@@ -26,10 +27,7 @@ while turns != 0:
 
     print("%s? Perhaps..." % guess)
 
-
 print(letters_guessed)
-
-
 
 """
 Outline of Hangman
