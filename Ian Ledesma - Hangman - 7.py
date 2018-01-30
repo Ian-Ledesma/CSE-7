@@ -10,8 +10,7 @@ random_word = rand.lower()
 
 right_letter = len(random_word)
 
-
-while turns != 0 or right_letter != 0:
+while turns != 0:
     output = []
     for letter in random_word:
         if letter in letters_guessed:
