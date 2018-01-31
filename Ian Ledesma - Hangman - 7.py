@@ -8,25 +8,31 @@ letters_guessed = []
 rand = random.choice(word_bank)
 random_word = rand.lower()
 
-right_letter = len(random_word)
+ending = list(random_word)
 
 while turns != 0:
     output = []
+
     for letter in random_word:
         if letter in letters_guessed:
             output.append(letter)
-            right_letter -= 1
+            print("You've %s turns left" % turns)
         else:
             output.append("_")
             turns -= 1
+            print("You've %s turns left" % turns)
 
     print(output)
     guess = input("Guess beesh.")
     letters_guessed.append(guess)
 
     print("%s? Perhaps..." % guess)
-
+    if output == ending:
+        print("Nyaisss")
+        exit(0)
 print(letters_guessed)
+
+
 
 """
 Outline of Hangman
