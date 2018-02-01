@@ -11,20 +11,20 @@
   </component>
   <component name="FileEditorManager">
     <leaf SIDE_TABS_SIZE_LIMIT_KEY="300">
-      <file leaf-file-name="Notes Good.py" pinned="false" current-in-tab="false">
+      <file leaf-file-name="Notes Good.py" pinned="false" current-in-tab="true">
         <entry file="file://$PROJECT_DIR$/Notes Good.py">
           <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="2652">
-              <caret line="165" column="8" lean-forward="false" selection-start-line="165" selection-start-column="6" selection-end-line="165" selection-end-column="8" />
+            <state relative-caret-position="327">
+              <caret line="232" column="24" lean-forward="false" selection-start-line="232" selection-start-column="24" selection-end-line="232" selection-end-column="24" />
               <folding />
             </state>
           </provider>
         </entry>
       </file>
-      <file leaf-file-name="Ian Ledesma - Hangman - 7.py" pinned="false" current-in-tab="true">
+      <file leaf-file-name="Ian Ledesma - Hangman - 7.py" pinned="false" current-in-tab="false">
         <entry file="file://$PROJECT_DIR$/Ian Ledesma - Hangman - 7.py">
           <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="272">
+            <state relative-caret-position="22">
               <caret line="19" column="13" lean-forward="false" selection-start-line="19" selection-start-column="13" selection-end-line="19" selection-end-column="13" />
               <folding />
             </state>
@@ -64,8 +64,8 @@
         <option value="$PROJECT_DIR$/Lucky 7s.py" />
         <option value="$PROJECT_DIR$/BlackJack.py" />
         <option value="$PROJECT_DIR$/Guess Game.py" />
-        <option value="$PROJECT_DIR$/Notes Good.py" />
         <option value="$PROJECT_DIR$/Ian Ledesma - Hangman - 7.py" />
+        <option value="$PROJECT_DIR$/Notes Good.py" />
       </list>
     </option>
   </component>
@@ -106,7 +106,7 @@
       </list>
     </option>
   </component>
-  <component name="RunManager" selected="Python.Ian Ledesma - Hangman - 7">
+  <component name="RunManager" selected="Python.Notes Good">
     <configuration name="Ian Ledesma - Hangman - 7" type="PythonConfigurationType" factoryName="Python" temporary="true">
       <option name="INTERPRETER_OPTIONS" value="" />
       <option name="PARENT_ENVS" value="true" />
@@ -183,8 +183,8 @@
     </list>
     <recent_temporary>
       <list size="4">
-        <item index="0" class="java.lang.String" itemvalue="Python.Ian Ledesma - Hangman - 7" />
-        <item index="1" class="java.lang.String" itemvalue="Python.Notes Good" />
+        <item index="0" class="java.lang.String" itemvalue="Python.Notes Good" />
+        <item index="1" class="java.lang.String" itemvalue="Python.Ian Ledesma - Hangman - 7" />
         <item index="2" class="java.lang.String" itemvalue="Python.Lucky 7s" />
         <item index="3" class="java.lang.String" itemvalue="Python.Notes" />
       </list>
@@ -215,7 +215,7 @@
       <window_info id="Event Log" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.3518225" sideWeight="0.5058565" order="7" side_tool="true" content_ui="tabs" />
       <window_info id="Version Control" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.329653" sideWeight="0.5" order="7" side_tool="false" content_ui="tabs" />
       <window_info id="Python Console" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.33" sideWeight="0.5" order="7" side_tool="false" content_ui="tabs" />
-      <window_info id="Run" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.3518225" sideWeight="0.4941435" order="2" side_tool="false" content_ui="tabs" />
+      <window_info id="Run" active="true" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="true" show_stripe_button="true" weight="0.3518225" sideWeight="0.4941435" order="2" side_tool="false" content_ui="tabs" />
       <window_info id="Structure" active="false" anchor="left" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.25" sideWeight="0.5" order="1" side_tool="false" content_ui="tabs" />
       <window_info id="Terminal" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.33" sideWeight="0.5" order="7" side_tool="false" content_ui="tabs" />
       <window_info id="Favorites" active="false" anchor="left" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.33" sideWeight="0.5" order="2" side_tool="true" content_ui="tabs" />
@@ -583,18 +583,18 @@
         </state>
       </provider>
     </entry>
-    <entry file="file://$PROJECT_DIR$/Notes Good.py">
+    <entry file="file://$PROJECT_DIR$/Ian Ledesma - Hangman - 7.py">
       <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="2652">
-          <caret line="165" column="8" lean-forward="false" selection-start-line="165" selection-start-column="6" selection-end-line="165" selection-end-column="8" />
+        <state relative-caret-position="22">
+          <caret line="19" column="13" lean-forward="false" selection-start-line="19" selection-start-column="13" selection-end-line="19" selection-end-column="13" />
           <folding />
         </state>
       </provider>
     </entry>
-    <entry file="file://$PROJECT_DIR$/Ian Ledesma - Hangman - 7.py">
+    <entry file="file://$PROJECT_DIR$/Notes Good.py">
       <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="272">
-          <caret line="19" column="13" lean-forward="false" selection-start-line="19" selection-start-column="13" selection-end-line="19" selection-end-column="13" />
+        <state relative-caret-position="327">
+          <caret line="232" column="24" lean-forward="false" selection-start-line="232" selection-start-column="24" selection-end-line="232" selection-end-column="24" />
           <folding />
         </state>
       </provider>
