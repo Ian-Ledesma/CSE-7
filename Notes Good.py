@@ -216,8 +216,8 @@ largest_dictionary = {
         'NAME': "California",
         "POPULATION": 3925000,
         'BORDER ST':  [
-            'OREGON',
-            'NEVADA',
+            'Oregon',
+            'Nevada',
             'ARIZONA'
         ],
     },
@@ -229,9 +229,18 @@ largest_dictionary = {
             'Ohio',
             'Indiana'
         ],
-    'FL':{
-        "NAME": "Florida"
-    }
+    },
+    "FL": {
+        "NAME": "Florida",
+        "POPULATION": 20610000,
+        "BORDER ST": [
+            'Georgia'
+            'Alabama'
+        ]
+    },
+    "OH": {
+        "NAME": "Ohio"
+
     }
 }
 print(largest_dictionary["MI"]["BORDER ST"][2])
