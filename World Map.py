@@ -33,11 +33,8 @@ world_map = {
             'NORTH': "NORTHHOUSE",
             'SOUTH': "SOUTHHOUSE",
             'EAST': "EASTHOUSE"
-        }        
-    },
-
+        }
     }
 }
-
 current_node = world_map['WESTHOUSE']
 print(current_node["NAME"])

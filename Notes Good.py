@@ -174,13 +174,21 @@
 # lowercase = strTwo.lower()
 # print(lowercase)
 
-# DIctionaries - Make a key value there
+# Dictionaries - Make a key value there
 dictionary = {'name': 'Lance', 'age': 18, 'height': 6 * 12 + 2}
 
 # Accessing from a dictionary
 print(dictionary['name'])
 print(dictionary['age'])
 print(dictionary['height'])
+
+# Adding to a dictionary
+dictionary['eye color'] = 'blue'
+dictionary['paper towels'] - True
+print(dictionary)
+
+
+
 
 large_dictionary = {
     "California": "CA",
