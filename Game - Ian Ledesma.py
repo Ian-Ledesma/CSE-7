@@ -8,7 +8,7 @@ Spongebob_Pineapple = {
             'EAST': "EASTHOUSE"
         }
     },
-    'INTROOM1': {
+    'INTRM1': {
         'NAME': 'LIVING ROOM',
         'DESCRIPTION': "AHEAD OF YOU ARE TWO BALLOON SOFAS, 2 FISHHOOKS AND A PORTRAIT ON THE WALL, A HELMET FOR A TV,"
                        "AND A BLUE BAMBOO WALL. TO THE EAST IS A CLOSET, AND TO THE NORTH IS A KITCHEN.",
@@ -17,9 +17,10 @@ Spongebob_Pineapple = {
             'EAST': "EASTHOUSE"
         }
     },
-    'SOUTHHOUSE': {
+    'INTRM2': {
         'NAME': 'CLOSET',
-        'DESCRIPTION': "",
+        'DESCRIPTION': "YOU SEE A COLLECTION OF PARTY SUPPLIES, COOKING SUPPLIES, AND OTHER SUPPLIES OF LITERALLY "
+                       "ANYTHING ELSE. WE-A-ST OF YOU IS A SMALL DOOR, LEADING TO SOMEONE ELSE'S ROOM ...",
         'PATHS': {
             'NORTH': "NORTHHOUSE",
             'WEST': "WESTHOUSE",
@@ -28,16 +29,18 @@ Spongebob_Pineapple = {
     },
     'EASTHOUSE': {
         'NAME': "GARY'S ROOM",
-        'DESCRIPTION': "YOU SEE A PINK WALLED ROOM ",
+        'DESCRIPTION': "YOU SEE A PINK WALLED ROOM, WITH A DISPLAY OF A SNAIL SHELL, BUCKETS OF TOYS EVERYWHERE, AND "
+                       "A GLORIOUS BED. AND TO THE WEST IS A BLUE SLUG, STARING INTO YOUR SOUL WITH A FEROCITY TO SHAKE "
+                       "EVEN A GOD.",
         'PATHS': {
             'NORTH': "NORTHHOUSE",
             'SOUTH': "SOUTHHOUSE",
             'EAST': "EASTHOUSE"
         }
-    }
+    },
     'EASTHOUSE': {
         'NAME': "GARRY'S CONSCIOUS",
-        'DESCRIPTION': "You are west of a small house",
+        'DESCRIPTION': "AS YOU FEEL YOU FEEL YOUR SOUL BEING DRAINED, AND NORTH OF YOU IS A SMALL HORSE ",
         'PATHS': {
             'NORTH': "NORTHHOUSE",
             'SOUTH': "SOUTHHOUSE",
@@ -52,7 +55,7 @@ Spongebob_Pineapple = {
             'SOUTH': "SOUTHHOUSE",
             'EAST': "EASTHOUSE"
         }
-    }
+    },
     'EASTHOUSE': {
         'NAME': "BEDROOM",
         'DESCRIPTION': "You are west of a small house",
@@ -61,6 +64,15 @@ Spongebob_Pineapple = {
             'SOUTH': "SOUTHHOUSE",
             'EAST': "EASTHOUSE"
         }
-    }
+    },
+    'EASTHOUSE': {
+        'NAME': "BEDROOM",
+        'DESCRIPTION': "You are west of a small house",
+        'PATHS': {
+            'NORTH': "NORTHHOUSE",
+            'SOUTH': "SOUTHHOUSE",
+            'EAST': "EASTHOUSE"
+        }
+    },
 }
 
