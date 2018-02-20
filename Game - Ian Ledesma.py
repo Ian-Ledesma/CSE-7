@@ -1,7 +1,7 @@
 Spongebob_Pineapple = {
     #SOUTH PINEAPPLE
     'EXTRM1': {
-        'NAME': "THE PINEAPPLE'S ENTRANCE",
+        'NAME': "SOUTH OF PINEAPPLE",
         'DESCRIPTION': "BEFORE YOU IS A MASSIVE METAL DOOR. NORTH OF YOU IS THE LIVING ROOM.",
         'PATHS': {
             'NORTH': "NORTHHOUSE",
@@ -127,8 +127,9 @@ Spongebob_Pineapple = {
     'INTRM14': {
         'NAME': "GARY'S ROOM",
         'DESCRIPTION': "YOU SEE A PINK WALLED ROOM, WITH A DISPLAY OF A SNAIL SHELL, BUCKETS OF TOYS EVERYWHERE, AND "
-                       "A GLORIOUS BED. AND TO THE WEST IS A BLUE SLUG, STARING INTO YOUR SOUL WITH A FEROCITY TO SHAKE "
-                       "EVEN A GOD. THE ONLY PATH FROM HERE IS EASTWARD OR BACK.",
+                       "A GLORIOUS SNAIBED. AND TO THE WEST IS A BLUE SLUG, STARING INTO YOUR SOUL WITH A FEROCITY TO "
+                       "SHAKE THE MOST ENDEAERING OF MEN. THE ONLY PATH FROM HERE BACK, BUT YOU SENSE YOUR SOUL BEING "
+                       "PULLED EASTWARD, TO THE SNAIL.",
         'PATHS': {
             'EAST': "MAZE1",
             'WEST': "INTRM4"
@@ -156,17 +157,55 @@ Spongebob_Pineapple = {
         }
     },
 
-#MAZE 1
-    },
-    'MAZE1': {
-        'NAME': "GARRY'S CONSCIOUS",
-        'DESCRIPTION': "AS YOU FEEL YOU FEEL YOUR SOUL BEING PULLED, YOU SEE A LIGHT NORTHWARD ",
-        'PATHS': {
-            'NORTH': "NORTHHOUSE"
-    #MAZE
-        }
-    }
+# #MAZE 1
+#        'MAZE1': {
+#         'NAME': "GARRY'S CONSCIOUS",
+#         'DESCRIPTION': "AS YOU FEEL YOU FEEL YOUR SOUL BEING PULLED EAST, YOUR SOUL   ",
+#         'PATHS': {
+#             'NORTH': "NORTHHOUSE"
+#     #MAZE
+#         }
+#     },
+#     'MAZE1': {
+#         'NAME': "GARRY'S CONSCIOUS",
+#         'DESCRIPTION': "AS YOU FEEL YOU FEEL YOUR SOUL BEING PULLED, YOU SEE A LIGHT NORTHWARD ",
+#         'PATHS': {
+#             'NORTH': "NORTHHOUSE"
+#             # MAZE
+#         }
+#     }, 'MAZE1': {
+#         'NAME': "GARRY'S CONSCIOUS",
+#         'DESCRIPTION': "AS YOU FEEL YOU FEEL YOUR SOUL BEING PULLED, YOU SEE A LIGHT NORTHWARD ",
+#         'PATHS': {
+#             'NORTH': "NORTHHOUSE"
+#     #MAZE
+#         }
+#     }, 'MAZE1': {
+#         'NAME': "GARRY'S CONSCIOUS",
+#         'DESCRIPTION': "AS YOU FEEL YOU FEEL YOUR SOUL BEING PULLED, YOU SEE A LIGHT NORTHWARD ",
+#         'PATHS': {
+#             'NORTH': "NORTHHOUSE"
+#     #MAZE
+#         }
+#     },
 
+    'EXTRM2': {
+        'NAME': "WEST OF PINEAPPLE",
+        'DESCRIPTION': "TO YOUR EAST, IS A PINEAPPLE, WITH THE ENTRANCE TO THE SOUTH, AND TO THE WEST IS AN EASTER ISLAND"
+                       "H=STATUE HEAD",
+        'PATHS': {
+            'SOUTH': "INTRM1"
+            #SQUIDWARD'S HOUSE
+        }
+    },
+    'EXTRM3': {
+        'NAME': "NORTH OF PINEAPPLE",
+        'DESCRIPTION': "THERE IS SAND AS FAR AS THE EYE CAN SEE, WITH A CITY IN THE DISTANCE",
+        'PATHS': {
+            'SOUTH': "INTRM1"
+            #SQUIDWARD'S HOUSE
+        }
+    },
 
 
 
