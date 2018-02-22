@@ -191,11 +191,11 @@ Spongebob_Pineapple = {
 
     'EXTRM2': {
         'NAME': "WEST OF PINEAPPLE",
-        'DESCRIPTION': "TO YOUR EAST, IS A PINEAPPLE, WITH THE ENTRANCE TO THE SOUTH, AND TO THE WEST IS AN EASTER ISLAND"
-                       "H=STATUE HEAD",
+        'DESCRIPTION': "TO YOUR EAST, IS A PINEAPPLE, WITH THE ENTRANCE TO THE SOUTH, AND TO THE WEST IS AN EASTER "
+                       "ISLAND STATUE HEAD",
         'PATHS': {
             'SOUTH': "INTRM1"
-            #SQUIDWARD'S HOUSE
+            #  SQUIDWARD'S HOUSE
         }
     },
     'EXTRM3': {
@@ -203,9 +203,33 @@ Spongebob_Pineapple = {
         'DESCRIPTION': "THERE IS SAND AS FAR AS THE EYE CAN SEE, WITH A CITY IN THE DISTANCE",
         'PATHS': {
             'SOUTH': "INTRM1"
-            #SQUIDWARD'S HOUSE
+            #  SQUIDWARD'S HOUSE
         }
     },
+}
 
 
+class (object):
+    def __init__(self, north, east, south, west):
+        self.north = "NORTH"
+        self.east = "EAST"
+        self.south = "SOUTH"
+        self.west = "WEST"
+        self.up = "UP"
+        self.down = "DOWN"
 
+
+    def paths (self):
+        if input == "NORTH" :
+            self.north = "NORTH"
+        elif input == "EAST":
+            self.east = "EAST"
+        elif input == "SOUTH":
+            self.south = "SOUTH"
+        elif input == "WEST":
+            self.west = "WEST"
+        elif input == "UP":
+            self.up = "UP"
+        elif input == "DOWN":
+            self.down = "DOWN"
+ 
