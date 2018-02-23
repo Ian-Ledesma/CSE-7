@@ -208,28 +208,50 @@ Spongebob_Pineapple = {
     },
 }
 
-
-class (object):
-    def __init__(self, north, east, south, west):
-        self.north = "NORTH"
-        self.east = "EAST"
-        self.south = "SOUTH"
-        self.west = "WEST"
-        self.up = "UP"
-        self.down = "DOWN"
+current_node = Spongebob_Pineapple['EXTRM1']
+directions = ['NORTH', 'SOUTH', 'EAST', 'WEST']
+print(current_node)
 
 
-    def paths (self):
-        if input == "NORTH" :
-            self.north = "NORTH"
-        elif input == "EAST":
-            self.east = "EAST"
-        elif input == "SOUTH":
-            self.south = "SOUTH"
-        elif input == "WEST":
-            self.west = "WEST"
-        elif input == "UP":
-            self.up = "UP"
-        elif input == "DOWN":
-            self.down = "DOWN"
- 
+# class (object):
+#     def __init__(self, north, east, south, west):
+#         self.north = "NORTH"
+#         self.east = "EAST"
+#         self.south = "SOUTH"
+#         self.west = "WEST"
+#         self.up = "UP"
+#         self.down = "DOWN"
+#
+#
+#     def paths (self):
+#         if input == "NORTH" :
+#             self.north = "NORTH"
+#         elif input == "EAST":
+#             self.east = "EAST"
+#         elif input == "SOUTH":
+#             self.south = "SOUTH"
+#         elif input == "WEST":
+#             self.west = "WEST"
+#         elif input == "UP":
+#             self.up = "UP"
+#         elif input == "DOWN":
+#             self.down = "DOWN"
+
+
+class Room(object):
+    def __int__(self, name, north, south, east, west, up, down):
+        self.name = name
+        self.north = north
+        self.south = south
+        self.east = east
+        self.west = west
+        self.up = up
+        self.down = down
+
+    def move(self, direction):
+        global current_node
+        current_node = globals()[getattr(self, direction)]
+
+
+west_house = Room("West of House", 'north_house')
+north_house = Room("North of House", None)
