@@ -24,14 +24,19 @@ intrm2 = Room('Kitchen', 'extrm1', 'intrm2', None, None, None, None, "there's a 
             "side and bamboo on the other, as well as bamboo cuboards and surf board counters, and a bucket for a sink")
 intrm3 = Room('Kitchen Window', 'extrm3', 'intrm2', None, None, None, None, "you lean on a matal rimmed, circle window."
               "north, outside of it is the outdoors.")
-intrm4 = Room('Closet', None, None, intrm1, intrm14, None, None, "you see a collection of party supplies, cooking "
+intrm4 = Room('Closet', None, None, 'intrm1', 'intrm14', None, None, "you see a collection of party supplies, cooking "
             "supplies, and other supplies of literally anything else. we-a-st of you is a small door, leading to"
             "someone else's room ...")
-intrm5 = Room
-intrm6 = Room
-intrm7 = Room
-intrm8 = Room
-intrm9 = Room
+intrm5 = Room('Ladder', None, None, None, None, 'intrm6', 'intrm15', "you're on a bamboo ladder, with the only places "
+              "to go being up or down." )
+intrm6 = Room('Bedroom', )
+#  do description
+intrm7 = Room('Library', None, None, None, None, 'intrm6', None,
+#  do description
+intrm8 = Room('Bedroom Window', 'extrm4', 'intrm6', None, None, None, None, "outside of the window is a street, sand" 
+            "on either side for as afar as the eye can see. northward is a 2 story fall to the outer world")
+intrm9 = Room('Hallway', None, None, "intrm6", "intrm10", None, None, "you walk through a greem floral walled pathway, "
+            "west of you being a restroom" )
 intrm10 = Room
 intrm11 = Room
 intrm12 = Room
@@ -39,19 +44,25 @@ intrm13 = Room
 intrm14 = Room
 intrm15 = Room
 intrm16 = Room
-extrm2 = Room
-extrm3 = Room
+
+ current_node =
+directions = ['north', 'south', 'east', 'west', 'up', 'down']
+short_directions = ['n', 's', 'e', 'w', 'u', 'd']
+
 while True:
-    print(current_node["NAME"])
-    print(current_node['DESCRIPTION'])
-    command = input('>_')
+    print(current_node ******)
+    print(current_node ******)
+    command = input('>_').lower().strip()
     if command == 'quit':
         quit(0)
+    elif command in short_directions:
+        #  Finds the command in short directions (index number)
+        pos = short_directions.index(command)
+        command = directions [pos]
     directions = ['north', 'south', 'east', 'west']
     if command in directions:
         try:
-            name_of_node = current_node['paths'][command]
-            current_node = world_map[name_of_node]
+            **********
         except KeyError:
             print("You cannot go that way.")
     else:
