@@ -14,9 +14,11 @@ class Room(object):
         current_node = globals()[getattr(self, direction)]
 
 
-extrm1 = Room()
-extrm2 = Room()
-extrm3 = Room()
+extrm1 = Room('South of Pineapple', 'intrm1', None, None, 'extrm2', None, None, "You are near a big metal door on a "
+             "pineapple. To the North is a living room, to you south and east is sand, and to your west is a window to a "
+             "statue.", )
+extrm2 = Room('West of Pineapple',  )
+extrm3 = Room("North of Pineapple",)
 intrm1 = Room('Living Room', 'intrm2', 'extrm1', None, None, None, None,
               "ahead of you are two balloon sofas, 2 fishhooks and a portrait on the wall, a"
               " helmet for a tv, and a blue bamboo wall. to the east is a closet, and to the north is a kitchen.")
@@ -35,8 +37,7 @@ intrm7 = Room('Library', None, None, None, None, 'intrm6', None,
 #  do description
 intrm8 = Room('Bedroom Window', 'extrm4', 'intrm6', None, None, None, None, "outside of the window is a street, sand" 
             "on either side for as afar as the eye can see. northward is a 2 story fall to the outer world")
-intrm9 = Room('Hallway', None, None, "intrm6", "intrm10", None, None, "you walk through a greem floral walled pathway, "
-            "west of you being a restroom" )
+intrm9 = Room('Hallway', None, None, "intrm6", "intrm10", None, None, "you walk o
 intrm10 = Room
 intrm11 = Room
 intrm12 = Room
