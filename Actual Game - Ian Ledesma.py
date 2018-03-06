@@ -17,8 +17,9 @@ class Room(object):
 extrm1 = Room('South of Pineapple', 'intrm1', None, None, 'extrm2', None, None, "You are near a big metal door on a "
              "pineapple. To the North is a living room, to you south and east is sand, and to your west is a window to a "
              "statue.", )
-extrm2 = Room('West of Pineapple',  )
-extrm3 = Room("North of Pineapple",)
+extrm2 = Room('West of Pineapple', None,  )
+extrm3 = Room("North of Pineapple", None, 'extrm4', None, None, None )
+extrm4 = Room()
 intrm1 = Room('Living Room', 'intrm2', 'extrm1', None, None, None, None,
               "ahead of you are two balloon sofas, 2 fishhooks and a portrait on the wall, a"
               " helmet for a tv, and a blue bamboo wall. to the east is a closet, and to the north is a kitchen.")
@@ -33,15 +34,17 @@ intrm5 = Room('Ladder', None, None, None, None, 'intrm6', 'intrm15', "you're on 
               "to go being up or down." )
 intrm6 = Room('Bedroom', )
 #  do description
-intrm7 = Room('Library', None, None, None, None, 'intrm6', None,
+intrm7 = Room('Library', None, None, None, None, 'intrm6', None,)
 #  do description
 intrm8 = Room('Bedroom Window', 'extrm4', 'intrm6', None, None, None, None, "outside of the window is a street, sand" 
             "on either side for as afar as the eye can see. northward is a 2 story fall to the outer world")
 intrm9 = Room('Hallway', None, None, "intrm6", "intrm10", None, None, "you walk o
-intrm10 = Room
-intrm11 = Room
-intrm12 = Room
-intrm13 = Room
+intrm10 = Room('Restroom', 'intrm11', None, 'Intrm9', None, None, None, )
+intrm11 = Room('Restroom Window', 'extrm3', 'intrm10', None, None, None, None, "outside of the window is a sandy floor,"
+                                    "with a city far off into the distance south is a 2 story fall to the outer world")
+intrm12 = Room('kitchen window', None, 'extrm1', None, "intrm10", None, None, "outside of the window is a street, sand"
+                " on either side for as afar as the eye can see. Southward is a 2 story fall to the outer world" )
+intrm13 = Room('Garage', None, None, 'intrm2', 'extrm2', None, None)
 intrm14 = Room
 intrm15 = Room
 intrm16 = Room
@@ -51,7 +54,7 @@ directions = ['north', 'south', 'east', 'west', 'up', 'down']
 short_directions = ['n', 's', 'e', 'w', 'u', 'd']
 
 while True:
-    print(current_node ******)
+    print(current_node ****)
     print(current_node ******)
     command = input('>_').lower().strip()
     if command == 'quit':
