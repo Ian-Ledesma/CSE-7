@@ -1,13 +1,5 @@
 spongebob_pineapple = {
-   'extrm1': {
-       'name': "south of pineapple",
-       'description': "before you is a massive metal door. north of you is the living room.",
-       'paths': {
-            'north': "northhouse",
-            'south': "southhouse",
-            'east': "easthouse"
-        }
-    },
+
    'intrm1': {
         'name': 'living room',
         'description': "ahead of you are two balloon sofas, 2 fishhooks and a portrait on the wall, a helmet for a tv,"
@@ -187,7 +179,15 @@ spongebob_pineapple = {
 #     #MAZE
 #         }
 #     },
-
+'extrm1': {
+       'name': "south of pineapple",
+       'description': "before you is a massive metal door. north of you is the living room.",
+       'paths': {
+            'north': "northhouse",
+            'south': "southhouse",
+            'east': "easthouse"
+        }
+    },
    'extrm2': {
         'name': "west of pineapple",
         'description': "to your east, is a pineapple, with the entrance to the south, and to the west is an easter "
