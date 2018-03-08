@@ -19,28 +19,32 @@ Stats
 #  Defining a class
 class Character(object):
     # TWO underscores before and after
-    def __init__(self, state, name, description, inventory, item, fight, health, takeDamage, stats):
+    def __init__(self, state, name, description, inventory, item, attack, health, stats):
         #  Things that a Cat has
         self.state = state
         self.name = name
         self.description = description
         self.inventory = inventory
         self.item = item
-
-Spongebob = Character(None, Spongebob, "A square, yellow, and porous sponge, gay in his nature.", None, )
-
-    #  Things that a Cat can do
+        self.attack = attack
+        self.health = health
+#  Things that a Cat can do
+    def heal(self):
+        if self.state = "Eating Krabby Patty":
+            self.health += 2
+    def take_damage(self):
+        self.health -= 2
     def interact(self):
         self.state = ""
     def climb(self):
-        self.state = 
+        self.state =
     def look(self):
-        print description()
+        print(current_node.description)
     def fight(self):
     def death(self):
-        self.state = "Scared"
-        print("The cat jumps in the air")
+        self.health == 0
+        print("Oof. You Died.")
 
-    def play(self):
-        self.state = "happy"
-        print("You play with the cat")
+
+Spongebob = Character("Happy", "Spongebob", "A square, yellow, and porous sponge, gay in his nature.", "Spatula", None, None, 100)
+

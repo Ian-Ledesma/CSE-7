@@ -49,13 +49,13 @@ intrm14 = Room
 intrm15 = Room
 intrm16 = Room
 
- current_node =
+ current_node = "extrm1"
 directions = ['north', 'south', 'east', 'west', 'up', 'down']
 short_directions = ['n', 's', 'e', 'w', 'u', 'd']
 
 while True:
-    print(current_node ****)
-    print(current_node ******)
+    print(current_node.name)
+    print(current_node.description)
     command = input('>_').lower().strip()
     if command == 'quit':
         quit(0)
@@ -66,8 +66,8 @@ while True:
     directions = ['north', 'south', 'east', 'west']
     if command in directions:
         try:
-            **********
-        except KeyError:
+            current_node.move(command)
+    except KeyError:
             print("You cannot go that way.")
     else:
         print("Command not recognized")
