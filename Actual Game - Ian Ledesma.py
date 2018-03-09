@@ -1,3 +1,7 @@
+# Temporary Value
+current_node = None
+
+
 class Room(object):
     def __init__(self, name, north, south, east, west, up, down, description):
         self.name = name
@@ -12,6 +16,35 @@ class Room(object):
     def move(self, direction):
         global current_node
         current_node = globals()[getattr(self, direction)]
+
+#  Defining a class
+class Character(object):
+    # TWO underscores before and after
+    def __init__(self, state, name, description, inventory, item, attack, health, stats):
+        #  Things that a Cat has
+        self.state = state
+        self.name = name
+        self.description = description
+        self.inventory = inventory
+        self.item = item
+        self.attack = attack
+        self.health = health
+#  Things that a Cat can do
+    def heal(self):
+        if self.state == "Eating Krabby Patty":
+            self.health += 2
+    def take_damage(self):
+        self.health -= 2
+    def interact(self):
+        self.state = ""
+    def climb(self):
+        self.state =
+    def look(self):
+        print(current_node.description)
+    def fight(self):
+    def death(self):
+        self.health == 0
+        print("Oof. You Died.")
 
 
 extrm1 = Room('South of Pineapple', 'intrm1', None, None, 'extrm2', None, None, "You are near a big metal door on a "
@@ -49,7 +82,7 @@ intrm14 = Room
 intrm15 = Room
 intrm16 = Room
 
- current_node = "extrm1"
+current_node = extrm1
 directions = ['north', 'south', 'east', 'west', 'up', 'down']
 short_directions = ['n', 's', 'e', 'w', 'u', 'd']
 
