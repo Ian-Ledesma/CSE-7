@@ -52,5 +52,12 @@ class Character(object):
         print("Oof. You Died.")
 
 
-Spongebob = Character("Happy", "Spongebob", "A square, yellow, and porous sponge, gay in his nature.", "Spatula", None, None, 100)
+Spongebob = Character("Happy", "Spongebob", "A square, yellow, and porous sponge, gay in his nature.", "Spatula", None,
+                      None, 100)
 
+Squidward = Character("Mad", "Squidward", "A sad blue octopus? He enjoys playing the clarinet and he is simultaneously "
+                                          "arrogant and insecure.", "Clarinet", None, None, 80)
+
+Patrick = Character("Pink", "Patrick", "A pink starfish. In his nature, blissfully ignorant.", "Sand", None, None, 120)
+
+Gary = Character()
