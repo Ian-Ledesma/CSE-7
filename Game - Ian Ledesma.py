@@ -1,159 +1,150 @@
-Spongebob_Pineapple = {
-    #SOUTH PINEAPPLE
-    'EXTRM1': {
-        'NAME': "SOUTH OF PINEAPPLE",
-        'DESCRIPTION': "BEFORE YOU IS A MASSIVE METAL DOOR. NORTH OF YOU IS THE LIVING ROOM.",
-        'PATHS': {
-            'NORTH': "NORTHHOUSE",
-            'SOUTH': "SOUTHHOUSE",
-            'EAST': "EASTHOUSE"
+spongebob_pineapple = {
+
+   'intrm1': {
+        'name': 'living room',
+        'description': "ahead of you are two balloon sofas, 2 fishhooks and a portrait on the wall, a helmet for a tv,"
+                       "and a blue bamboo wall. to the east is a closet, and to the north is a kitchen.",
+        'paths': {
+            'south': "extrm1",
+            'north': "intrm2"
         }
     },
-    'INTRM1': {
-        'NAME': 'LIVING ROOM',
-        'DESCRIPTION': "AHEAD OF YOU ARE TWO BALLOON SOFAS, 2 FISHHOOKS AND A PORTRAIT ON THE WALL, A HELMET FOR A TV,"
-                       "AND A BLUE BAMBOO WALL. TO THE EAST IS A CLOSET, AND TO THE NORTH IS A KITCHEN.",
-        'PATHS': {
-            'SOUTH': "EXTRM1",
-            'NORTH': "INTRM2"
+   'intrm2': {
+        'name': 'kithcen',
+        'description': "there's a kitchen with a metal wall to one side and bamboo on the other, as well as bamboo "
+                       "cuboards and surf board counters, and a bucket for a sink ",
+        #  finish the description
+        'paths': {
+            'south': "extrm1",
+            'north': "intrm2"
         }
     },
-    'INTRM2': {
-        'NAME': 'KITHCEN',
-        'DESCRIPTION': "THERE'S A KITHCEN WITH A METAL WALL TO ONE SIDE AND BOMBOO ON THE OTHER, AS WELL AS BAMBOO "
-                       "CUBBOARDS AND SURF BOARD COUNTERS, AND A BUCKET FOR A SINK ",
-        #FINISH THE DESCRIPTION
-        'PATHS': {
-            'SOUTH': "EXTRM1",
-            'NORTH': "INTRM2"
-        }
-    },
-    'INTRM3': {
-        'NAME': 'KITHCEN WINDOW',
-        'DESCRIPTION': "YOU LEAN ON A MATAL RIMMED, CIRCLE WINDOW. NORTH, OUTSIDE OF IT IS THE OUTDOORS.",
-        'PATHS': {
-            'NORTH': "EXTRM3",
-            'SOUTH': "INTRM2"
+   'intrm3': {
+        'name': 'kithcen window',
+        'description': "you lean on a matal rimmed, circle window. north, outside of it is the outdoors.",
+        'paths': {
+            'north': "extrm3",
+            'south': "intrm2"
          }
     },
 
-    'INTRM4': {
-        'NAME': 'CLOSET',
-        'DESCRIPTION': "YOU SEE A COLLECTION OF PARTY SUPPLIES, COOKING SUPPLIES, AND OTHER SUPPLIES OF LITERALLY "
-                       "ANYTHING ELSE. WE-A-ST OF YOU IS A SMALL DOOR, LEADING TO SOMEONE ELSE'S ROOM ...",
-        'PATHS': {
-            'WEST': "INTRM1",
-            'EAST': "INTRM14"
+   'intrm4': {
+        'name': 'closet',
+        'description': "you see a collection of party supplies, cooking supplies, and other supplies of literally "
+                       "anything else. we-a-st of you is a small door, leading to someone else's room ...",
+        'paths': {
+            'west': "intrm1",
+            'east': "intrm14"
         }
     },
-    'INTRM5': {
-        'NAME': "LADDER",
-        'DESCRIPTION': "YOU'RE ON A BAMBOO LADDER, WITH THE ONLY PLACES TO GO BEING UP OR DOWN.",
-        'PATHS': {
-            'UP': "INTRM6",
-            'DOWN': "INTRM15",
-            #CAN'T GO SOUTH TO GARY'S MIND
+   'intrm5': {
+        'name': "ladder",
+        'description': "you're on a bamboo ladder, with the only places to go being up or down.",
+        'paths': {
+            'up': "intrm6",
+            'down': "intrm15",
+            #  can't go south to gary's mind
         }
     },
-    'INTRM6': {
-        'NAME': "BEDROOM",
-        'DESCRIPTION': "",
-        'PATHS': {
-            'NORTH': "INTRM8",
-            'WEST': "INTRM9",
-            'DOWN': "INTRM7",
-            'UP': "INTRM16"
+   'intrm6': {
+        'name': "bedroom",
+        'description': "",
+        'paths': {
+            'north': "intrm8",
+            'west': "intrm9",
+            'down': "intrm7",
+            'up': "intrm16"
         }
     },
-    'INTRM7': {
-        'NAME': "LIBRARY",
-        'DESCRIPTION': " ",
-        'PATHS': {
-            'UP': "INTRM6"
+   'intrm7': {
+        'name': "library",
+        'description': " ",
+        'paths': {
+            'up': "intrm6"
         }
     },
-    'INTRM8': {
-        'NAME': "BEDROOM WINDOW",
-        'DESCRIPTION': "OUTSIDE OF THE WINDOW IS A STREET, SAND ON EITHER SIDE FOR AS AFAR AS THE EYE CAN SEE. NORTHWARD"
-                       "IS A 2 STORY FALL TO THE OUTER WORLD",
-        'PATHS': {
-            'NORTH': "EXTRM4",
-            'SOUTH': "INTRM6",
+   'intrm8': {
+        'name': "bedroom window",
+        'description': "outside of the window is a street, sand on either side for as afar as the eye can see. northward"
+                       "is a 2 story fall to the outer world",
+        'paths': {
+            'north': "extrm4",
+            'south': "intrm6",
         }
     },
-    'INTRM9': {
-        'NAME': "HALLWAY",
-        'DESCRIPTION': "YOU WALK THROUGH A GREEM FLORAL WALLED PATHWAY, WEST OF YOU BEING A RESTROOM",
-        'PATHS': {
-            'WEST': "INTRM10",
-            'EAST': "INTRM6"
+   'intrm9': {
+        'name': "hallway",
+        'description': "you walk through a greem floral walled pathway, west of you being a restroom",
+        'paths': {
+            'west': "intrm10",
+            'east': "intrm6"
         }
     },
-    'INTRM10': {
-        'NAME': "RESTROOM",
-        'DESCRIPTION': "",
-        'PATHS': {
-            'NORTH': "INTRM11",
-            'EAST': "INTRM9",
+   'intrm10': {
+        'name': "restroom",
+        'description': "",
+        'paths': {
+            'north': "intrm11",
+            'east': "intrm9",
         }
     },
-    'INTRM11': {
-        'NAME': "RESTROOM WINDOW",
-        'DESCRIPTION': "OUTSIDE OF THE WINDOW IS A SANDY FLOOR, WITH A CITY FAR OFF INTO THE DISTANCE."
-                       "SOUTH IS A 2 STORY FALL TO THE OUTER WORLD",
-        'PATHS': {
-            'NORTH': "EXTRM3",
-            'SOUTH': "INTRM10",
+   'intrm11': {
+        'name': "restroom window",
+        'description': "outside of the window is a sandy floor, with a city far off into the distance."
+                       "south is a 2 story fall to the outer world",
+        'paths': {
+            'north': "extrm3",
+            'south': "intrm10",
         }
     },
-    'INTRM12': {
-        'NAME': "KITCHEN WINDOW",
-        'DESCRIPTION': "OUTSIDE OF THE WINDOW IS A STREET, SAND ON EITHER SIDE FOR AS AFAR AS THE EYE CAN SEE. "
-                       "SOUTHWARD IS A 2 STORY FALL TO THE OUTER WORLD",
-        'PATHS': {
-            'SOUTH': "EXTRM1",
-            'WEST': "INTRM2",
+   'intrm12': {
+        'name': "kitchen window",
+        'description': "outside of the window is a street, sand on either side for as afar as the eye can see. "
+                       "southward is a 2 story fall to the outer world",
+        'paths': {
+            'south': "extrm1",
+            'west': "intrm2",
         }
     },
-    'INTRM13': {
-        'NAME': "GARAGE",
-        'DESCRIPTION': "OUTSIDE OF THE WINDOW IS A STREET, SAND ON EITHER SIDE FOR AS AFAR AS THE EYE CAN SEE. "
-                       "SOUTHWARD IS A 2 STORY FALL TO THE OUTER WORLD",
-        'PATHS': {
-            'EAST': "INTRM2",
-            'WEST': "EXTRM2"
+   'intrm13': {
+        'name': "garage",
+        'description': "outside of the window is a street, sand on either side for as afar as the eye can see. "
+                       "southward is a 2 story fall to the outer world",
+        'paths': {
+            'east': "intrm2",
+            'west': "extrm2"
         }
     },
-    'INTRM14': {
-        'NAME': "GARY'S ROOM",
-        'DESCRIPTION': "YOU SEE A PINK WALLED ROOM, WITH A DISPLAY OF A SNAIL SHELL, BUCKETS OF TOYS EVERYWHERE, AND "
-                       "A GLORIOUS SNAIBED. AND TO THE WEST IS A BLUE SLUG, STARING INTO YOUR SOUL WITH A FEROCITY TO "
-                       "SHAKE THE MOST ENDEAERING OF MEN. THE ONLY PATH FROM HERE BACK, BUT YOU SENSE YOUR SOUL BEING "
-                       "PULLED EASTWARD, TO THE SNAIL.",
-        'PATHS': {
-            'EAST': "MAZE1",
-            'WEST': "INTRM4"
+   'intrm14': {
+        'name': "gary's room",
+        'description': "you see a pink walled room, with a display of a snail shell, buckets of toys everywhere, and "
+                       "a glorious snaibed. and to the west is a blue slug, staring into your soul with a ferocity to "
+                       "shake the most endeaering of men. the only path from here back, but you sense your soul being "
+                       "pulled eastward, to the snail.",
+        'paths': {
+            'east': "maze1",
+            'west': "intrm4"
         }
     },
-    'INTRM15': {
-        'NAME': "CELLAR",
-        'DESCRIPTION': "YOU SEE MANY BARRELS FILLED WITH ROOT BEER, FROM FLOOR TO CEILING, WITH THE ONLY WAY OUT BEING"
-                       "UP.",
-        'PATHS': {
-            'UP': "INTRM5"
+   'intrm15': {
+        'name': "cellar",
+        'description': "you see many barrels filled with root beer, from floor to ceiling, with the only way out being"
+                       "up.",
+        'paths': {
+            'up': "intrm5"
         }
     },
-    'INTRM16': {
-        'NAME': "SUNROOF",
-        'DESCRIPTION': "AROUND YOU ARE MASSIVE PINEAPPLE LEAVES, BUT A NAKED CEILING, ALLOWING FOR SUN TO SHINE ON YOU."
-                       "ALL AROUND IS A PATH TO FREEDOM, OR A RETREAT DOWNWARD.",
-        'PATHS': {
-            'NORTH': "EXTRM3",
-            'SOUTH': "EXTRM1",
-            'EAST': "EXTRM4",
-            #MAKE AN EAST OF HOUSE TOO
-            'WEST': "EXTRM2",
-            'DOWN': "INTRM6"
+   'intrm16': {
+        'name': "sunroof",
+        'description': "around you are massive pineapple leaves, but a naked ceiling, allowing for sun to shine on you."
+                       "all around is a path to freedom, or a retreat downward.",
+        'paths': {
+            'north': "extrm3",
+            'south': "extrm1",
+            'east': "extrm4",
+            #make an east of house too
+            'west': "extrm2",
+            'down': "intrm6"
         }
     },
 
@@ -188,24 +179,64 @@ Spongebob_Pineapple = {
 #     #MAZE
 #         }
 #     },
+'extrm1': {
+       'name': "south of pineapple",
+       'description': "before you is a massive metal door. north of you is the living room.",
+       'paths': {
+            'north': "northhouse",
+            'south': "southhouse",
+            'east': "easthouse"
+        }
+    },
+   'extrm2': {
+        'name': "west of pineapple",
+        'description': "to your east, is a pineapple, with the entrance to the south, and to the west is an easter "
+                       "island statue head",
+        'paths': {
+            'south': "intrm1"
+            #  squidward's house
+        }
+    },
+   'extrm3': {
+        'name': "north of pineapple",
+        'description': "there is sand as far as the eye can see, with a city in the distance",
+        'paths': {
+            'south': "intrm1"
+            #  squidward's house
+        }
+    },
+}
 
-    'EXTRM2': {
-        'NAME': "WEST OF PINEAPPLE",
-        'DESCRIPTION': "TO YOUR EAST, IS A PINEAPPLE, WITH THE ENTRANCE TO THE SOUTH, AND TO THE WEST IS AN EASTER ISLAND"
-                       "H=STATUE HEAD",
-        'PATHS': {
-            'SOUTH': "INTRM1"
-            #SQUIDWARD'S HOUSE
-        }
-    },
-    'EXTRM3': {
-        'NAME': "NORTH OF PINEAPPLE",
-        'DESCRIPTION': "THERE IS SAND AS FAR AS THE EYE CAN SEE, WITH A CITY IN THE DISTANCE",
-        'PATHS': {
-            'SOUTH': "INTRM1"
-            #SQUIDWARD'S HOUSE
-        }
-    },
+current_node = spongebob_pineapple['extrm1']
+directions = ['north', 'south', 'east', 'west']
+print(current_node)
+
+
+# class (object):
+#     def __init__(self, north, east, south, west):
+#         self.north = "north"
+#         self.east = "east"
+#         self.south = "south"
+#         self.west = "west"
+#         self.up = "up"
+#         self.down = "down"
+#
+#
+#     def paths (self):
+#         if input == "north" :
+#             self.north = "north"
+#         elif input == "east":
+#             self.east = "east"
+#         elif input == "south":
+#             self.south = "south"
+#         elif input == "west":
+#             self.west = "west"
+#         elif input == "up":
+#             self.up = "up"
+#         elif input == "down":
+#             self.down = "down"
+
+
 
 
 

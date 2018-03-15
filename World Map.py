@@ -52,7 +52,9 @@ while True:
             name_of_node = current_node['PATHS'][command]
             current_node = world_map[name_of_node]
         except KeyError:
-            print("YOu cannot go that way.")
+            print("You cannot go that way.")
     else:
         print("Command not recognized")
     print()
+
+
