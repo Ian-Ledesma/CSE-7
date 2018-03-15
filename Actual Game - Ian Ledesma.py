@@ -38,10 +38,11 @@ class Character(object):
     def interact(self):
         self.state = ""
     def climb(self):
-        self.state =
+        self.state = ""
     def look(self):
         print(current_node.description)
     def fight(self):
+        self.attack
     def death(self):
         self.health == 0
         print("Oof. You Died.")
@@ -71,7 +72,7 @@ intrm7 = Room('Library', None, None, None, None, 'intrm6', None,)
 #  do description
 intrm8 = Room('Bedroom Window', 'extrm4', 'intrm6', None, None, None, None, "outside of the window is a street, sand" 
             "on either side for as afar as the eye can see. northward is a 2 story fall to the outer world")
-intrm9 = Room('Hallway', None, None, "intrm6", "intrm10", None, None, "you walk o
+intrm9 = Room('Hallway', None, None, "intrm6", "intrm10", None, None, "you walk o" #  not done
 intrm10 = Room('Restroom', 'intrm11', None, 'Intrm9', None, None, None, )
 intrm11 = Room('Restroom Window', 'extrm3', 'intrm10', None, None, None, None, "outside of the window is a sandy floor,"
                                     "with a city far off into the distance south is a 2 story fall to the outer world")
@@ -105,5 +106,3 @@ while True:
     else:
         print("Command not recognized")
     print()
-
-
