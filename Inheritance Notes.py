@@ -8,7 +8,8 @@ class Vehicle(object):
         print('Tou move forward.')
 
     def change_direction(self):
-        print('You change direction')
+        print('You '
+              'change direction')
 
 
 class Car(Vehicle):
