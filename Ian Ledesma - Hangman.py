@@ -13,6 +13,12 @@ word_bank.remove(rand)
 
 letters_guessed = []
 output = []
+<<<<<<< HEAD
+=======
+
+num_of_letters = len(word)
+print("The word is %s characters long." % num_of_letters)
+>>>>>>> 2e13cc79eb6421905045f8c9424e4225bd74d405
 
 while guess_left > 0:
     print(guess_left)

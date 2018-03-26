@@ -39,6 +39,19 @@ class Magic(Weapons):
 #  Done Magic
 
 
+class Kitchen_Appliance(Weapons):
+    def  __init__(self,  name, description, attack, sand, kitchen_appliance, magic, spatula, neptune_spatula,
+                  hydrodynamic_spatula,le_spatula, ladle, spoon):
+        super(kitchen_appliance, self). __init__(self, name, description, attack, sand, kitchen_appliance, magic)
+        self.spatula = spatula
+        self.neptune_spatula = neptune_spatula
+        self.hydrodynamic_spatula = hydrodynamic_spatula
+        self.le_spatula = le_spatula
+        self.ladle = ladle
+        self.spoon = spoon
+#Done
+
+
 class Armor(Items):
     def __init__(self,name, description, natural, applicable):
         super(Armor, self). __init__(name, description)
@@ -93,4 +106,13 @@ class Food(Heal):
 The items themselves 
 '''
 
+sand = Weapons("Sand", "The grains of sand below your paramulation apendages are your weapon.", 2)
+spatula = Weapons("Spatula", "The ultimate kitchen appliance is your weapon, the spatula.", 20)
+neptune_spatula = Weapons("Neptune's Spatula", "The spatula indicating divine culinary potential is your weapon.", 55)
+hydrodynamic_spatula = Weapons("Hydro-Dynamic Spatula", "A multi-use spatula with utilities such as triple action"
+                               "cooking, a bright, blinking, red light, and more, it is fit for only the most masterful"
+                               "of chef.", 20*3)
+le_spatula = Weapons("Le Spatula", "A spatula so fancy and self absorbed, that it will not let you touch it or touch anything for that matter, unless you are literally the best chef in the world, wher it will be the most useful of tools."
+#  Turn into a class for the either does takes away your health, or helps you a lot
 
+#  name, description, attack, magic,, hydrodynamic_spatula,le_spatula, ladle, spoon):
