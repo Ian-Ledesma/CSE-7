@@ -19,7 +19,7 @@ Stats
 #  Defining a class
 class Character(object):
     # TWO underscores before and after
-    def __init__(self, state, name, description, inventory, item, attack, health, stats):
+    def __init__(self, state, name, description, inventory, item, attack, health, magic):
         #  Things that a Cat has
         self.state = state
         self.name = name
@@ -28,9 +28,10 @@ class Character(object):
         self.item = item
         self.attack = attack
         self.health = health
+        self.magic = magic
 #  Things that a Cat can do
     def heal(self):
-        if self.state == "Eating Krabby Patty":
+        if self.state == "Eating":
             self.health += 3
             print("You healed")
     def take_damage(self):
@@ -47,8 +48,10 @@ class Character(object):
         print(current_node.description)  # current_node is defined in the world map
     def fight(self):
         self.attack ==
+    def open(self):
+        self.open = open
     def death(self):
-        self.health == 0
+        self.health <= 0
         print("Oof. You Died.")
 
 

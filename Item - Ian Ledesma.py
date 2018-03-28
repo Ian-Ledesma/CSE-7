@@ -2,6 +2,7 @@ class Items(object):
     def __init__(self, name, description):
         self.name = name
         self.description = description
+
 #  Done
 
 
@@ -53,23 +54,27 @@ class Kitchen_Appliance(Weapons):
 
 
 class Armor(Items):
-    def __init__(self,name, description, natural, applicable):
+    def __init__(self,name, description, defense, damage_taken, natural, applicable):
         super(Armor, self). __init__(name, description)
         self.natural = natural
         self.applicable = applicable
+        self.defense = defense
+        self.damage_taken = damage_taken
 # Done
 
 
 class Applicable(Armor):
-    def __init__(self, name, description, natural, applicable, sea_urchin_spikes):
-        super(Applicable, self). __init__(name, description, natural, applicable)
+    def __init__(self, name, description, defense, damage_taken, natural, applicable, sea_urchin_spikes, metal):
+        super(Applicable, self). __init__(name, description, defense, damage_taken, natural, applicable)
         self.sea_urchin_spikes = sea_urchin_spikes
+        self.metal = metal
 #  Done
 
 
 class Natural(Armor):
-    def __init__(self, name, description, natural, applicable, sponge_absorbtion, fat_flabs, krab_shell, spikes):
-        super(Natural, self).__init__(name, description, natural, applicable)
+    def __init__(self, name, description, defense, natural, applicable, sponge_absorbtion, fat_flabs,
+                 krab_shell, spikes):
+        super(Natural, self).__init__(name, description, defense, natural, applicable)
         self.sponge_absorbtion = sponge_absorbtion
         self.fat_flabs = fat_flabs
         self.krab_shell = krab_shell
@@ -78,8 +83,8 @@ class Natural(Armor):
 
 
 class Spikes(Natural):
-    def __init__(self, name, description, natural, applicable, sponge_abrasion, pufferfish_spikes):
-        super(Natural, self).__init__(name, description, natural, applicable)
+    def __init__(self, name, description, defense, damage_taken, natural, applicable, sponge_abrasion, pufferfish_spikes):
+        super(Natural, self).__init__(name, description, defense, damage_taken, natural, applicable)
         self.sponge_abrasion = sponge_abrasion
         self. pufferfish_spikes = pufferfish_spikes
 #  Done
@@ -90,6 +95,7 @@ class Heal(Items):
         super(Heal, self). __init__(name, description)
         self.food = food
         self.imagination = imagination
+        self.state == "Eating"  # Defined in character
 # Done
 
 
@@ -106,13 +112,38 @@ class Food(Heal):
 The items themselves 
 '''
 
-sand = Weapons("Sand", "The grains of sand below your paramulation apendages are your weapon.", 2)
-spatula = Weapons("Spatula", "The ultimate kitchen appliance is your weapon, the spatula.", 20)
-neptune_spatula = Weapons("Neptune's Spatula", "The spatula indicating divine culinary potential is your weapon.", 55)
-hydrodynamic_spatula = Weapons("Hydro-Dynamic Spatula", "A multi-use spatula with utilities such as triple action"
-                               "cooking, a bright, blinking, red light, and more, it is fit for only the most masterful"
-                               "of chef.", 20*3)
-le_spatula = Weapons("Le Spatula", "A spatula so fancy and self absorbed, that it will not let you touch it or touch anything for that matter, unless you are literally the best chef in the world, wher it will be the most useful of tools."
+sand = Kitchen_Appliance("Sand", "The grains of sand below your paramulation apendages are your weapon.", 2)
+spatula = Kitchen_Appliance("Spatula", "The ultimate kitchen appliance is your weapon, the spatula.", 20*3)
+neptune_spatula = Kitchen_Appliance("Neptune's Spatula", "The spatula indicating divine culinary potential is your "
+                                                         "weapon.", 55)
+hydrodynamic_spatula = Kitchen_Appliance("Hydro-Dynamic Spatula", "A multi-use spatula with utilities such as triple "
+                                         "action cooking, a bright, blinking, red light, and more, it is fit for only"
+                                         "the most masterful of chef.", 20*3)
+ladle = Kitchen_Appliance("Ladle", "A long, angled spoon is the pinnacle multi-utility, but for your use only a weapon",
+                          20)
+spoon = Kitchen_Appliance("Spoon","The average scoop.", 10 )
+le_spatula = Weapons("Le Spatula", "A spatula so full of itself that it'll hurt YOU, unless you're a fanciful character")
 #  Turn into a class for the either does takes away your health, or helps you a lot
 
-#  name, description, attack, magic,, hydrodynamic_spatula,le_spatula, ladle, spoon):
+#  magic
+wand = Magic("Magic", "A black stick and star on the tip is your weapon.", 15)
+hocus_pocus_kit = Magic("Mr.Magic's Magical Kit", "This kit includes a Book of Spells, a Wand of Whimsy, the beard of"
+                        " Rasputin, and a license to practice magic. It possesses the ability to turn anything into"
+                        "mayonaise", 90)
+magic_conch = Magic("Magic Conch", "This conch gives you the ultimate advice, telling you how to knock out an enemy "
+                                   "in one hit.", 9999)
+imagination_box = Magic("Imagination Box", "This box gives you as much power as you give it. In this case only 50.", 50)
+
+#  armor
+sea_urchin_spikes = Applicable("Sea Urchin Spikes", "A set of spikes for both protection and defense.", 4, 10)
+metal = Applicable("Anti-Rust Metal", "Just some metal that doesn't rust", 2, 0)
+sponge_absorbtion = Natural("Spongebob's Sponginess", "Spongebob's sponginess reduces damage dealt.", 1)
+fat_flabs = Natural("Patrick's Fat", "Patrick's fat protects him.", 2)
+krab_shell = Natural("Mr.Krabbs' Shell", "Mr. Krabb's shell protects his soft innerds.", 10)
+sponge_abrasion = Spikes("Spongebob's Abrasive Side", "Spongebob's abrasive side barks and bites", -2, 11)
+pufferfish_spikes = Spikes("Mrs. Puff's Spikes", "In times of distress, Mrs. Puff's spikes inflate.", 3, 3)
+
+#  Heal
+Imagination = Heal("Imagination", "If you believe, you heal.")
+Krabby_Patty = Food("Krabby Patty", "The ultimate food instils belief and health.")
+Filter_Feed = Food("Filter Feed", "The water contains healing energies you can use")
