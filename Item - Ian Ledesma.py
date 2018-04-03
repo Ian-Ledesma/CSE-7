@@ -20,10 +20,9 @@ class Key(Items):
 
 
 class Weapons(Items):
-    def __init__(self, name, description, attack, sand, kitchen_appliance, magic):
+    def __init__(self, name, description, attack, sand, magic):
         super(Weapons, self). __init__(name, description)
         self.sand = sand
-        self.kitchen_appliance = kitchen_appliance
         self.magic = magic
         self.attack = attack
 #  Done
@@ -40,9 +39,9 @@ class Magic(Weapons):
 #  Done Magic
 
 
-class Kitchen_Appliance(Weapons):
-    def  __init__(self,  name, description, attack, sand, kitchen_appliance, magic, spatula, neptune_spatula,
-                  hydrodynamic_spatula,le_spatula, ladle, spoon):
+class Kitchen_Appliance (Weapons):
+    def __init__(self,  name, description, attack, sand, magic, spatula, neptune_spatula,
+                 hydrodynamic_spatula, le_spatula, ladle, spoon):
         super(kitchen_appliance, self). __init__(self, name, description, attack, sand, kitchen_appliance, magic)
         self.spatula = spatula
         self.neptune_spatula = neptune_spatula
@@ -50,11 +49,11 @@ class Kitchen_Appliance(Weapons):
         self.le_spatula = le_spatula
         self.ladle = ladle
         self.spoon = spoon
-#Done
+#  Done
 
 
 class Armor(Items):
-    def __init__(self,name, description, defense, damage_taken, natural, applicable):
+    def __init__(self, name, description, defense, damage_taken, natural, applicable):
         super(Armor, self). __init__(name, description)
         self.natural = natural
         self.applicable = applicable
@@ -112,16 +111,14 @@ class Food(Heal):
 The items themselves 
 '''
 
-sand = Kitchen_Appliance("Sand", "The grains of sand below your paramulation apendages are your weapon.", 2)
-spatula = Kitchen_Appliance("Spatula", "The ultimate kitchen appliance is your weapon, the spatula.", 20*3)
-neptune_spatula = Kitchen_Appliance("Neptune's Spatula", "The spatula indicating divine culinary potential is your "
-                                                         "weapon.", 55)
-hydrodynamic_spatula = Kitchen_Appliance("Hydro-Dynamic Spatula", "A multi-use spatula with utilities such as triple "
-                                         "action cooking, a bright, blinking, red light, and more, it is fit for only"
-                                         "the most masterful of chef.", 20*3)
-ladle = Kitchen_Appliance("Ladle", "A long, angled spoon is the pinnacle multi-utility, but for your use only a weapon",
-                          20)
-spoon = Kitchen_Appliance("Spoon","The average scoop.", 10 )
+sand = Weapons("Sand", "The grains of sand below your perambulation appendages are your weapon.", 2)
+spatula = Weapons("Spatula", "The ultimate kitchen appliance is your weapon, the spatula.", 20*3)
+neptune_spatula = Weapons("Neptune's Spatula", "The spatula indicating divine culinary potential is your weapon.", 55)
+hydrodynamic_spatula = Weapons("Hydro-Dynamic Spatula", "A multi-use spatula with utilities such as triple action" 
+                               "cooking, a bright, blinking, red light, and more, it is fit for only the most masterful"
+                               "of chef.", 20*3)
+ladle = Weapons("Ladle", "A long, angled spoon is the pinnacle multi-utility, but for your use only a weapon", 20)
+spoon = Weapons("Spoon", "The average scoop.", 10)
 le_spatula = Weapons("Le Spatula", "A spatula so full of itself that it'll hurt YOU, unless you're a fanciful character")
 #  Turn into a class for the either does takes away your health, or helps you a lot
 
@@ -139,7 +136,7 @@ sea_urchin_spikes = Applicable("Sea Urchin Spikes", "A set of spikes for both pr
 metal = Applicable("Anti-Rust Metal", "Just some metal that doesn't rust", 2, 0)
 sponge_absorbtion = Natural("Spongebob's Sponginess", "Spongebob's sponginess reduces damage dealt.", 1)
 fat_flabs = Natural("Patrick's Fat", "Patrick's fat protects him.", 2)
-krab_shell = Natural("Mr.Krabbs' Shell", "Mr. Krabb's shell protects his soft innerds.", 10)
+krab_shell = Natural("Mr.Krabbs' Shell", "Mr. Krabb's shell protects his soft innards.", 10)
 sponge_abrasion = Spikes("Spongebob's Abrasive Side", "Spongebob's abrasive side barks and bites", -2, 11)
 pufferfish_spikes = Spikes("Mrs. Puff's Spikes", "In times of distress, Mrs. Puff's spikes inflate.", 3, 3)
 
