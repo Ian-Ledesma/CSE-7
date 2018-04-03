@@ -52,6 +52,26 @@
           </provider>
         </entry>
       </file>
+      <file leaf-file-name="function notes.py" pinned="false" current-in-tab="false">
+        <entry file="file://$PROJECT_DIR$/function notes.py">
+          <provider selected="true" editor-type-id="text-editor">
+            <state relative-caret-position="276">
+              <caret line="41" column="17" lean-forward="false" selection-start-line="41" selection-start-column="17" selection-end-line="41" selection-end-column="17" />
+              <folding />
+            </state>
+          </provider>
+        </entry>
+      </file>
+      <file leaf-file-name="pythagorean theorem.py" pinned="false" current-in-tab="true">
+        <entry file="file://$PROJECT_DIR$/pythagorean theorem.py">
+          <provider selected="true" editor-type-id="text-editor">
+            <state relative-caret-position="153">
+              <caret line="9" column="0" lean-forward="true" selection-start-line="9" selection-start-column="0" selection-end-line="9" selection-end-column="0" />
+              <folding />
+            </state>
+          </provider>
+        </entry>
+      </file>
     </leaf>
   </component>
   <component name="FileTemplateManagerImpl">
@@ -100,12 +120,20 @@
         <option value="$PROJECT_DIR$/Ian Ledesma - Hangman - 7.py" />
         <option value="$PROJECT_DIR$/World Map.py" />
         <option value="$PROJECT_DIR$/Game - Ian Ledesma.py" />
+<<<<<<< HEAD
         <option value="$PROJECT_DIR$/Pythagorean Theorem - Ian Ledesma.py" />
+<<<<<<< HEAD
+=======
+        <option value="$PROJECT_DIR$/function notes.py" />
+        <option value="$PROJECT_DIR$/pythagorean theorem.py" />
+>>>>>>> 122a507f69fa6eb01c1f3eebe45609e802e676e9
+=======
         <option value="$PROJECT_DIR$/Ian Ledesma - Hangman.py" />
         <option value="$PROJECT_DIR$/Actual Game - Ian Ledesma.py" />
         <option value="$PROJECT_DIR$/Character - Ian Ledesma.py" />
         <option value="$PROJECT_DIR$/Inheritance Notes.py" />
         <option value="$PROJECT_DIR$/Item - Ian Ledesma.py" />
+>>>>>>> 2e13cc79eb6421905045f8c9424e4225bd74d405
       </list>
     </option>
   </component>
@@ -147,7 +175,11 @@
       </list>
     </option>
   </component>
+<<<<<<< HEAD
+  <component name="RunManager" selected="Python.pythagorean theorem">
+=======
   <component name="RunManager" selected="Python.Ian Ledesma - Hangman">
+>>>>>>> 2e13cc79eb6421905045f8c9424e4225bd74d405
     <configuration name="Ian Ledesma - Hangman - 7" type="PythonConfigurationType" factoryName="Python" temporary="true">
       <option name="INTERPRETER_OPTIONS" value="" />
       <option name="PARENT_ENVS" value="true" />
@@ -182,40 +214,6 @@
       <option name="SHOW_COMMAND_LINE" value="false" />
       <option name="EMULATE_TERMINAL" value="false" />
     </configuration>
-    <configuration name="Ian Ledesma" type="PythonConfigurationType" factoryName="Python" temporary="true">
-      <option name="INTERPRETER_OPTIONS" value="" />
-      <option name="PARENT_ENVS" value="true" />
-      <envs>
-        <env name="PYTHONUNBUFFERED" value="1" />
-      </envs>
-      <option name="SDK_HOME" value="" />
-      <option name="WORKING_DIRECTORY" value="$PROJECT_DIR$" />
-      <option name="IS_MODULE_SDK" value="true" />
-      <option name="ADD_CONTENT_ROOTS" value="true" />
-      <option name="ADD_SOURCE_ROOTS" value="true" />
-      <module name="CSE-7" />
-      <option name="SCRIPT_NAME" value="$PROJECT_DIR$/Ian Ledesma.py" />
-      <option name="PARAMETERS" value="" />
-      <option name="SHOW_COMMAND_LINE" value="false" />
-      <option name="EMULATE_TERMINAL" value="false" />
-    </configuration>
-    <configuration name="Notes Good" type="PythonConfigurationType" factoryName="Python" temporary="true">
-      <option name="INTERPRETER_OPTIONS" value="" />
-      <option name="PARENT_ENVS" value="true" />
-      <envs>
-        <env name="PYTHONUNBUFFERED" value="1" />
-      </envs>
-      <option name="SDK_HOME" value="" />
-      <option name="WORKING_DIRECTORY" value="$PROJECT_DIR$" />
-      <option name="IS_MODULE_SDK" value="true" />
-      <option name="ADD_CONTENT_ROOTS" value="true" />
-      <option name="ADD_SOURCE_ROOTS" value="true" />
-      <module name="CSE-7" />
-      <option name="SCRIPT_NAME" value="$PROJECT_DIR$/Notes Good.py" />
-      <option name="PARAMETERS" value="" />
-      <option name="SHOW_COMMAND_LINE" value="false" />
-      <option name="EMULATE_TERMINAL" value="false" />
-    </configuration>
     <configuration name="World Map" type="PythonConfigurationType" factoryName="Python" temporary="true">
       <option name="INTERPRETER_OPTIONS" value="" />
       <option name="PARENT_ENVS" value="true" />
@@ -233,7 +231,56 @@
       <option name="SHOW_COMMAND_LINE" value="false" />
       <option name="EMULATE_TERMINAL" value="false" />
     </configuration>
+    <configuration name="function notes" type="PythonConfigurationType" factoryName="Python" temporary="true">
+      <option name="INTERPRETER_OPTIONS" value="" />
+      <option name="PARENT_ENVS" value="true" />
+      <envs>
+        <env name="PYTHONUNBUFFERED" value="1" />
+      </envs>
+      <option name="SDK_HOME" value="" />
+      <option name="WORKING_DIRECTORY" value="$PROJECT_DIR$" />
+      <option name="IS_MODULE_SDK" value="true" />
+      <option name="ADD_CONTENT_ROOTS" value="true" />
+      <option name="ADD_SOURCE_ROOTS" value="true" />
+      <module name="CSE-7" />
+      <option name="SCRIPT_NAME" value="$PROJECT_DIR$/function notes.py" />
+      <option name="PARAMETERS" value="" />
+      <option name="SHOW_COMMAND_LINE" value="false" />
+      <option name="EMULATE_TERMINAL" value="false" />
+    </configuration>
+    <configuration name="pythagorean theorem" type="PythonConfigurationType" factoryName="Python" temporary="true">
+      <option name="INTERPRETER_OPTIONS" value="" />
+      <option name="PARENT_ENVS" value="true" />
+      <envs>
+        <env name="PYTHONUNBUFFERED" value="1" />
+      </envs>
+      <option name="SDK_HOME" value="" />
+      <option name="WORKING_DIRECTORY" value="$PROJECT_DIR$" />
+      <option name="IS_MODULE_SDK" value="true" />
+      <option name="ADD_CONTENT_ROOTS" value="true" />
+      <option name="ADD_SOURCE_ROOTS" value="true" />
+      <module name="CSE-7" />
+      <option name="SCRIPT_NAME" value="$PROJECT_DIR$/pythagorean theorem.py" />
+      <option name="PARAMETERS" value="" />
+      <option name="SHOW_COMMAND_LINE" value="false" />
+      <option name="EMULATE_TERMINAL" value="false" />
+    </configuration>
     <list size="5">
+<<<<<<< HEAD
+      <item index="0" class="java.lang.String" itemvalue="Python.Ian Ledesma - Hangman - 7" />
+      <item index="1" class="java.lang.String" itemvalue="Python.Ian Ledesma - Hangman" />
+      <item index="2" class="java.lang.String" itemvalue="Python.World Map" />
+      <item index="3" class="java.lang.String" itemvalue="Python.function notes" />
+      <item index="4" class="java.lang.String" itemvalue="Python.pythagorean theorem" />
+    </list>
+    <recent_temporary>
+      <list size="5">
+        <item index="0" class="java.lang.String" itemvalue="Python.pythagorean theorem" />
+        <item index="1" class="java.lang.String" itemvalue="Python.function notes" />
+        <item index="2" class="java.lang.String" itemvalue="Python.World Map" />
+        <item index="3" class="java.lang.String" itemvalue="Python.Ian Ledesma - Hangman" />
+        <item index="4" class="java.lang.String" itemvalue="Python.Ian Ledesma - Hangman - 7" />
+=======
       <item index="0" class="java.lang.String" itemvalue="Python.Ian Ledesma - Hangman" />
       <item index="1" class="java.lang.String" itemvalue="Python.Notes Good" />
       <item index="2" class="java.lang.String" itemvalue="Python.Ian Ledesma - Hangman - 7" />
@@ -246,6 +293,7 @@
         <item index="1" class="java.lang.String" itemvalue="Python.Ian Ledesma - Hangman - 7" />
         <item index="2" class="java.lang.String" itemvalue="Python.Ian Ledesma" />
         <item index="3" class="java.lang.String" itemvalue="Python.Notes Good" />
+>>>>>>> 2e13cc79eb6421905045f8c9424e4225bd74d405
       </list>
     </recent_temporary>
   </component>
@@ -274,7 +322,18 @@
       <window_info id="Event Log" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.3518225" sideWeight="0.5058565" order="7" side_tool="true" content_ui="tabs" />
       <window_info id="Version Control" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.329653" sideWeight="0.5" order="7" side_tool="false" content_ui="tabs" />
       <window_info id="Python Console" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.33" sideWeight="0.5" order="7" side_tool="false" content_ui="tabs" />
+<<<<<<< HEAD
+<<<<<<< HEAD
+      <window_info id="Run" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.3511111" sideWeight="0.4941435" order="2" side_tool="false" content_ui="tabs" />
+=======
+<<<<<<< HEAD
+      <window_info id="Run" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="true" show_stripe_button="true" weight="0.3518225" sideWeight="0.4941435" order="2" side_tool="false" content_ui="tabs" />
+=======
+>>>>>>> 490842fed4f6d7c4e4025b9c82fcfae07de4755d
+>>>>>>> 122a507f69fa6eb01c1f3eebe45609e802e676e9
+=======
       <window_info id="Run" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.35023773" sideWeight="0.4941435" order="2" side_tool="false" content_ui="tabs" />
+>>>>>>> 2e13cc79eb6421905045f8c9424e4225bd74d405
       <window_info id="Structure" active="false" anchor="left" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.25" sideWeight="0.5" order="1" side_tool="false" content_ui="tabs" />
       <window_info id="Terminal" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.33" sideWeight="0.5" order="7" side_tool="false" content_ui="tabs" />
       <window_info id="Favorites" active="false" anchor="left" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.33" sideWeight="0.5" order="2" side_tool="true" content_ui="tabs" />
@@ -319,6 +378,47 @@
     <watches-manager />
   </component>
   <component name="editorHistoryManager">
+<<<<<<< HEAD
+<<<<<<< HEAD
+    <entry file="file://$PROJECT_DIR$/Notes Good.py">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="2601">
+          <caret line="153" column="20" lean-forward="true" selection-start-line="146" selection-start-column="2" selection-end-line="153" selection-end-column="20" />
+        </state>
+      </provider>
+    </entry>
+=======
+>>>>>>> 122a507f69fa6eb01c1f3eebe45609e802e676e9
+    <entry file="file://$PROJECT_DIR$/Ian Ledesma - Hangman - 7.py">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="323">
+          <caret line="19" column="4" lean-forward="false" selection-start-line="19" selection-start-column="4" selection-end-line="19" selection-end-column="4" />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/Notes Good.py">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="2924">
+          <caret line="172" column="30" lean-forward="false" selection-start-line="172" selection-start-column="30" selection-end-line="172" selection-end-column="30" />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/Ian Ledesma - Hangman - 7.py">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="187">
+          <caret line="11" column="0" lean-forward="true" selection-start-line="11" selection-start-column="0" selection-end-line="11" selection-end-column="0" />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/Notes Good.py">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="2686">
+          <caret line="158" column="1" lean-forward="true" selection-start-line="156" selection-start-column="2" selection-end-line="158" selection-end-column="1" />
+        </state>
+      </provider>
+    </entry>
+=======
+>>>>>>> 2e13cc79eb6421905045f8c9424e4225bd74d405
     <entry file="file://$PROJECT_DIR$/Ian Ledesma - Hangman - 7.py">
       <provider selected="true" editor-type-id="text-editor">
         <state relative-caret-position="272">
@@ -565,6 +665,19 @@
         </state>
       </provider>
     </entry>
+<<<<<<< HEAD
+<<<<<<< HEAD
+    <entry file="file://$PROJECT_DIR$/Ian Ledesma - Hangman.py">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="357">
+          <caret line="21" column="8" lean-forward="false" selection-start-line="21" selection-start-column="8" selection-end-line="21" selection-end-column="8" />
+        </state>
+      </provider>
+    </entry>
+=======
+    <entry file="file://$PROJECT_DIR$/Ian Ledesma - Hangman.py" />
+>>>>>>> 490842fed4f6d7c4e4025b9c82fcfae07de4755d
+=======
     <entry file="file://$PROJECT_DIR$/Game - Ian Ledesma.py">
       <provider selected="true" editor-type-id="text-editor">
         <state relative-caret-position="549">
@@ -572,6 +685,7 @@
         </state>
       </provider>
     </entry>
+>>>>>>> 2e13cc79eb6421905045f8c9424e4225bd74d405
     <entry file="file://$PROJECT_DIR$/World Map.py">
       <provider selected="true" editor-type-id="text-editor">
         <state relative-caret-position="493">
@@ -623,6 +737,21 @@
         </state>
       </provider>
     </entry>
+<<<<<<< HEAD
+    <entry file="file://$PROJECT_DIR$/function notes.py">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="276">
+          <caret line="41" column="17" lean-forward="false" selection-start-line="41" selection-start-column="17" selection-end-line="41" selection-end-column="17" />
+          <folding />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/pythagorean theorem.py">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="153">
+          <caret line="9" column="0" lean-forward="true" selection-start-line="9" selection-start-column="0" selection-end-line="9" selection-end-column="0" />
+          <folding />
+=======
     <entry file="file://$PROJECT_DIR$/Item - Ian Ledesma.py">
       <provider selected="true" editor-type-id="text-editor">
         <state relative-caret-position="192">
@@ -639,6 +768,7 @@
             <element signature="e#2638#2908#0" expanded="false" />
             <element signature="e#2737#2907#0" expanded="false" />
           </folding>
+>>>>>>> 2e13cc79eb6421905045f8c9424e4225bd74d405
         </state>
       </provider>
     </entry>

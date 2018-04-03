@@ -87,7 +87,7 @@
 # # # # Loops
 # # #
 # # #
-# # # # for num in range(5):
+# # # #  num in range(for5):
 # # # #     print(num + 1)
 # # #
 # # # # for mystery in "Hello World":
