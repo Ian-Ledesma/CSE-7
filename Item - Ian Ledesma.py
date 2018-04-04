@@ -20,29 +20,10 @@ class Key(Items):
 
 
 class Weapons(Items):
-    def __init__(self, name, description, attack, sand, magic):
+    def __init__(self, name, description, attack):
         super(Weapons, self). __init__(name, description)
         self.sand = sand
-        self.magic = magic
         self.attack = attack
-#  Done
-
-
-class Magic(Weapons):
-    def __init__(self, name, description, attack, sand, kitchen_appliance, magic, wand, hocus_pocus_kit, magic_conch,
-                 imagination_box):
-        super(Magic, self). __init__(name, description, attack, sand, kitchen_appliance, magic,)
-        self.wand = wand
-        self.hocus_pocus_kit = hocus_pocus_kit
-        self.magic_conch = magic_conch
-        self.imagination_box = imagination_box
-#  Done Magic
-
-
-class Kitchen_Appliance (Weapons):
-    def __init__(self,  name, description, attack, sand, magic, spatula, neptune_spatula,
-                 hydrodynamic_spatula, le_spatula, ladle, spoon):
-        super(kitchen_appliance, self). __init__(self, name, description, attack, sand, kitchen_appliance, magic)
         self.spatula = spatula
         self.neptune_spatula = neptune_spatula
         self.hydrodynamic_spatula = hydrodynamic_spatula
@@ -52,40 +33,33 @@ class Kitchen_Appliance (Weapons):
 #  Done
 
 
+class Magic(Weapons):
+    def __init__(self, name, description, attack, mana_use):
+        super(Magic, self). __init__(name, description, attack)
+        self.mana_use = mana_use
+        self.wand = wand
+        self.hocus_pocus_kit = hocus_pocus_kit
+        self.magic_conch = magic_conch
+        self.imagination_box = imagination_box
+
+
 class Armor(Items):
-    def __init__(self, name, description, defense, damage_taken, natural, applicable):
+    def __init__(self, name, description, defense):
         super(Armor, self). __init__(name, description)
-        self.natural = natural
-        self.applicable = applicable
         self.defense = defense
-        self.damage_taken = damage_taken
-# Done
-
-
-class Applicable(Armor):
-    def __init__(self, name, description, defense, damage_taken, natural, applicable, sea_urchin_spikes, metal):
-        super(Applicable, self). __init__(name, description, defense, damage_taken, natural, applicable)
-        self.sea_urchin_spikes = sea_urchin_spikes
         self.metal = metal
-#  Done
-
-
-class Natural(Armor):
-    def __init__(self, name, description, defense, natural, applicable, sponge_absorbtion, fat_flabs,
-                 krab_shell, spikes):
-        super(Natural, self).__init__(name, description, defense, natural, applicable)
         self.sponge_absorbtion = sponge_absorbtion
         self.fat_flabs = fat_flabs
         self.krab_shell = krab_shell
-        self.spikes = spikes
-#  Done
 
 
-class Spikes(Natural):
-    def __init__(self, name, description, defense, damage_taken, natural, applicable, sponge_abrasion, pufferfish_spikes):
-        super(Natural, self).__init__(name, description, defense, damage_taken, natural, applicable)
+class Spikes(Armor):
+    def __init__(self, name, description, defense, attack):
+        super(Spikes, self).__init__(name, description, defense)
+        self.attack = attack
         self.sponge_abrasion = sponge_abrasion
         self. pufferfish_spikes = pufferfish_spikes
+        self.sea_urchin_spikes = sea_urchin_spikes
 #  Done
 
 
@@ -123,20 +97,21 @@ le_spatula = Weapons("Le Spatula", "A spatula so full of itself that it'll hurt 
 #  Turn into a class for the either does takes away your health, or helps you a lot
 
 #  magic
-wand = Magic("Magic", "A black stick and star on the tip is your weapon.", 15)
+wand = Magic("Magic", "A black stick and star on the tip is your weapon.", 15, )
 hocus_pocus_kit = Magic("Mr.Magic's Magical Kit", "This kit includes a Book of Spells, a Wand of Whimsy, the beard of"
                         " Rasputin, and a license to practice magic. It possesses the ability to turn anything into"
-                        "mayonaise", 90)
-magic_conch = Magic("Magic Conch", "This conch gives you the ultimate advice, telling you how to knock out an enemy "
-                                   "in one hit.", 9999)
-imagination_box = Magic("Imagination Box", "This box gives you as much power as you give it. In this case only 50.", 50)
+                        "mayonnaise",45, 90)
+magic_conch = Magic("Magic Conch", "This conch gives you the ultimate advice, telling you how to effectively knock out "
+                    "an enemy", 9999)
+imagination_box = Magic("Imagination Box", "This box gives you as much power as you give it. In this case only 50.", 50,
+                        30)
 
 #  armor
-sea_urchin_spikes = Applicable("Sea Urchin Spikes", "A set of spikes for both protection and defense.", 4, 10)
-metal = Applicable("Anti-Rust Metal", "Just some metal that doesn't rust", 2, 0)
-sponge_absorbtion = Natural("Spongebob's Sponginess", "Spongebob's sponginess reduces damage dealt.", 1)
-fat_flabs = Natural("Patrick's Fat", "Patrick's fat protects him.", 2)
-krab_shell = Natural("Mr.Krabbs' Shell", "Mr. Krabb's shell protects his soft innards.", 10)
+sea_urchin_spikes = Spikes("Sea Urchin Spikes", "A set of spikes for both protection and defense.", 4, 10)
+metal = Armor("Anti-Rust Metal", "Just some metal that doesn't rust", 5)
+sponge_absorbtion = Armor("Spongebob's Sponginess", "Spongebob's sponginess reduces damage dealt.", 1)
+fat_flabs = Armor("Patrick's Fat", "Patrick's fat protects him.", 2)
+krab_shell = Armor("Mr.Krabbs' Shell", "Mr. Krabb's molted shell protects is an apt set of armor.", 10)
 sponge_abrasion = Spikes("Spongebob's Abrasive Side", "Spongebob's abrasive side barks and bites", -2, 11)
 pufferfish_spikes = Spikes("Mrs. Puff's Spikes", "In times of distress, Mrs. Puff's spikes inflate.", 3, 3)
 
