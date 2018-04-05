@@ -19,7 +19,7 @@ Stats
 #  Defining a class
 class Character(object):
     # TWO underscores before and after
-    def __init__(self, state, name, description, inventory, item, attack, health, magic):
+    def __init__(self, state, name, description, inventory, item, attack, health, magic, location):
         #  Things that a Cat has
         self.state = state
         self.name = name
@@ -29,6 +29,7 @@ class Character(object):
         self.attack = attack
         self.health = health
         self.magic = magic
+        self.location = location
 #  Things that a Cat can do
     def heal(self):
         if self.state == "Eating":
@@ -54,6 +55,7 @@ class Character(object):
         self.health <= 0
         print("Oof. You Died.")
 
+Rock_boi =
 
 # Spongebob = Character("Happy", "Spongebob", "A square, yellow, and porous sponge, gay in his nature.", "Spatula", None,
 #                       None, 100)

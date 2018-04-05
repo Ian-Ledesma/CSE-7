@@ -2,21 +2,27 @@ class Items(object):
     def __init__(self, name, description):
         self.name = name
         self.description = description
-
-#  Done
+#
 
 
 class Key(Items):
-    def __init__(self, name, description, time_machine, clarinet, horse_radish):
+    def __init__(self, name, description):
         super(Key, self).__init__(name, description)
-        self.time_machine = time_machine
-        self.clarinet = clarinet
-        self.horse_radish = horse_radish
-#  Done
+        self.unlock = False
+
+
+class Time_Machine(Key):
+    def __init__(self, name, description, allow_entry):
+        super(Time_Machine, self). __init__(self, name, description)
+        self.allow_entry = allow_entry
+class Clarinet(Key):
+
+class Horse_Radish(Key):
 
     def open(self):
-        self.state == "unlock"  # Defined in character
-#  Key Done
+        if self.unlock:
+            print("U opened it lmao XD dead inside")
+            self.unlock = True
 
 
 class Weapons(Items):
@@ -64,20 +70,16 @@ class Spikes(Armor):
 
 
 class Heal(Items):
-    def __init__(self, name, description, food, imagination):
+    def __init__(self, name, description, heal):
         super(Heal, self). __init__(name, description)
-        self.food = food
+        self.heal = heal
         self.imagination = imagination
-        self.state == "Eating"  # Defined in character
-# Done
-
-
-class Food(Heal):
-    def __init__(self, name, description, food, imagination, krabby_patty, filter_feed, mayo):
-        super(Food, self). __init__(name, description, food, imagination)
         self.krabby_patty = krabby_patty
         self.filter_feed = filter_feed
         self.mayo = mayo
+
+    def heal(self):
+        self.state = "Eating" #Defined in character
 #  Done
 
 
@@ -93,16 +95,18 @@ hydrodynamic_spatula = Weapons("Hydro-Dynamic Spatula", "A multi-use spatula wit
                                "of chef.", 20*3)
 ladle = Weapons("Ladle", "A long, angled spoon is the pinnacle multi-utility, but for your use only a weapon", 20)
 spoon = Weapons("Spoon", "The average scoop.", 10)
-le_spatula = Weapons("Le Spatula", "A spatula so full of itself that it'll hurt YOU, unless you're a fanciful character")
+le_spatula = Weapons("Le Spatula", "A spatula so full of itself that it'll hurt YOU, unless you're a fanciful "
+                     "character")
 #  Turn into a class for the either does takes away your health, or helps you a lot
 
 #  magic
-wand = Magic("Magic", "A black stick and star on the tip is your weapon.", 15, )
+wand = Magic("Magic", "A black stick and star on the tip is your weapon.", 15, 10)
 hocus_pocus_kit = Magic("Mr.Magic's Magical Kit", "This kit includes a Book of Spells, a Wand of Whimsy, the beard of"
                         " Rasputin, and a license to practice magic. It possesses the ability to turn anything into"
-                        "mayonnaise",45, 90)
+                        "mayonnaise", 45, 90)
+#  Be abl to transform enemy into mayo
 magic_conch = Magic("Magic Conch", "This conch gives you the ultimate advice, telling you how to effectively knock out "
-                    "an enemy", 9999)
+                    "an enemy", 9999, 9999)
 imagination_box = Magic("Imagination Box", "This box gives you as much power as you give it. In this case only 50.", 50,
                         30)
 
@@ -116,6 +120,6 @@ sponge_abrasion = Spikes("Spongebob's Abrasive Side", "Spongebob's abrasive side
 pufferfish_spikes = Spikes("Mrs. Puff's Spikes", "In times of distress, Mrs. Puff's spikes inflate.", 3, 3)
 
 #  Heal
-Imagination = Heal("Imagination", "If you believe, you heal.")
-Krabby_Patty = Food("Krabby Patty", "The ultimate food instils belief and health.")
-Filter_Feed = Food("Filter Feed", "The water contains healing energies you can use")
+Imagination = Heal("Imagination", "If you believe, you heal.", )
+Krabby_Patty = Heal("Krabby Patty", "The ultimate food instils belief and health.")
+Filter_Feed = Heal("Filter Feed", "The water contains healing energies you can use")
