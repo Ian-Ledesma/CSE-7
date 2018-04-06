@@ -87,7 +87,7 @@ class Heal(Items):
         self.heal = heal
 
 class Imagination(Heal):
-class Krabby_Patty (Heal)= Krabby_Patty
+class Krabby_Patty (Heal) = Krabby_Patty
         self.filter_feed = filter_feed
         self.mayo = mayo
 
@@ -126,9 +126,10 @@ class Character(object):
     def climb(self):
         self.state
     def look(self):
-        print(current_node.description)  # current_node is defined in the world map
+        print(current_node.description)
     def fight(self):
         self.strike == strike
+
     def open(self):
         self.open = open
     def death(self):

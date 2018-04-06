@@ -49,8 +49,8 @@ class Character(object):
 
 
 extrm1 = Room('South of Pineapple', 'intrm1', None, None, 'extrm2', None, None, "You are near a big metal door on a "
-             "pineapple. To the North is a living room, to you south and east is sand, and to your west is a window to a "
-             "statue.", )
+             "pineapple. To the North is a living room, to you south and east is sand, and to your west is a window to"
+             " a statue.", )
 extrm2 = Room('West of Pineapple', None,  )
 extrm3 = Room("North of Pineapple", None, 'extrm4', None, None, None )
 extrm4 = Room()
@@ -59,7 +59,7 @@ intrm1 = Room('Living Room', 'intrm2', 'extrm1', None, None, None, None,
               " helmet for a tv, and a blue bamboo wall. to the east is a closet, and to the north is a kitchen.")
 intrm2 = Room('Kitchen', 'extrm1', 'intrm2', None, None, None, None, "there's a kitchen with a metal wall to one"
             "side and bamboo on the other, as well as bamboo cuboards and surf board counters, and a bucket for a sink")
-intrm3 = Room('Kitchen Window', 'extrm3', 'intrm2', None, None, None, None, "you lean on a matal rimmed, circle window."
+intrm3 = Room('Kitchen Window', 'extrm3', 'intrm2', None, None, None, None, "you lean on a metal rimmed, circle window."
               "north, outside of it is the outdoors.")
 intrm4 = Room('Closet', None, None, 'intrm1', 'intrm14', None, None, "you see a collection of party supplies, cooking "
             "supplies, and other supplies of literally anything else. we-a-st of you is a small door, leading to"
@@ -68,7 +68,7 @@ intrm5 = Room('Ladder', None, None, None, None, 'intrm6', 'intrm15', "you're on 
               "to go being up or down." )
 intrm6 = Room('Bedroom', )
 #  do description
-intrm7 = Room('Library', None, None, None, None, 'intrm6', None,)
+intrm7 = Room('Library', None, None, None, None, 'intrm6', None, "all around ")
 #  do description
 intrm8 = Room('Bedroom Window', 'extrm4', 'intrm6', None, None, None, None, "outside of the window is a street, sand" 
             "on either side for as afar as the eye can see. northward is a 2 story fall to the outer world")
@@ -81,7 +81,7 @@ intrm12 = Room('kitchen window', None, 'extrm1', None, "intrm10", None, None, "o
 intrm13 = Room('Garage', None, None, 'intrm2', 'extrm2', None, None)
 intrm14 = Room
 intrm15 = Room
-intrm16 = Room
+intrm16 = Room()
 
 current_node = extrm1
 directions = ['north', 'south', 'east', 'west', 'up', 'down']

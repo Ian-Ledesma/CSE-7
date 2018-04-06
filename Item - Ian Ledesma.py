@@ -11,13 +11,22 @@ class Key(Items):
         self.unlock = False
 
 
-class Time_Machine(Key):
+class TimeMachine(Key):
     def __init__(self, name, description, allow_entry):
-        super(Time_Machine, self). __init__(self, name, description)
+        super(TimeMachine, self). __init__(self, name, description)
         self.allow_entry = allow_entry
-class Clarinet(Key):
 
-class Horse_Radish(Key):
+
+class Clarinet(Key):
+    def __init__(self, name, description, allow_entry):
+        super(Clarinet, self). __init__(self, name, description)
+        self.allow_entry = allow_entry
+
+
+class HorseRadish(Key):
+    def __init__(self, name, description, allow_entry):
+        super(TimeMachine, self). __init__(self, name, description)
+        self.allow_entry = allow_entry
 
     def open(self):
         if self.unlock:
@@ -77,9 +86,7 @@ class Heal(Items):
         self.krabby_patty = krabby_patty
         self.filter_feed = filter_feed
         self.mayo = mayo
-
-    def heal(self):
-        self.state = "Eating" #Defined in character
+        self.state = "Eating"
 #  Done
 
 
