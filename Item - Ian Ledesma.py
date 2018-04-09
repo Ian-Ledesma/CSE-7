@@ -37,14 +37,14 @@ class HorseRadish(Key):
 class Weapons(Items):
     def __init__(self, name, description, attack):
         super(Weapons, self). __init__(name, description)
-        self.sand = sand
         self.attack = attack
-        self.spatula = spatula
-        self.neptune_spatula = neptune_spatula
-        self.hydrodynamic_spatula = hydrodynamic_spatula
-        self.le_spatula = le_spatula
-        self.ladle = ladle
-        self.spoon = spoon
+    # self.sand = sand
+    # self.spatula = spatula
+    # self.neptune_spatula = neptune_spatula
+    # self.hydrodynamic_spatula = hydrodynamic_spatula
+    # self.le_spatula = le_spatula
+    # self.ladle = ladle
+    # self.spoon = spoon
 #  Done
 
 
@@ -52,10 +52,10 @@ class Magic(Weapons):
     def __init__(self, name, description, attack, mana_use):
         super(Magic, self). __init__(name, description, attack)
         self.mana_use = mana_use
-        self.wand = wand
-        self.hocus_pocus_kit = hocus_pocus_kit
-        self.magic_conch = magic_conch
-        self.imagination_box = imagination_box
+    # self.wand = wand
+    # self.hocus_pocus_kit = hocus_pocus_kit
+    # self.magic_conch = magic_conch
+    # self.imagination_box = imagination_box
 
 
 class Armor(Items):
@@ -73,7 +73,7 @@ class Spikes(Armor):
         super(Spikes, self).__init__(name, description, defense)
         self.attack = attack
         self.sponge_abrasion = sponge_abrasion
-        self. pufferfish_spikes = pufferfish_spikes
+        self.pufferfish_spikes = pufferfish_spikes
         self.sea_urchin_spikes = sea_urchin_spikes
 #  Done
 
@@ -82,10 +82,10 @@ class Heal(Items):
     def __init__(self, name, description, heal):
         super(Heal, self). __init__(name, description)
         self.heal = heal
-        self.imagination = imagination
-        self.krabby_patty = krabby_patty
-        self.filter_feed = filter_feed
-        self.mayo = mayo
+        # self.imagination = imagination
+        # self.krabby_patty = krabby_patty
+        # self.filter_feed = filter_feed
+        # self.mayo = mayo
         self.state = "Eating"
 #  Done
 
@@ -128,5 +128,6 @@ pufferfish_spikes = Spikes("Mrs. Puff's Spikes", "In times of distress, Mrs. Puf
 
 #  Heal
 Imagination = Heal("Imagination", "If you believe, you heal.", )
-Krabby_Patty = Heal("Krabby Patty", "The ultimate food instils belief and health.")
-Filter_Feed = Heal("Filter Feed", "The water contains healing energies you can use")
+Krabby_Patty = Heal("Krabby Patty", "The ultimate food instills belief and health into the consumer.", 20)
+Filter_Feed = Heal("Filter Feed", "The water contains healing energies you can use", 2)
+Mayo = Heal = ("Mayonnaise", "The ultimate substance, capable of preserving fish for eons.", 50)

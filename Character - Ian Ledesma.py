@@ -22,7 +22,7 @@ Stats
 #  Defining a class
 class Character(object):
     # TWO underscores before and after
-    def __init__(self, state, name, description, inventory, item, attack, health, magic, location):
+    def __init__(self, state, name, description, inventory, item, attack, health, max_hp, magic, location):
         #  Things that a Cat has
         self.state = state
         self.name = name
@@ -31,6 +31,7 @@ class Character(object):
         self.item = item
         self.attack = attack
         self.health = health
+        self.max_hp = max_hp
         self.magic = magic
         self.location = location
 #  Things that a Cat can do
@@ -72,10 +73,13 @@ class Character(object):
         print("Oof. You Died.")
 
 
-# Spongebob = Character("Happy", "Spongebob", "A square, yellow, and porous sponge, gay in his nature.","Spatula", None,
-#                       None, 100)
-# Squidward = Character("Mad", "Squidward", "A sad blue octopus. He enjoys playing the clarinet, and he is
-# simultaneously arrogant and insecure.", "Clarinet", None, None, 80)
-# Patrick = Character("Pink", "Patrick", "A pink starfish. In his nature, blissfully ignorant.", "Sand", None, None,
-#                      120)
+Spongebob = Character("Happy", "Spongebob", "A square, yellow, and porous sponge, gay in his nature.", "Spatula", None,
+                       0, 100, 100, 130, "extrm1")  # extrm1 defined in map
+
+
+Squidward = Character("Sad", "Squidward", "A sad blue octopus. He enjoys playing the clarinet, and he is"
+                      "simultaneously arrogant and insecure.", None, "Clarinet", 0, 80, 80, 130, )
+
+Patrick = Character("Pink", "Patrick", "A pink starfish. In his nature, blissfully ignorant.", None, "Sand", 15, 120,
+                    120, 150, )
 # Gary = Character()
