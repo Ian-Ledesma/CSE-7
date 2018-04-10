@@ -48,14 +48,14 @@ class Character(object):
         print("Oof. You Died.")
 
 
-extrm1 = Room('South of Pineapple', 'intrm1', None, None, 'extrm2', None, None, "You are near a big metal door on a "
-             "pineapple. To the North is a living room, to you south and east is sand, and to your west is a window to"
-             " a statue.", )
+extrm1 = Room('South of Pineapple', 'intrm1', None, None, 'extrm2', None, None, "you're near a big metal door on a pine"
+             "apple. Northward is a living room, southward is a road, eastward is sand, and westward is a window into "
+             "squidward's statue house.")
 extrm2 = Room('West of Pineapple', None,  )
 extrm3 = Room("North of Pineapple", None, 'extrm4', None, None, None )
 extrm4 = Room()
 intrm1 = Room('Living Room', 'intrm2', 'extrm1', None, None, None, None,
-              "ahead of you are two balloon sofas, 2 fishhooks and a portrait on the wall, a"
+              "In front of you is a room lined with fishing and swimming equipment as furniture, "
               " helmet for a tv, and a blue bamboo wall. to the east is a closet, and to the north is a kitchen.")
 intrm2 = Room('Kitchen', 'extrm1', 'intrm2', None, None, None, None, "there's a kitchen with a metal wall to one"
             "side and bamboo on the other, as well as bamboo cuboards and surf board counters, and a bucket for a sink")

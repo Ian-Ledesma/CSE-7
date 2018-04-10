@@ -1,3 +1,6 @@
+import random
+random.guessed
+
 class Items(object):
     def __init__(self, name, description):
         self.name = name
@@ -21,6 +24,10 @@ class Clarinet(Key):
     def __init__(self, name, description, allow_entry):
         super(Clarinet, self). __init__(self, name, description)
         self.allow_entry = allow_entry
+
+     def open(self, character):
+         character.location = extrm1
+    #cahnge later to squidwards house
 
 
 class HorseRadish(Key):
@@ -48,6 +55,12 @@ class Weapons(Items):
 #  Done
 
 
+class LeSpatula(Weapons):
+    def __init__(self, name, description, attack, self_harm):
+        super(LeSpatula, self). __init__(name, description, attack)
+        self.self_harm = self_harm
+        self.state = False
+
 class Magic(Weapons):
     def __init__(self, name, description, attack, mana_use):
         super(Magic, self). __init__(name, description, attack)
@@ -62,19 +75,19 @@ class Armor(Items):
     def __init__(self, name, description, defense):
         super(Armor, self). __init__(name, description)
         self.defense = defense
-        self.metal = metal
-        self.sponge_absorbtion = sponge_absorbtion
-        self.fat_flabs = fat_flabs
-        self.krab_shell = krab_shell
+        # self.metal = metal
+        # self.sponge_absorbtion = sponge_absorbtion
+        # self.fat_flabs = fat_flabs
+        # self.krab_shell = krab_shell
 
 
 class Spikes(Armor):
     def __init__(self, name, description, defense, attack):
         super(Spikes, self).__init__(name, description, defense)
         self.attack = attack
-        self.sponge_abrasion = sponge_abrasion
-        self.pufferfish_spikes = pufferfish_spikes
-        self.sea_urchin_spikes = sea_urchin_spikes
+        # self.sponge_abrasion = sponge_abrasion
+        # self.pufferfish_spikes = pufferfish_spikes
+        # self.sea_urchin_spikes = sea_urchin_spikes
 #  Done
 
 
@@ -120,11 +133,12 @@ imagination_box = Magic("Imagination Box", "This box gives you as much power as 
 #  armor
 sea_urchin_spikes = Spikes("Sea Urchin Spikes", "A set of spikes for both protection and defense.", 4, 10)
 metal = Armor("Anti-Rust Metal", "Just some metal that doesn't rust", 5)
-sponge_absorbtion = Armor("Spongebob's Sponginess", "Spongebob's sponginess reduces damage dealt.", 1)
+sponge_absorbtion = Armor("Spongebob's Sponginess", "Spongebob's sponginess reduces damage dealt.", 2)
 fat_flabs = Armor("Patrick's Fat", "Patrick's fat protects him.", 2)
 krab_shell = Armor("Mr.Krabbs' Shell", "Mr. Krabb's molted shell protects is an apt set of armor.", 10)
 sponge_abrasion = Spikes("Spongebob's Abrasive Side", "Spongebob's abrasive side barks and bites", -2, 11)
 pufferfish_spikes = Spikes("Mrs. Puff's Spikes", "In times of distress, Mrs. Puff's spikes inflate.", 3, 3)
+
 
 #  Heal
 Imagination = Heal("Imagination", "If you believe, you heal.", )
