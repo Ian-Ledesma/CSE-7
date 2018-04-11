@@ -48,11 +48,12 @@ class Character(object):
         print("Oof. You Died.")
 
 
-extrm1 = Room('South of Pineapple', 'intrm1', None, None, 'extrm2', None, None, "you're near a big metal door on a pine"
-             "apple. Northward is a living room, southward is a road, eastward is sand, and westward is a window into "
-             "squidward's statue house.")
-extrm2 = Room('West of Pineapple', None,  )
-extrm3 = Room("North of Pineapple", None, 'extrm4', None, None, None )
+extrm1 = Room('South of Pineapple', 'intrm1', "#road", None, 'extrm2', None, None, "You're near a big metal door on a pine"
+             "apple. North is a living room, south is a road, east is sand, and west is a window into Squidward's"
+             "house.")
+extrm2 = Room('West of Pineapple', None, "#road", "intrm13", "#Squidward's house", None, None, "" )
+extrm3 = Room("North of Pineapple", None, 'extrm4', None, None, None, None, "Around you is sand, all but the window "
+              "southward.")
 extrm4 = Room()
 intrm1 = Room('Living Room', 'intrm2', 'extrm1', None, None, None, None,
               "In front of you is a room lined with fishing and swimming equipment as furniture, "
@@ -73,13 +74,14 @@ intrm7 = Room('Library', None, None, None, None, 'intrm6', None, "all around ")
 intrm8 = Room('Bedroom Window', 'extrm4', 'intrm6', None, None, None, None, "outside of the window is a street, sand" 
             "on either side for as afar as the eye can see. northward is a 2 story fall to the outer world")
 intrm9 = Room('Hallway', None, None, "intrm6", "intrm10", None, None, "you walk o" #  not done
-intrm10 = Room('Restroom', 'intrm11', None, 'Intrm9', None, None, None, )
+intrm10 = Room('Restroom', 'intrm11', None, 'Intrm9', None, None,   )
 intrm11 = Room('Restroom Window', 'extrm3', 'intrm10', None, None, None, None, "outside of the window is a sandy floor,"
-                                    "with a city far off into the distance south is a 2 story fall to the outer world")
-intrm12 = Room('kitchen window', None, 'extrm1', None, "intrm10", None, None, "outside of the window is a street, sand"
-                " on either side for as afar as the eye can see. Southward is a 2 story fall to the outer world" )
-intrm13 = Room('Garage', None, None, 'intrm2', 'extrm2', None, None)
-intrm14 = Room
+               "with a city far off into the distance south is a 2 story fall to the outer world")
+intrm12 = Room('Kitchen Window', None, 'extrm1', None, "intrm10", None, None, "outside of the window is a street, sand"
+                " on either side for as afar as the eye can see. Southward is a 2 story fall to the outer world.")
+intrm13 = Room('Garage', None, None, 'intrm2', 'extrm2', None, None, "A metal walled room, with tools one one of them"
+                "and a large metal door. ")
+intrm14 = Room()
 intrm15 = Room
 intrm16 = Room()
 
