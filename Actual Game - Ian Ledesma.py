@@ -48,42 +48,55 @@ class Character(object):
         print("Oof. You Died.")
 
 
-extrm1 = Room('South of Pineapple', 'intrm1', "#road", None, 'extrm2', None, None, "You're near a big metal door on a pine"
-             "apple. North is a living room, south is a road, east is sand, and west is a window into Squidward's"
-             "house.")
+extrm1 = Room('South of Pineapple', 'intrm1', "#road", None, 'extrm2', None, None, "You're near a big metal door on a"
+              "pine apple.\n North is a living room, south is a road, east is sand, and west is a window into "
+              "Squidward's house.")
 extrm2 = Room('West of Pineapple', None, "#road", "intrm13", "#Squidward's house", None, None, "" )
 extrm3 = Room("North of Pineapple", None, 'extrm4', None, None, None, None, "Around you is sand, all but the window "
               "southward.")
 extrm4 = Room()
-intrm1 = Room('Living Room', 'intrm2', 'extrm1', None, None, None, None,
-              "In front of you is a room lined with fishing and swimming equipment as furniture, "
-              " helmet for a tv, and a blue bamboo wall. to the east is a closet, and to the north is a kitchen.")
+intrm1 = Room('Living Room', 'intrm2', 'extrm1', None, None, None, None, "In front of you is a room lined with fishing "
+              "and swimming equipment as furniture, helmet for a tv, and a blue bamboo wall.\n To the east is a closet,"
+              "and to the north is a kitchen.")
 intrm2 = Room('Kitchen', 'extrm1', 'intrm2', None, None, None, None, "there's a kitchen with a metal wall to one"
             "side and bamboo on the other, as well as bamboo cuboards and surf board counters, and a bucket for a sink")
 intrm3 = Room('Kitchen Window', 'extrm3', 'intrm2', None, None, None, None, "you lean on a metal rimmed, circle window."
               "north, outside of it is the outdoors.")
-intrm4 = Room('Closet', None, None, 'intrm1', 'intrm14', None, None, "you see a collection of party supplies, cooking "
-            "supplies, and other supplies of literally anything else. we-a-st of you is a small door, leading to"
+intrm4 = Room('Closet', None, None, 'intrm1', 'intrm14', None, None, "There's a collection of supplies for literally"
+              "every scenario.\n East is the living room, and West is "
             "someone else's room ...")
 intrm5 = Room('Ladder', None, None, None, None, 'intrm6', 'intrm15', "you're on a bamboo ladder, with the only places "
               "to go being up or down." )
-intrm6 = Room('Bedroom', )
+intrm6 = Room('Bedroom', "intrm8", None, ""  )
 #  do description
 intrm7 = Room('Library', None, None, None, None, 'intrm6', None, "all around ")
 #  do description
 intrm8 = Room('Bedroom Window', 'extrm4', 'intrm6', None, None, None, None, "outside of the window is a street, sand" 
             "on either side for as afar as the eye can see. northward is a 2 story fall to the outer world")
-intrm9 = Room('Hallway', None, None, "intrm6", "intrm10", None, None, "you walk o" #  not done
+intrm9 = Room('Hallway', None, None, "intrm6", "intrm10", None, None, "you walk o" )
 intrm10 = Room('Restroom', 'intrm11', None, 'Intrm9', None, None,   )
 intrm11 = Room('Restroom Window', 'extrm3', 'intrm10', None, None, None, None, "outside of the window is a sandy floor,"
                "with a city far off into the distance south is a 2 story fall to the outer world")
 intrm12 = Room('Kitchen Window', None, 'extrm1', None, "intrm10", None, None, "outside of the window is a street, sand"
                 " on either side for as afar as the eye can see. Southward is a 2 story fall to the outer world.")
 intrm13 = Room('Garage', None, None, 'intrm2', 'extrm2', None, None, "A metal walled room, with tools one one of them"
-                "and a large metal door. ")
+               "and a large, mobile door.\n ")
 intrm14 = Room()
 intrm15 = Room
 intrm16 = Room()
+#Maze Gary
+maze1 = Room("Gary's Conscious", None, None, None, "maze2" , None, None, "A dark void surrounds you.")
+maze2 = Room("Gary's Conscious", None, "maze3", None, None , None, None, "A dark void surrounds you.")
+maze3 = Room("Gary's Conscious", None, None, "maze4", None , None, None, "A dark void surrounds you.")
+maze4 = Room("Gary's Conscious", None, None, "maze5", None , None, None, "A dark void surrounds you.")
+maze5 = Room("Gary's Conscious", None, "maze6", None, None , None, None, "A dark void surrounds you.")
+maze6 = Room("Gary's Conscious", "maze7", None, None, None , None, None, "A dark void surrounds you.")
+maze7 = Room("Gary's Conscious", None, None, None, None , None, "maze8", "A dark void surrounds you.")
+maze8 = Room("Gary's Conscious", "intrm5", None, None, None , None, None, "A dark void surrounds you.\n but North is a"
+             "brilliant light of ignorance and stupidity, in this void of acknowledgement and intelligence.")
+
+
+
 
 current_node = extrm1
 directions = ['north', 'south', 'east', 'west', 'up', 'down']
