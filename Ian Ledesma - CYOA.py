@@ -1,4 +1,22 @@
-
+# self.attack = attack
+#         self.health = health
+# #  Things that a Cat can do
+#     def heal(self):
+#         if self.state == "Eating Krabby Patty":
+#             self.health += 2
+#     def take_damage(self):
+#         self.health -= 2
+#     def interact(self):
+#         self.state = ""
+#     def climb(self):
+#         self.state = ""
+#     def look(self):
+#         print(current_node.description)
+#     def fight(self):
+#         self.attack = ""
+#     def death(self):
+#         self.health <= 0
+#         print("Oof. You Died.")
 """
 1. import statements
 2. class definitions
