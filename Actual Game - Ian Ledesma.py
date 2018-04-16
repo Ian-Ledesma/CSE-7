@@ -71,19 +71,25 @@ intrm14 = Room()
 intrm15 = Room
 intrm16 = Room()
 #  Maze Spongebob
-maze9 =
-maze10 =
-maze11 =
-maze12 = 
+maze9 = Room("Spongebob's Mind", "maze10", None, None, None, None, None, "A dark viod surrounds you.")
+maze10 = Room("SPongebob's Mind", None, "maze11", None, None, None, None, "A dark viod surrounds you.")
+maze11 = Room("SpOngebob's Mind", None, None, None, None, None, None, "A dark viod surrounds you.")
+maze13 = Room("SpoNgebob's Mind", None, None, None, None, None, "A dark viod surrounds you.")
+maze14 = Room("SponGebob's Mind", None, None, None, None, None, "A dark viod surrounds you.")
+maze15 = Room("SpongEbob's Mind", None, None, None, None, None, "A dark viod surrounds you.")
+maze16 = Room("SpongeBob's Mind", None, None, None, None, None, "A dark viod surrounds you.")
+maze17 = Room("SpongebOb's Mind", None, None, None, None, None, "A dark viod surrounds you.")
+maze18 = Room("SpongeboB's Mind", None, None, None, None, None, "A dark viod surrounds you.")
+maze19 = Room("Spongebob'S Mind", None, None, None, None, None, "A dark viod surrounds you.")
 #  Maze Gary
-maze1 = Room("Gary's Conscious", None, None, None, "maze2" , None, None, "A dark void surrounds you.")
-maze2 = Room("GAry's Conscious", None, "maze3", None, None , None, None, "A dark void surrounds you.")
-maze3 = Room("GaRy's Conscious", None, None, "maze4", None , None, None, "A dark void surrounds you.")
-maze4 = Room("GarY's Conscious", None, None, "maze5", None , None, None, "A dark void surrounds you.")
-maze5 = Room("Gary'S Conscious", None, "maze6", None, None , None, None, "A dark void surrounds you.")
-maze6 = Room("Gary's CoNscious", "maze7", None, None, None , None, None, "A dark void surrounds you.")
-maze7 = Room("Gary's ConsciouS", None, None, None, None , None, "maze8", "A dark void surrounds you.")
-maze8 = Room("Gary's ConScious", "intrm5", None, None, None , None, None, "A dark void surrounds you.\n but North is a"
+maze1 = Room("Gary's Mind", None, None, None, "maze2" , None, None, "A dark void surrounds you.")
+maze2 = Room("GAry's Mind", None, "maze3", None, None , None, None, "A dark void surrounds you.")
+maze3 = Room("GaRy's Mind", None, None, "maze4", None , None, None, "A dark void surrounds you.")
+maze4 = Room("GarY's Mind", None, None, "maze5", None , None, None, "A dark void surrounds you.")
+maze5 = Room("Gary'S Mind", None, "maze6", None, None , None, None, "A dark void surrounds you.")
+maze6 = Room("Gary's MInd", "maze7", None, None, None , None, None, "A dark void surrounds you.")
+maze7 = Room("Gary's MiNd", None, None, None, None , None, "maze8", "A dark void surrounds you.")
+maze8 = Room("Gary's MinD", "intrm5", None, None, None , None, None, "A dark void surrounds you.\n but North is a"
              "brilliant light of ignorance and stupidity, in this void of acknowledgement and intelligence.")
 
 
@@ -91,6 +97,7 @@ current_node = extrm1
 directions = ['north', 'south', 'east', 'west', 'up', 'down']
 short_directions = ['n', 's', 'e', 'w', 'u', 'd']
 
+# Remote
 while True:
     print(current_node.name)
     print(current_node.description)
