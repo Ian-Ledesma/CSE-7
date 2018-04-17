@@ -115,8 +115,7 @@ hydrodynamic_spatula = Weapons("Hydro-Dynamic Spatula", "A multi-use spatula wit
                                "of chef.", 20*3)
 ladle = Weapons("Ladle", "A long, angled spoon is the pinnacle multi-utility, but for your use only a weapon", 20)
 spoon = Weapons("Spoon", "The average scoop.", 10)
-le_spatula = Weapons("Le Spatula", "A spatula so full of itself that it'll hurt YOU, unless you're a fanciful "
-                     "character")
+le_spatula = Weapons("Le Spatula", "A spatula so full of itself that it'll whoever sees fit.")
 #  Turn into a class for the either does takes away your health, or helps you a lot
 
 #  magic
