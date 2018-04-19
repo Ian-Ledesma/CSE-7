@@ -18,24 +18,13 @@ class Room(object):
         current_node = globals()[getattr(self, direction)]
 
 
-#  Defining a class
-class Character(object):
-    # TWO underscores before and after
-    def __init__(self, state, name, description, inventory, item, attack, health, stats):
-        #  Things that a Cat has
-        self.state = state
-        self.name = name
-        self.description = description
-        self.inventory = inventory
-        self.item = item
-
-        print("Oof. You Died.")
-
-
-extrm1 = Room('South of Pineapple', 'intrm1', "#road", None, 'extrm2', None, None, "You're near a big metal door on a"
+extrm1 = Room('South of Pineapple', 'intrm1', None, None, 'extrm2', None, None, "You're near a big metal door on a"
               "pine apple.\n North is a living room, south is a road, east is sand, and west is a window into "
               "Squidward's house.")
-extrm2 = Room('West of Pineapple', None, "#road", "intrm13", "#Squidward's house", None, None, "You're ne" )
+extrm2 = Room('West of Pineapple', None, None, "intrm13", None, None, None, "You're near a massive "
+              "pineapple\n where eastward is back to the garage, westward is an easter-island-statue-house, and south "
+              "is the road.")
+#  make road and squidward's house later
 extrm3 = Room("North of Pineapple", None, 'extrm4', None, None, None, None, "Around you is sand, all but the window "
               "southward.")
 intrm1 = Room('Living Room', 'intrm2', 'extrm1', None, None, None, None, "In front of you is a room lined with fishing "
@@ -116,7 +105,7 @@ maze18 = Room("Spongebob'S Mind", None, None, None, None, None, "extrm2", "A dis
               " you.\n But above is relative darkness to this terrifying realm.")
 
 
-current_node = extrm1
+current_node = extrm1 
 directions = ['north', 'south', 'east', 'west', 'up', 'down']
 short_directions = ['n', 's', 'e', 'w', 'u', 'd']
 

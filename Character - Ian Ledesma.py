@@ -17,6 +17,18 @@ Death
 Stats
 
 """
+#  Defining a class
+# class Character(object):
+#     # TWO underscores before and after
+#     def __init__(self, state, name, description, inventory, item, attack, health, stats):
+#         #  Things that a Cat has
+#         self.state = state
+#         self.name = name
+#         self.description = description
+#         self.inventory = inventory
+#         self.item = item
+#
+#         print("Oof. You Died.")
 
 
 #  Defining a class
