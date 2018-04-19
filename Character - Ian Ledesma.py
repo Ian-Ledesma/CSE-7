@@ -17,18 +17,6 @@ Death
 Stats
 
 """
-#  Defining a class
-# class Character(object):
-#     # TWO underscores before and after
-#     def __init__(self, state, name, description, inventory, item, attack, health, stats):
-#         #  Things that a Cat has
-#         self.state = state
-#         self.name = name
-#         self.description = description
-#         self.inventory = inventory
-#         self.item = item
-#
-#         print("Oof. You Died.")
 
 
 #  Defining a class
@@ -73,6 +61,7 @@ class Character(object):
 
     def look(self):
         print(current_node.description)  # current_node is defined in the world map
+        print(current_node.name)
 
     def fight(self):
         self.state == "Fight"
@@ -93,5 +82,6 @@ Squidward = Character("Sad", "Squidward", "A sad blue octopus. He enjoys playing
                       "simultaneously arrogant and insecure.", None, "Clarinet", 0, 80, 80, 130, )
 
 Patrick = Character("Pink", "Patrick", "A pink starfish. In his nature, blissfully ignorant.", None, "Sand", 15, 120,
-                    120, 150, )
-# Gary = Character()
+                    120, 150, ""
+
+Gary = Character("", "Gary", "A blue snail with a b")
