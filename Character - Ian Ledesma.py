@@ -82,6 +82,6 @@ Squidward = Character("Sad", "Squidward", "A sad blue octopus. He enjoys playing
                       "simultaneously arrogant and insecure.", None, "Clarinet", 0, 80, 80, 130, )
 
 Patrick = Character("Pink", "Patrick", "A pink starfish. In his nature, blissfully ignorant.", None, "Sand", 15, 120,
-                    120, 150, ""
+                    120, 150, "")
 
-Gary = Character("", "Gary", "A blue snail with a b")
+Gary = Character("", "Gary", "A blue snail with a b", )
