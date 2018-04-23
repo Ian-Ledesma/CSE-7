@@ -11,12 +11,11 @@
 
 
 class Character(object):
-    def __init__(self, state, name, description, inventory, item, attack, health, max_hp, magic):
+    def __init__(self, state, name, description, attack, health, max_hp, magic, item):
         self.state = state
         self.name = name
         self.description = description
-        self.inventory = inventory
-
+        self.item = item
         self.attack = attack
         self.health = health
         self.max_hp = max_hp
@@ -67,20 +66,15 @@ class Character(object):
 
 Spongebob = Character("Happy", "Spongebob", "A square, yellow, and porous sponge, gay in his nature.", "Spatula", None,
                       10, 100, 100, 130)
-
 Squidward = Character("Sad", "Squidward", "A sad blue octopus. He enjoys playing the clarinet, and he is"
                       "simultaneously arrogant and insecure.", None, "Clarinet", 0, 80, 80, 130)
-
 Patrick = Character("Pink", "Patrick", "A pink starfish. In his nature, blissfully ignorant.", None, "Sand", 15, 120,
                     120, 150)
-
-Plankton = Character("Brown", 'Amoeba', 'A dog.', [], 'karen', 10, 10, 10, 1000000000)
-
-
-# Gary = Character("Snail", "shbdj;")
+Plankton = Character("Brown", 'Amoeba', 'A dog.', 'karen', 10, 10, 10, 100000)
+Gary = Character("Snail", "Gary the Snail", "A snail", 20, 40, 40, 5,   )
 
 # Temporary Value
-# current_node = None
+current_node = None
 
 
 class Room(object):
@@ -146,12 +140,11 @@ intrm15 = Room("Cellar", None, None, None, None, "intrm 5", None, "You see many 
                "floor to ceiling,\nwith the only way out being up.", None)
 intrm16 = Room("Sunroof", "extrm3", "extrm1", None, "extrm2", None, "intrm6", "Around you are some big pineapple leaves"
                "and no ceiling.\n All around is a path to freedom, or a painful retreat downward.", None)
-
 #  Maze Gary
 maze1 = Room("Gary's Mind", None, None, None, "maze2", None, None, "A disgustingly colorful expansion surrounds"
              " you., None", None)
 maze2 = Room("GAry's Mind", None, "maze3", None, None, None, None, "A disgustingly colorful expansion surrounds"
-             " you.", None)
+             "you.", None)
 maze3 = Room("GaRy's Mind", None, None, "maze4", None, None, None, "A disgustingly colorful expansion surrounds"
              " you.", None)
 maze4 = Room("GarY's Mind", None, None, "maze5", None, None, None, "A disgustingly colorful expansion surrounds"
@@ -192,19 +185,6 @@ directions = ['north', 'south', 'east', 'west', 'up', 'down']
 short_directions = ['n', 's', 'e', 'w', 'u', 'd']
 actions = ["strike", "heal", "conjuring", "heal", "look"]
 short_actions = ['a', 'h', 'c', 'h', 'l', ]
-"""
-
-Name
-Description
-Dialogue?
-Inventory
-Interact
-Look
-Item
-Take Damage
-Stats
-
-"""
 
 # 4. Controller
 while True:
@@ -230,5 +210,4 @@ while True:
     else:
         print("Command not recognized")
 
-# Fight
 
