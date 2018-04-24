@@ -1,12 +1,12 @@
 import random
-random.guessed
+
+while health >= 0 # define in character
+    num = (random.randint(0, 101))
 
 class Items(object):
     def __init__(self, name, description):
         self.name = name
         self.description = description
-#
-
 
 class Key(Items):
     def __init__(self, name, description):
@@ -26,8 +26,7 @@ class Clarinet(Key):
         self.allow_entry = allow_entry
 
      def open(self, character):
-         character.location = extrm1
-    #cahnge later to squidwards house
+         character.location = extrm1 #define room
 
 
 class HorseRadish(Key):
@@ -37,7 +36,7 @@ class HorseRadish(Key):
 
     def open(self):
         if self.unlock:
-            print("U opened it lmao XD dead inside")
+            print("U opened it lmao XD")
             self.unlock = True
 
 
@@ -45,62 +44,40 @@ class Weapons(Items):
     def __init__(self, name, description, attack):
         super(Weapons, self). __init__(name, description)
         self.attack = attack
-    # self.sand = sand
-    # self.spatula = spatula
-    # self.neptune_spatula = neptune_spatula
-    # self.hydrodynamic_spatula = hydrodynamic_spatula
-    # self.le_spatula = le_spatula
-    # self.ladle = ladle
-    # self.spoon = spoon
-#  Done
 
 
 class LeSpatula(Weapons):
     def __init__(self, name, description, attack, self_harm):
         super(LeSpatula, self). __init__(name, description, attack)
         self.self_harm = self_harm
-        self.state = False
+    if num > 20:
+        self_harm = False
+    else:
+        self_harm = True
 
 class Magic(Weapons):
     def __init__(self, name, description, attack, mana_use):
         super(Magic, self). __init__(name, description, attack)
         self.mana_use = mana_use
-    # self.wand = wand
-    # self.hocus_pocus_kit = hocus_pocus_kit
-    # self.magic_conch = magic_conch
-    # self.imagination_box = imagination_box
 
 
 class Armor(Items):
     def __init__(self, name, description, defense):
         super(Armor, self). __init__(name, description)
         self.defense = defense
-        # self.metal = metal
-        # self.sponge_absorbtion = sponge_absorbtion
-        # self.fat_flabs = fat_flabs
-        # self.krab_shell = krab_shell
 
 
 class Spikes(Armor):
     def __init__(self, name, description, defense, attack):
         super(Spikes, self).__init__(name, description, defense)
         self.attack = attack
-        # self.sponge_abrasion = sponge_abrasion
-        # self.pufferfish_spikes = pufferfish_spikes
-        # self.sea_urchin_spikes = sea_urchin_spikes
-#  Done
 
 
 class Heal(Items):
     def __init__(self, name, description, heal):
         super(Heal, self). __init__(name, description)
         self.heal = heal
-        # self.imagination = imagination
-        # self.krabby_patty = krabby_patty
-        # self.filter_feed = filter_feed
-        # self.mayo = mayo
         self.state = "Eating"
-#  Done
 
 
 '''
@@ -115,8 +92,7 @@ hydrodynamic_spatula = Weapons("Hydro-Dynamic Spatula", "A multi-use spatula wit
                                "of chef.", 20*3)
 ladle = Weapons("Ladle", "A long, angled spoon is the pinnacle multi-utility, but for your use only a weapon", 20)
 spoon = Weapons("Spoon", "The average scoop.", 10)
-le_spatula = Weapons("Le Spatula", "A spatula so full of itself that it'll whoever sees fit.")
-#  Turn into a class for the either does takes away your health, or helps you a lot
+le_spatula = LeSpatula("Le Spatula", "A spatula so full of itself that it'll attack whoever sees fit.", 60, 20)
 
 #  magic
 wand = Magic("Magic", "A black stick and star on the tip is your weapon.", 15, 10)
@@ -128,7 +104,6 @@ magic_conch = Magic("Magic Conch", "This conch gives you the ultimate advice, te
                     "an enemy", 9999, 9999)
 imagination_box = Magic("Imagination Box", "This box gives you as much power as you give it. In this case only 50.", 50,
                         30)
-
 #  armor
 sea_urchin_spikes = Spikes("Sea Urchin Spikes", "A set of spikes for both protection and defense.", 4, 10)
 metal = Armor("Anti-Rust Metal", "Just some metal that doesn't rust", 5)
