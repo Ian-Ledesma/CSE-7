@@ -11,7 +11,7 @@
 
 
 class Character(object):
-    def __init__(self, state, name, description, attack, health, max_hp, magic, item):
+    def __init__(self, state, name, description, attack, health, max_hp, magic):
         self.state = state
         self.name = name
         self.description = description
@@ -20,6 +20,12 @@ class Character(object):
         self.health = health
         self.max_hp = max_hp
         self.magic = magic
+
+#inventory 
+class Inventory:
+    def __init__(self, weapon, armor, Key, magic, heal):
+        self.
+
 
     def defend(self):
         if self.state == "Defend":
@@ -63,15 +69,13 @@ class Character(object):
             self.health -= enemy.attack
             enemy.health -= self.attack
 
-
-Spongebob = Character("Happy", "Spongebob", "A square, yellow, and porous sponge, gay in his nature.", "Spatula", None,
-                      10, 100, 100, 130)
+Spongebob = Character("Happy", "Spongebob", "A square, yellow, and porous sponge, gay in his nature.", 10, 100, 100,
+                      130)
 Squidward = Character("Sad", "Squidward", "A sad blue octopus. He enjoys playing the clarinet, and he is"
-                      "simultaneously arrogant and insecure.", None, "Clarinet", 0, 80, 80, 130)
-Patrick = Character("Pink", "Patrick", "A pink starfish. In his nature, blissfully ignorant.", None, "Sand", 15, 120,
-                    120, 150)
+                      "simultaneously arrogant and insecure.", 0, 80, 80, 130)
+Patrick = Character("Pink", "Patrick", "A pink starfish. In his nature, blissfully ignorant.", 15, 120, 120, 150)
 Plankton = Character("Brown", 'Amoeba', 'A dog.', 'karen', 10, 10, 10, 100000)
-Gary = Character("Snail", "Gary the Snail", "A snail", 20, 40, 40, 5,   )
+Gary = Character("Snail", "Gary the Snail", "A snail", 20, 40, 40, 5, )
 
 # Temporary Value
 current_node = None
@@ -211,3 +215,4 @@ while True:
         print("Command not recognized")
 
 
+#
