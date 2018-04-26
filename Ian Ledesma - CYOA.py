@@ -1,3 +1,4 @@
+import random
 """
 1. import statements
 2. class definitions
@@ -8,10 +9,90 @@
     *same order as above
 4. controller
 """
+class Items(object):
+    def __init__(self, name, description, rarity):
+        self.name = name
+        self.description = description
+        self.rarity = rarity
+
+#Key
+class Key(Items):
+    def __init__(self, name, description, rarity):
+        super(Key, self).__init__(name, description, rarity)
+        self.unlock = False
 
 
+class TimeMachine(Key):
+    def __init__(self, name, description, rarity, allow_entry):
+        super(TimeMachine, self). __init__(name, description, rarity)
+        self.allow_entry = allow_entry
+
+
+class Clarinet(Key):
+    def __init__(self, name, description, rarity, allow_entry):
+        super(Clarinet, self). __init__(name, description, rarity)
+        self.allow_entry = allow_entry
+
+     def open(self, character):
+         character.location = extrm1 #defined in room
+
+
+class HorseRadish(Key):
+    def __init__(self, name, description, rarity, allow_entry):
+        super(HorseRadish, self). __init__(name, description, rarity)
+        self.allow_entry = allow_entry
+
+    def open(self):
+        if self.unlock:
+            print("U opened it lmao XD")
+            self.unlock = True
+
+#Weapons
+class Weapons(Items):
+    def __init__(self, name, description, rarity, attack):
+        super(Weapons, self). __init__(name, description, rarity)
+        self.attack = attack
+
+
+class LeSpatula(Weapons):
+    def __init__(self, name, description, rarity, attack, self_harm):
+        super(LeSpatula, self). __init__(name, description, attack, rarity)
+        self.self_harm = self_harm
+    if num > 20:
+        self_harm = False
+    else:
+        self_harm = True
+
+#Magic
+class Magic(Weapons):
+    def __init__(self, name, description, rarity, attack, mana_use):
+        super(Magic, self). __init__(name, description, attack, rarity)
+        self.mana_use = mana_use
+
+
+class Armor(Items):
+    def __init__(self, name, description, rarity, defense):
+        super(Armor, self). __init__(name, description, rarity)
+        self.defense = defense
+
+
+class Spikes(Armor):
+    def __init__(self, name, description, rarity, defense, attack):
+        super(Spikes, self).__init__(name, description, rarity, defense)
+        self.attack = attack
+
+
+class Heal(Items):
+    def __init__(self, name, description, rarity, heal):
+        super(Heal, self). __init__(name, description, rarity)
+        self.heal = heal
+        self.state = "Eating"
+
+
+
+#Character
 class Character(object):
-    def __init__(self, state, name, description, attack, health, max_hp, magic):
+    def __init__(self, state, name, description, item, attack, health, max_hp, mana):
         self.state = state
         self.name = name
         self.description = description
@@ -19,29 +100,25 @@ class Character(object):
         self.attack = attack
         self.health = health
         self.max_hp = max_hp
-        self.magic = magic
-
-#inventory 
-class Inventory:
-    def __init__(self, weapon, armor, Key, magic, heal):
-        self.
+        self.mana = mana
 
 
     def defend(self):
-        if self.state == "Defend":
-            self.take_damage -= 0
+        if self.state == "Defense":
+            self.max_hp = 0
 
     def heal(self):
         if self.state == "Eating":
-            self.health += 3
+            self.health = 0
             print("You healed")
+
 
     def take_damage(self):
         if self.state == "Falling":
-            self.health -= 2
+            self.health = 0
             print("Oof, you fell, you lost 2 HP. You have %s left." % self.health)
         if self.state == "Attacked":
-            self.health -= 5
+            self.health = 0
 
     def interact(self):
         self.state = "Interact"
@@ -51,7 +128,7 @@ class Inventory:
         self.state = "Climb"
 
     def look(self):
-        print(current_node.description)  # current_node is defined in the world map
+        print(current_node.description)
         print(current_node.name)
 
     # def fight(self):
@@ -69,18 +146,20 @@ class Inventory:
             self.health -= enemy.attack
             enemy.health -= self.attack
 
-Spongebob = Character("Happy", "Spongebob", "A square, yellow, and porous sponge, gay in his nature.", 10, 100, 100,
-                      130)
-Squidward = Character("Sad", "Squidward", "A sad blue octopus. He enjoys playing the clarinet, and he is"
-                      "simultaneously arrogant and insecure.", 0, 80, 80, 130)
-Patrick = Character("Pink", "Patrick", "A pink starfish. In his nature, blissfully ignorant.", 15, 120, 120, 150)
-Plankton = Character("Brown", 'Amoeba', 'A dog.', 'karen', 10, 10, 10, 100000)
-Gary = Character("Snail", "Gary the Snail", "A snail", 20, 40, 40, 5, )
+    while health >= 0  # define in character
+            num = (random.randint(0, 101))
+# inventory
+class Inventory:
+    def __init__(self, weapon, armor, key, magic, heal):
+        self.weapon = weapon
+        self.armor = armor
+        self.key = key
+        self.magic = magic
+        self.heal = heal
 
-# Temporary Value
-current_node = None
-
-
+"""
+Room
+"""
 class Room(object):
     def __init__(self, name, north, south, east, west, up, down, description, enemy_in):
         self.name = name
@@ -97,7 +176,58 @@ class Room(object):
         global current_node
         current_node = globals()[getattr(self, direction)]
 
+'''
+Item Instantiation 
+'''
+sand = Weapons("Sand", "The grains of sand below your perambulation appendages are your weapon.", "Common", 5)
+spatula = Weapons("Spatula", "The ultimate kitchen appliance is your weapon, the spatula.", "Uncommon", 20*3)
+neptune_spatula = Weapons("Neptune's Spatula", "The spatula indicating divine culinary potential is your weapon.",
+                          "Legendary", 55)
+hydrodynamic_spatula = Weapons("Hydro-Dynamic Spatula", "A multi-use spatula with utilities such as triple action" 
+                               "cooking, a bright, blinking, red light, and more, it is fit for only the most masterful"
+                               "of chef.", "Legendary", 20*3)
+ladle = Weapons("Ladle", "A long, angled spoon is the pinnacle multi-utility, but for your use only a weapon", "Rare",
+                20)
+spoon = Weapons("Spoon", "The average scoop.", "Rare", 10)
+le_spatula = LeSpatula("Le Spatula", "A spatula so full of itself that it'll attack whoever sees fit.", "Epic", 60, 20)
+#  magic
+wand = Magic("Magic", "A black stick and star on the tip is your weapon.", "Common", 15, 10)
+hocus_pocus_kit = Magic("Mr.Magic's Magical Kit", "This kit includes a Book of Spells, a Wand of Whimsy, the beard of"
+                        " Rasputin, and a license to practice magic. It possesses the ability to turn anything into"
+                        "mayonnaise", "Rare", 45, 90)
+#  Be able to transform enemy into mayo
+magic_conch = Magic("Magic Conch", "This conch gives you the ultimate advice, telling you how to effectively knock out "
+                    "an enemy", "Legendary", 9999, 100)
+imagination_box = Magic("Imagination Box", "This box gives you as much power as you give it. In this case only 50.",
+                        "Epic", 50, 30)
+#  armor
+sea_urchin_spikes = Spikes("Sea Urchin Spikes", "A set of spikes for both protection and defense.", "Common", 4, 10)
+metal = Armor("Anti-Rust Metal", "Just some metal that doesn't rust", "Uncommon", 5)
+sponge_absorbtion = Armor("Spongebob's Sponginess", "Spongebob's sponginess reduces damage dealt.", "Legendary", 20)
+fat_flabs = Armor("Patrick's Fat", "Patrick's fat protects him.", "Common", 2)
+krab_shell = Armor("Mr.Krabb's Shell", "Mr. Krabb's molted shell protects is an apt set of armor.", "Epic", 10)
+sponge_abrasion = Spikes("Spongebob's Abrasive Side", "Spongebob's abrasive side barks and bites", "Uncommon", -2, 11)
+pufferfish_spikes = Spikes("Mrs. Puff's Spikes", "In times of distress, Mrs. Puff's spikes inflate.", "Legendary", 20, 11)
+#  Heal
+Imagination = Heal("Imagination", "If you believe, you heal.", "Rare", 10)
+Krabby_Patty = Heal("Krabby Patty", "The ultimate food instills belief and health into the consumer.", "Epic", 20)
+Filter_Feed = Heal("Filter Feed", "The water contains healing energies you can use", "Common",2 )
+Mayo = Heal = ("Mayonnaise", "The ultimate substance, capable of preserving fish for eons.", 50, "Legendary")
 
+"""
+Characters Instantiation
+"""
+Spongebob = Character("Happy", "Spongebob", "A square, yellow, and porous sponge, gay in his nature.", 10, 100, 100,
+                      130)
+Squidward = Character("Sad", "Squidward", "A sad blue octopus. He enjoys playing the clarinet, and he is"
+                      "simultaneously arrogant and insecure.", 0, 80, 80, 130)
+Patrick = Character("Pink", "Patrick", "A pink starfish. In his nature, blissfully ignorant.", 15, 120, 120, 150)
+Plankton = Character("Brown", 'Amoeba', 'A dog.', 'karen', 10, 10, 10, 100000)
+Gary = Character("Snail", "Gary the Snail", "A snail", 20, 40, 40, 5, )
+
+"""
+Room Instantiation
+"""
 extrm1 = Room('South of Pineapple', 'intrm1', None, None, 'extrm2', None, None, "You're near a big metal door on a"
               "pine apple.\n North is a living room, south is a road, east is sand, and west is a window into "
               "Squidward's house.", Plankton)
@@ -183,6 +313,8 @@ maze17 = Room("SpongeboB's Mind", None, None, None, None, "maze18", None, "A dis
 maze18 = Room("Spongebob'S Mind", None, None, None, None, None, "extrm2", "A disgustingly colorful expansion surrounds"
               " you.\n But above is relative darkness to this terrifying realm.", None)
 
+# 4. Controller
+current_node = None # Temporary Value
 
 current_node = extrm1
 directions = ['north', 'south', 'east', 'west', 'up', 'down']
@@ -190,7 +322,6 @@ short_directions = ['n', 's', 'e', 'w', 'u', 'd']
 actions = ["strike", "heal", "conjuring", "heal", "look"]
 short_actions = ['a', 'h', 'c', 'h', 'l', ]
 
-# 4. Controller
 while True:
     print(current_node.name)
     print(current_node.description)
@@ -213,6 +344,3 @@ while True:
             print("You cannot go that way.")
     else:
         print("Command not recognized")
-
-
-#
