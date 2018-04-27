@@ -1,4 +1,5 @@
 import random
+num = (random.randint(0, 101))
 """
 1. import statements
 2. class definitions
@@ -9,13 +10,16 @@ import random
     *same order as above
 4. controller
 """
+
+
 class Items(object):
     def __init__(self, name, description, rarity):
         self.name = name
         self.description = description
         self.rarity = rarity
 
-#Key
+
+# Key
 class Key(Items):
     def __init__(self, name, description, rarity):
         super(Key, self).__init__(name, description, rarity)
@@ -27,14 +31,8 @@ class TimeMachine(Key):
         super(TimeMachine, self). __init__(name, description, rarity)
         self.allow_entry = allow_entry
 
-
-class Clarinet(Key):
-    def __init__(self, name, description, rarity, allow_entry):
-        super(Clarinet, self). __init__(name, description, rarity)
-        self.allow_entry = allow_entry
-
-     def open(self, character):
-         character.location = extrm1 #defined in room
+    def open(self, character):
+         character.location = extrm1  # defined in room
 
 
 class HorseRadish(Key):
@@ -47,7 +45,8 @@ class HorseRadish(Key):
             print("U opened it lmao XD")
             self.unlock = True
 
-#Weapons
+
+# Weapons
 class Weapons(Items):
     def __init__(self, name, description, rarity, attack):
         super(Weapons, self). __init__(name, description, rarity)
@@ -63,7 +62,8 @@ class LeSpatula(Weapons):
     else:
         self_harm = True
 
-#Magic
+
+# Magic
 class Magic(Weapons):
     def __init__(self, name, description, rarity, attack, mana_use):
         super(Magic, self). __init__(name, description, attack, rarity)
@@ -89,8 +89,7 @@ class Heal(Items):
         self.state = "Eating"
 
 
-
-#Character
+# Character
 class Character(object):
     def __init__(self, state, name, description, item, attack, health, max_hp, mana):
         self.state = state
@@ -102,7 +101,6 @@ class Character(object):
         self.max_hp = max_hp
         self.mana = mana
 
-
     def defend(self):
         if self.state == "Defense":
             self.max_hp = 0
@@ -111,7 +109,6 @@ class Character(object):
         if self.state == "Eating":
             self.health = 0
             print("You healed")
-
 
     def take_damage(self):
         if self.state == "Falling":
@@ -131,9 +128,6 @@ class Character(object):
         print(current_node.description)
         print(current_node.name)
 
-    # def fight(self):
-    #     self.state = "Fight"
-
     def open(self):
         self.state = "Open"
 
@@ -146,8 +140,7 @@ class Character(object):
             self.health -= enemy.attack
             enemy.health -= self.attack
 
-    while health >= 0  # define in character
-            num = (random.randint(0, 101))
+
 # inventory
 class Inventory:
     def __init__(self, weapon, armor, key, magic, heal):
@@ -157,9 +150,12 @@ class Inventory:
         self.magic = magic
         self.heal = heal
 
+
 """
 Room
 """
+
+
 class Room(object):
     def __init__(self, name, north, south, east, west, up, down, description, enemy_in):
         self.name = name
@@ -175,6 +171,7 @@ class Room(object):
     def move(self, direction):
         global current_node
         current_node = globals()[getattr(self, direction)]
+
 
 '''
 Item Instantiation 
@@ -207,23 +204,24 @@ sponge_absorbtion = Armor("Spongebob's Sponginess", "Spongebob's sponginess redu
 fat_flabs = Armor("Patrick's Fat", "Patrick's fat protects him.", "Common", 2)
 krab_shell = Armor("Mr.Krabb's Shell", "Mr. Krabb's molted shell protects is an apt set of armor.", "Epic", 10)
 sponge_abrasion = Spikes("Spongebob's Abrasive Side", "Spongebob's abrasive side barks and bites", "Uncommon", -2, 11)
-pufferfish_spikes = Spikes("Mrs. Puff's Spikes", "In times of distress, Mrs. Puff's spikes inflate.", "Legendary", 20, 11)
+pufferfish_spikes = Spikes("Mrs. Puff's Spikes", "In times of distress, Mrs. Puff's spikes inflate.", "Legendary", 20,
+                           11)
 #  Heal
 Imagination = Heal("Imagination", "If you believe, you heal.", "Rare", 10)
 Krabby_Patty = Heal("Krabby Patty", "The ultimate food instills belief and health into the consumer.", "Epic", 20)
-Filter_Feed = Heal("Filter Feed", "The water contains healing energies you can use", "Common",2 )
+Filter_Feed = Heal("Filter Feed", "The water contains healing energies you can use", "Common", 2)
 Mayo = Heal = ("Mayonnaise", "The ultimate substance, capable of preserving fish for eons.", 50, "Legendary")
 
 """
 Characters Instantiation
 """
 Spongebob = Character("Happy", "Spongebob", "A square, yellow, and porous sponge, gay in his nature.", 10, 100, 100,
-                      130)
+                      130, 120)
 Squidward = Character("Sad", "Squidward", "A sad blue octopus. He enjoys playing the clarinet, and he is"
-                      "simultaneously arrogant and insecure.", 0, 80, 80, 130)
-Patrick = Character("Pink", "Patrick", "A pink starfish. In his nature, blissfully ignorant.", 15, 120, 120, 150)
+                      "simultaneously arrogant and insecure.", 0, 80, 80, 130, 120)
+Patrick = Character("Pink", "Patrick", "A pink starfish. In his nature, blissfully ignorant.", "", 120, 120, 150, 120)
 Plankton = Character("Brown", 'Amoeba', 'A dog.', 'karen', 10, 10, 10, 100000)
-Gary = Character("Snail", "Gary the Snail", "A snail", 20, 40, 40, 5, )
+Gary = Character("Snail", "Gary the Snail", "A snail", 20, 40, 40, 5, 300)
 
 """
 Room Instantiation
