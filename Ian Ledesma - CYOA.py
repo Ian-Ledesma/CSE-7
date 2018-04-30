@@ -1,5 +1,6 @@
 import random
 num = (random.randint(0, 101))
+Lives = 5
 """
 1. import statements
 2. class definitions
@@ -31,8 +32,8 @@ class TimeMachine(Key):
         super(TimeMachine, self). __init__(name, description, rarity)
         self.allow_entry = allow_entry
 
-    def open(self, character):
-         character.location = extrm1  # defined in room
+    # def open(self, character):
+    #     character.location = extrm1  # defined in room
 
 
 class HorseRadish(Key):
@@ -121,13 +122,6 @@ class Character(object):
         self.state = "Interact"
         print("Touch")
 
-    def climb(self):
-        self.state = "Climb"
-
-    def look(self):
-        print(current_node.description)
-        print(current_node.name)
-
     def open(self):
         self.state = "Open"
 
@@ -136,9 +130,14 @@ class Character(object):
             print("Oof. You Died.")
 
     def fight(self, enemy):
-        while self.health or enemy.health > 0:
-            self.health -= enemy.attack
-            enemy.health -= self.attack
+        try:
+            while self.health or enemy.health > 0:
+                self.health -= enemy.attack
+                enemy.health -= self.attack
+                print(Spongebob.health)
+                print(enemy.health)
+        except AttributeError:
+            print('There is no enemy here.')
 
 
 # inventory
@@ -221,14 +220,17 @@ Squidward = Character("Sad", "Squidward", "A sad blue octopus. He enjoys playing
                       "simultaneously arrogant and insecure.", 0, 80, 80, 130, 120)
 Patrick = Character("Pink", "Patrick", "A pink starfish. In his nature, blissfully ignorant.", "", 120, 120, 150, 120)
 Plankton = Character("Brown", 'Amoeba', 'A dog.', 'karen', 10, 10, 10, 100000)
+# Karen = Character()
+# Nematodes = Character ()
 Gary = Character("Snail", "Gary the Snail", "A snail", 20, 40, 40, 5, 300)
+
 
 """
 Room Instantiation
 """
 extrm1 = Room('South of Pineapple', 'intrm1', None, None, 'extrm2', None, None, "You're near a big metal door on a"
               "pine apple.\n North is a living room, south is a road, east is sand, and west is a window into "
-              "Squidward's house.", Plankton)
+              "Squidward's house.", None)
 extrm2 = Room('West of Pineapple', None, None, "intrm13", None, None, None, "You're near a massive "
               "pineapple\n where eastward is back to the garage, westward is an easter-island-statue-house, and south "
               "is the road.", None)
@@ -237,7 +239,7 @@ extrm3 = Room("North of Pineapple", None, 'extrm4', None, None, None, None, "Aro
               "southward.", None)
 intrm1 = Room('Living Room', 'intrm2', 'extrm1', None, None, None, None, "In front of you is a room lined with fishing "
               "and swimming equipment as furniture, helmet for a tv, and a blue bamboo wall.\n To the east is a closet,"
-              "and to the north is a kitchen.", None)
+              "and to the north is a kitchen.", Plankton)
 intrm2 = Room('Kitchen', 'extrm1', 'intrm2', None, None, None, None, "There's a kitchen with a metal wall to one"
               "side and bamboo on the other, as well as bamboo cuboards and surf board counters, and a bucket for a "
               "sink.\n Northward is the window, southward is the living room, eastward is another window, ", None)
@@ -312,13 +314,13 @@ maze18 = Room("Spongebob'S Mind", None, None, None, None, None, "extrm2", "A dis
               " you.\n But above is relative darkness to this terrifying realm.", None)
 
 # 4. Controller
-current_node = None # Temporary Value
-
+# current_node = None  # Temporary Value
+respawn_point = intrm1
 current_node = extrm1
 directions = ['north', 'south', 'east', 'west', 'up', 'down']
 short_directions = ['n', 's', 'e', 'w', 'u', 'd']
-actions = ["strike", "heal", "conjuring", "heal", "look"]
 short_actions = ['a', 'h', 'c', 'h', 'l', ]
+all_commands = ['north', 'south', 'east', 'west', 'up', 'down', "fight", "heal", "conjuring", "heal", "look"]
 
 while True:
     print(current_node.name)
@@ -327,6 +329,8 @@ while True:
     if command == 'quit':
         quit(0)
 
+    if command == "look":
+    # print the curretn node
     if command == 'fight':
         Spongebob.fight(current_node.enemy_in)
 
@@ -340,5 +344,5 @@ while True:
             current_node.move(command)
         except KeyError:
             print("You cannot go that way.")
-    else:
+    elif command not in all_commands:
         print("Command not recognized")
