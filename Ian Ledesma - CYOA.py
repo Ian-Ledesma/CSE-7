@@ -1,3 +1,4 @@
+
 import random
 num = (random.randint(0, 101))
 Lives = 5
@@ -130,11 +131,14 @@ class Character(object):
 
     def fight(self, enemy):
         try:
+            if enemy == current_node.enemy_in:
+                print("")
             while self.health or enemy.health > 0:
                 self.health -= enemy.attack
                 enemy.health -= self.attack
                 print(Spongebob.health)
                 print(enemy.health)
+
         except AttributeError:
             print('There is no enemy here.')
 
@@ -166,8 +170,6 @@ class Room(object):
         self.description = description
         self.enemy_in = enemy_in
         self.item = item
-
-    def unlock = False
 
     def move(self, direction):
         global current_node
@@ -244,7 +246,7 @@ extrm3 = Room("North of Pineapple", None, 'extrm4', None, None, None, None, "Aro
 intrm1 = Room('Living Room', 'intrm2', 'extrm1', None, None, None, None, "In front of you is a room lined with fishing "
               "and swimming equipment as furniture, helmet for a tv, and a blue bamboo wall.\n To the east is a closet,"
               "and to the north is a kitchen.", None, [])
-intrm2 = Room('Kitchen', 'extrm1', 'intrm2', None, None, None, None, "There's a kitchen with a metal wall to one"
+intrm2 = Room('Kitchen', 'extrm3', 'intrm2', None, None, None, None, "There's a kitchen with a metal wall to one"
               "side and bamboo on the other, as well as bamboo cuboards and surf board counters, and a bucket for a "
               "sink.\n Northward is the window, southward is the living room, eastward is another window, ", None, [])
 intrm3 = Room('Kitchen Window', 'extrm3', 'intrm2', None, None, None, None, "you lean on a metal rimmed, circle window."
