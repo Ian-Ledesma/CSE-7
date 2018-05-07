@@ -1,7 +1,6 @@
 
 import random
 num = (random.randint(0, 101))
-Lives = 5
 """
 1. import statements
 2. class definitions
@@ -39,7 +38,7 @@ class HorseRadish(Key):
         super(HorseRadish, self). __init__(name, description, rarity)
         self.allow_entry = allow_entry
 
-    def open(self, HorseRadish):
+    def open(self, HorseRadish): #local variabel fix it
         while HorseRadish in Inventory:
             if command == "open":
                     Spongebob.location = intrm1
@@ -92,7 +91,7 @@ class Heal(Items):
 
 # Character
 class Character(object):
-    def __init__(self, state, name, description, item, attack, health, max_hp, mana):
+    def __init__(self, state, name, description, item, attack, health, max_hp, mana, lives):
         self.state = state
         self.name = name
         self.description = description
@@ -101,13 +100,12 @@ class Character(object):
         self.health = health
         self.max_hp = max_hp
         self.mana = mana
+        self.lives = lives
 
     def defend(self):
-        if self.state == "Defense":
             self.max_hp = 0
 
     def heal(self):
-        if self.state == "Eating":
             self.health = 0
             print("You healed")
 
@@ -123,11 +121,16 @@ class Character(object):
         print("Touch")
 
     def open(self):
-        self.state = "Open"
+
 
     def death(self):
         if self.health <= 0:
+            self.lives -= 1
             print("Oof. You Died.")
+
+    def game_over(self):
+        if self.lives <= 0:
+            print("~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~ GAME OVER ~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~")
 
     def fight(self, enemy):
         try:
@@ -219,16 +222,16 @@ Mayo = Heal = ("Mayonnaise", "The ultimate substance, capable of preserving fish
 Characters Instantiation
 """
 Spongebob = Character("Happy", "Spongebob", "A square, yellow, and porous sponge, gay in his nature.", 10, 100, 100,
-                      130, 120)
+                      130, 120, 5)
 Squidward = Character("Sad", "Squidward", "A sad blue octopus. He enjoys playing the clarinet, and he is"
-                      "simultaneously arrogant and insecure.", 0, 80, 80, 130, 120)
+                      "simultaneously arrogant and insecure.", 0, 80, 80, 130, 120, 5)
 Patrick = Character("Pink", "Patrick", "A pink starfish. In his nature, blissfully ignorant.", "Fat Flabs", 120, 120,
-                    150, 120)
-Spot = Character("Brown", 'Spot', 'A dog/ amoeba.', None, 10, 10, 10, 1000)
+                    150, 120, 5)
+Spot = Character("Brown", 'Spot', 'A dog/ amoeba.', None, 10, 10, 10, 1000, 5)
 Karen = Character("Computer", "Karen the Computer", "The computer wife of Sheldon J. Plankton. She has a snarky sense"
-                  "of humor, but a caring nature programmed into her by her husband.", None, 100, 120, 130, 170)
+                  "of humor, but a caring nature programmed into her by her husband.", None, 100, 120, 130, 170, 5)
 # Nematodes = Character ("Mean", "")
-Gary = Character("Snail", "Gary the Snail", "A snail", 20, 40, 40, 5, 300)
+Gary = Character("Snail", "Gary the Snail", "A snail", 20, 40, 40, 5, 300, 5)
 
 
 """
@@ -332,6 +335,7 @@ while True:
     print(current_node.name)
     command = input('>_').lower().strip()
     if command == 'quit':
+        print("Tou just died yourself.")
         quit(0)
 
     if command == "look":  # print the current node
@@ -352,3 +356,23 @@ while True:
             print("You cannot go that way.")
     elif command not in all_commands:
         print("Command not recognized")
+
+# drop
+    if command == "drop magic":
+        Spongebob.inventory.remove(Magic)
+        current_node.item.append(Magic)
+
+    if command == "drop weapon":
+        Spongebob.inventory.remove(Weapons)
+        current_node.item.append(Weapons)
+
+    if command == "drop key":
+        Spongebob.inventory.remove(Key)
+        current_node.item.append(Key)
+
+    if command == "drop armor":
+        Spongebob.inventory.remove(Armor)
+        current_node.item.append(Armor)
+
+#pick up
+    if command == "pick up":
