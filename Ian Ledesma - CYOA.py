@@ -120,7 +120,7 @@ class Character(object):
         self.state = "Interact"
         print("Touch")
 
-    def open(self):
+    #def open(self):
 
 
     def death(self):
@@ -155,6 +155,7 @@ class Inventory:
         self.magic = magic
         self.heal = heal
 
+inventory = Inventory(None, None, None, None, None)
 
 """
 Room
@@ -177,6 +178,8 @@ class Room(object):
     def move(self, direction):
         global current_node
         current_node = globals()[getattr(self, direction)]
+
+
 
 
 '''
@@ -359,20 +362,48 @@ while True:
 
 # drop
     if command == "drop magic":
-        Spongebob.inventory.remove(Magic)
-        current_node.item.append(Magic)
+        try:
+            inventory.magic = None
+            current_node.item.append = inventory.magic
+            print("You dropped your %s." %inventory.magic)
+        except inventory is None :
+            print("Spongebob, you can't, you're nonexistent equipment can't go any lower than being your possession.")
 
     if command == "drop weapon":
-        Spongebob.inventory.remove(Weapons)
-        current_node.item.append(Weapons)
-
-    if command == "drop key":
-        Spongebob.inventory.remove(Key)
-        current_node.item.append(Key)
+        try:
+            inventory.weapon = None
+            current_node.item.append = inventory.weapon
+            print("You dropped your %s." % inventory.weapon)
+        except inventory is None:
+            print("Spongebob, you can't, you're nonexistent equipment can't go any lower than being your possession.")
 
     if command == "drop armor":
-        Spongebob.inventory.remove(Armor)
-        current_node.item.append(Armor)
+        try:
+            current_node.item.append = inventory.armor
+            print("You dropped your %s." % inventory.armor)
+            inventory.armor = None
+        except inventory is None:
+            print("Spongebob, you can't, you're nonexistent equipment can't go any lower than being your possession.")
 
-#pick up
+
+    if command == "drop key":
+        try:
+            current_node.item.append = inventory.key
+            print("You dropped your %s." % inventory.key)
+            inventory.key = None
+        except inventory is None:
+            print("Spongebob, you can't, you're nonexistent equipment can't go any lower than being your possession.")
+
+    if command == "drop heal":
+        try:
+            current_node.item.append(Room.item)
+            print("You dropped your %s." % inventory.heal)
+            inventory.heal = None
+        except inventory is None:
+            print("Spongebob, you can't, you're nonexistent equipment can't go any lower than being your possession.")
+
+
+                    #pick up
     if command == "pick up":
+
+
