@@ -1,4 +1,3 @@
-
 import random
 num = (random.randint(0, 101))
 """
@@ -332,7 +331,7 @@ current_node = extrm1
 directions = ['north', 'south', 'east', 'west', 'up', 'down']
 short_directions = ['n', 's', 'e', 'w', 'u', 'd']
 short_actions = ['a', 'h', 'c', 'h', 'l', ]
-all_commands = ['north', 'south', 'east', 'west', 'up', 'down', "fight", "heal", "conjuring", "heal", "look", "open"]
+all_commands = ['north', 'south', 'east', 'west', 'up', 'down', "fight", "heal", "conjuring", "look", "open"]
 
 while True:
     print(current_node.name)
@@ -360,12 +359,22 @@ while True:
     elif command not in all_commands:
         print("Command not recognized")
 
+#  Equip
+    if command == "pick up" or "equip":
+        try:
+            if current_node.item.weapon.attack >= inventory.weapon.attack:
+                inventory.weapon = current_node.item()
+
+        except current_node.item is None:
+            print("There's nothing to PICK UP here silly.")
+
+
 # drop
     if command == "drop magic":
         try:
             inventory.magic = None
             current_node.item.append = inventory.magic
-            print("You dropped your %s." %inventory.magic)
+            print("You dropped your %s." % inventory.magic)
         except inventory is None :
             print("Spongebob, you can't, you're nonexistent equipment can't go any lower than being your possession.")
 
@@ -385,7 +394,6 @@ while True:
         except inventory is None:
             print("Spongebob, you can't, you're nonexistent equipment can't go any lower than being your possession.")
 
-
     if command == "drop key":
         try:
             current_node.item.append = inventory.key
@@ -396,14 +404,12 @@ while True:
 
     if command == "drop heal":
         try:
-            current_node.item.append(Room.item)
+            current_node.item.append = inventory.heal
             print("You dropped your %s." % inventory.heal)
             inventory.heal = None
         except inventory is None:
             print("Spongebob, you can't, you're nonexistent equipment can't go any lower than being your possession.")
 
 
-                    #pick up
-    if command == "pick up":
 
 
