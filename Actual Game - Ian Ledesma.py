@@ -105,7 +105,7 @@ maze18 = Room("Spongebob'S Mind", None, None, None, None, None, "extrm2", "A dis
               " you.\n But above is relative darkness to this terrifying realm.")
 
 
-current_node = extrm1 
+current_node = extrm1
 directions = ['north', 'south', 'east', 'west', 'up', 'down']
 short_directions = ['n', 's', 'e', 'w', 'u', 'd']
 
