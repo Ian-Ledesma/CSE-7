@@ -128,4 +128,3 @@ while True:
             print("You cannot go that way.")
     else:
         print("Command not recognized")
-        print("Oof big gays")
