@@ -396,9 +396,25 @@ while True:
     if command == "pick up" or "equip":
         try:
             if current_node.item_w.attack >= inventory.weapon.attack:
-                inventory
+                inventory.weapon = current_node.space_w  # copy what you have to space
+                current_node.item_w = inventory.weapon  # copy what's in the room to inventory
+                current_node.space_w = current_node.item_w  # put what you HAD into the room
+                current_node.space_w = None  # clear the space for new stuff
 
-        except current_node.item_w is None:
+            elif current_node.item_m.mana_use >= inventory.magic.attack:  # Gotta figure out what is best
+                inventory.magic = current_node.space_m  # copy what you have to space
+                current_node.item_m = inventory.magic  # copy what's in the room to inventory
+                current_node.space_m = current_node.item_m  # put what you HAD into the room
+                current_node.space_m = None  # clear the space for new stuff
+
+            elif current_node.item_w.attack >= inventory.weapon.attack:
+                inventory.weapon = current_node.space_w  # copy what you have to space
+                current_node.item_w = inventory.weapon  # copy what's in the room to inventory
+                current_node.space_w = current_node.item_w  # put what you HAD into the room
+                current_node.space_w = None  # clear the space for new stuff
+
+        except current_node.item_w or current_node.item_m or current_node.item_a or current_node.item_g or \
+                current_node.item_h or current_node.item_k or current_node.item_s is None:
             print("There's nothing to PICK UP here silly.")
 
 # drop
