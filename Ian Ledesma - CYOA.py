@@ -15,8 +15,8 @@ num = (random.randint(0, 101))
 
 
 class Items(object):
-    def __init__(self, name, description, rarity):
-        self.name = name
+    def __init__(self, name, description, rarity):  # rarity tiers: Common = 1, Uncommon = 2, Rare = 3, Epic = 4,
+        self.name = name                            # Legendary = 5
         self.description = description
         self.rarity = rarity
 
@@ -83,11 +83,19 @@ class Spikes(Armor):
         self.attack = attack
 
 
+# Heal
 class Heal(Items):
     def __init__(self, name, description, rarity, heal):
         super(Heal, self). __init__(name, description, rarity)
         self.heal = heal
         self.state = "Eating"
+
+
+# Gloves
+class Socks(Items):
+    def __init__(self, name, description, rarity, fall_soft):
+        super(Socks, self). __init__(name, description, rarity)
+        self.fall_soft = fall_soft
 
 
 # Character
@@ -102,6 +110,8 @@ class Character(object):
         self.max_hp = max_hp
         self.mana = mana
         self.lives = lives
+
+    lives = 5
 
     def defend(self):
             self.max_hp = 0
@@ -200,19 +210,19 @@ class Room(object):
 '''
 Item Instantiation 
 '''
-sand = Weapons("Sand", "The grains of sand below your perambulation appendages are your weapon.", "Common", 5)
-spatula = Weapons("Spatula", "The ultimate kitchen appliance is your weapon, the spatula.", "Uncommon", 20*3)
+sand = Weapons("Sand", "The grains of sand below your perambulation appendages are your weapon.", 1, 5)
+spatula = Weapons("Spatula", "The ultimate kitchen appliance is your weapon, the spatula.", 2, 20*3)
 neptune_spatula = Weapons("Neptune's Spatula", "The spatula indicating divine culinary potential is your weapon.",
-                          "Legendary", 55)
+                          5, 55)
 hydrodynamic_spatula = Weapons("Hydro-Dynamic Spatula", "A multi-use spatula with utilities such as triple action" 
                                "cooking, a bright, blinking, red light, and more, it is fit for only the most masterful"
-                               "of chef.", "Legendary", 20*3)
+                               "of chef.", 5, 20*3)
 ladle = Weapons("Ladle", "A long, angled spoon is the pinnacle multi-utility, but for your use only a weapon", "Rare",
                 20)
-spoon = Weapons("Spoon", "The average scoop.", "Rare", 10)
-le_spatula = LeSpatula("Le Spatula", "A spatula so full of itself that it'll attack whoever sees fit.", "Epic", 60, 20)
+spoon = Weapons("Spoon", "The average scoop.", 3, 10)
+le_spatula = LeSpatula("Le Spatula", "A spatula so full of itself that it'll attack whoever sees fit.", 4, 60, 20)
 #  magic
-wand = Magic("Magic", "A black stick and star on the tip is your weapon.", "Common", 15, 10)
+wand = Magic("Magic", "A black stick and star on the tip is your weapon.\n Common", 1, 15, 10)
 hocus_pocus_kit = Magic("Mr.Magic's Magical Kit", "This kit includes a Book of Spells, a Wand of Whimsy, the beard of"
                         " Rasputin, and a license to practice magic. It possesses the ability to turn anything into"
                         "mayonnaise", "Rare", 45, 90)
@@ -395,23 +405,37 @@ while True:
 #  Equip
     if command == "pick up" or "equip":
         try:
-            if current_node.item_w.attack >= inventory.weapon.attack:
+            if current_node.item_w.rarity >= inventory.weapon.rarity:
                 inventory.weapon = current_node.space_w  # copy what you have to space
                 current_node.item_w = inventory.weapon  # copy what's in the room to inventory
                 current_node.space_w = current_node.item_w  # put what you HAD into the room
                 current_node.space_w = None  # clear the space for new stuff
 
-            elif current_node.item_m.mana_use >= inventory.magic.attack:  # Gotta figure out what is best
+            elif current_node.item_m.rarity >= inventory.magic.rarity:
                 inventory.magic = current_node.space_m  # copy what you have to space
                 current_node.item_m = inventory.magic  # copy what's in the room to inventory
                 current_node.space_m = current_node.item_m  # put what you HAD into the room
                 current_node.space_m = None  # clear the space for new stuff
 
-            elif current_node.item_w.attack >= inventory.weapon.attack:
+            elif current_node.item_a.rarity >= inventory.armor.rarity:
                 inventory.weapon = current_node.space_w  # copy what you have to space
                 current_node.item_w = inventory.weapon  # copy what's in the room to inventory
                 current_node.space_w = current_node.item_w  # put what you HAD into the room
                 current_node.space_w = None  # clear the space for new stuff
+
+            elif current_node.item_s.rarity >= inventory.socks.rarity:
+                inventory.weapon = current_node.space_w  # copy what you have to space
+                current_node.item_w = inventory.weapon  # copy what's in the room to inventory
+                current_node.space_w = current_node.item_w  # put what you HAD into the room
+                current_node.space_w = None  # clear the space for new stuff
+
+            elif current_node.item_h.heal >= inventory.heal.heal:
+                inventory.weapon = current_node.space_w  # copy what you have to space
+                current_node.item_w = inventory.weapon  # copy what's in the room to inventory
+                current_node.space_w = current_node.item_w  # put what you HAD into the room
+                current_node.space_w = None  # clear the space for new stuff
+                
+#gloves increase damage more
 
         except current_node.item_w or current_node.item_m or current_node.item_a or current_node.item_g or \
                 current_node.item_h or current_node.item_k or current_node.item_s is None:
