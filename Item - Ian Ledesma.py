@@ -63,24 +63,31 @@ class Magic(Weapons):
         super(Magic, self). __init__(name, description, attack, rarity)
         self.mana_use = mana_use
 
-
+#Armor
 class Armor(Items):
     def __init__(self, name, description, rarity, defense):
         super(Armor, self). __init__(name, description, rarity)
         self.defense = defense
 
-
+#
 class Spikes(Armor):
     def __init__(self, name, description, rarity, defense, attack):
         super(Spikes, self).__init__(name, description, rarity, defense)
         self.attack = attack
 
-
+#Heal
 class Heal(Items):
     def __init__(self, name, description, rarity, heal):
         super(Heal, self). __init__(name, description, rarity)
         self.heal = heal
         self.state = "Eating"
+
+# Socks
+class Socks(Items):
+    def __init__(self, name, description, rarity, fall_soft):
+        super(Socks, self). __init__(name, description, rarity)
+        self.fall_soft = fall_soft
+
 
 
 '''
@@ -121,3 +128,6 @@ Imagination = Heal("Imagination", "If you believe, you heal.", "Rare", 10)
 Krabby_Patty = Heal("Krabby Patty", "The ultimate food instills belief and health into the consumer.", "Epic", 20)
 Filter_Feed = Heal("Filter Feed", "The water contains healing energies you can use", "Common",2 )
 Mayo = Heal = ("Mayonnaise", "The ultimate substance, capable of preserving fish for eons.", 50, "Legendary")
+
+#  Gloves
+infinitegauntlet = Gloves("Infinty Gauntlet", )
