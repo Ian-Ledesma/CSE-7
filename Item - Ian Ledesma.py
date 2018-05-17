@@ -1,6 +1,6 @@
 import random
 
-while health >= 0 # define in character
+while health >= 0: # define in character
     num = (random.randint(0, 101))
 
 class Items(object):
@@ -82,22 +82,24 @@ class Heal(Items):
         self.heal = heal
         self.state = "Eating"
 
-<<<<<<< HEAD
-class Socks(Items):
-    def __init__(self, name, description, rarity, fall_soften, kick_damage):
-=======
-# Socks
+#Sock
 class Socks(Items):
     def __init__(self, name, description, rarity, fall_soft):
         super(Socks, self). __init__(name, description, rarity)
         self.fall_soft = fall_soft
 
->>>>>>> 16840a44f9f81e405d8353071792c1b4bdb0b41a
+#Gloves
+class Gloves(Items)
+    def __init__(self, name, description, rarity, harder_hit):
+        super(Gloves, self). __init__(name, description, rarity)
+        self.harder_hit = harder_hit
 
 
-'''
+
+
+"""
 The items themselves 
-'''
+"""
 
 sand = Weapons("Sand", "The grains of sand below your perambulation appendages are your weapon.", "Common", 5)
 spatula = Weapons("Spatula", "The ultimate kitchen appliance is your weapon, the spatula.", "Uncommon", 20*3)

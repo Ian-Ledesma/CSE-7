@@ -232,6 +232,8 @@ magic_conch = Magic("Magic Conch", "This conch gives you the ultimate advice, te
                     "an enemy.\n Legendary", 5, 9999, 100)
 imagination_box = Magic("Imagination Box", "This box gives you as much power as you give it. In this case only 50.\n "
                         "Epic", 4, 50, 30)
+#Gloves
+infinty_gauntlet = Gloves('Infinity_Gauntlet', )
 #  armor
 sea_urchin_spikes = Spikes("Sea Urchin Spikes", "A set of spikes for both protection and defense.\n Common", 1, 4, 10)
 metal = Armor("Anti-Rust Metal", "Just some metal that doesn't rust.\n Uncommon", 2, 5)
@@ -381,8 +383,13 @@ while True:
     print(current_node.name)
     command = input('>_').lower().strip()
     if command == 'quit':
-        print("Tou just died yourself. Lmao XD")
+        print("you just died yourself. Lmao XD")
         quit(0)
+    if command == "i don't feel so good" or "i don't wanna go":
+        print("Thanos just killed half of the universe. You are diagnosed with the dead.")
+        quit(0)
+    if command == 'snap'
+        if inventory.gloves = Infin
 
     if command == "look":  # print the current node
         print(current_node.description)
@@ -402,6 +409,11 @@ while True:
             print("You cannot go that way.")
     elif command not in all_commands:
         print("Command not recognized")
+
+#  Snap
+    if command == "snap"
+        try:
+            if command =
 
 #  Equip
     if command == "pick up" or "equip":
@@ -443,7 +455,6 @@ while True:
                 current_node.space_g = None  # clear the space for new stuff
 
 # gloves increase damage
-
         except current_node.item_w or current_node.item_m or current_node.item_a or current_node.item_g or \
                 current_node.item_h or current_node.item_k or current_node.item_s is None:
             print("There's nothing to PICK UP here silly.")
@@ -467,24 +478,26 @@ while True:
 
     if command == "drop armor":
         try:
-            current_node.item_a.append = inventory.armor
             print("You dropped your %s." % inventory.armor)
+            current_node.item_a.append = inventory.armor
             inventory.armor = None
         except inventory is None:
             print("Spongebob, you can't, you're nonexistent equipment can't go any lower than being your possession.")
 
     if command == "drop key":
         try:
-            current_node.item_k.append = inventory.key
             print("You dropped your %s." % inventory.key)
+            current_node.item_k.append = inventory.key
             inventory.key = None
         except inventory is None:
             print("Spongebob, you can't, you're nonexistent equipment can't go any lower than being your possession.")
 
     if command == "drop heal":
         try:
-            current_node.item_h.append = inventory.heal
             print("You dropped your %s." % inventory.heal)
+            current_node.item_h.append = inventory.heal
             inventory.heal = None
         except inventory is None:
             print("Spongebob, you can't, you're nonexistent equipment can't go any lower than being your possession.")
+
+
