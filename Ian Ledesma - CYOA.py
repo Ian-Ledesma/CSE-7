@@ -15,8 +15,8 @@ num = (random.randint(0, 101))
 
 
 class Items(object):
-    def __init__(self, name, description, rarity):
-        self.name = name
+    def __init__(self, name, description, rarity):  # rarity tiers: Common = 1, Uncommon = 2, Rare = 3, Epic = 4,
+        self.name = name                            # Legendary = 5
         self.description = description
         self.rarity = rarity
 
@@ -83,11 +83,19 @@ class Spikes(Armor):
         self.attack = attack
 
 
+# Heal
 class Heal(Items):
     def __init__(self, name, description, rarity, heal):
         super(Heal, self). __init__(name, description, rarity)
         self.heal = heal
         self.state = "Eating"
+
+
+# Socks
+class Socks(Items):
+    def __init__(self, name, description, rarity, fall_soft):
+        super(Socks, self). __init__(name, description, rarity)
+        self.fall_soft = fall_soft
 
 
 # Character
@@ -102,6 +110,8 @@ class Character(object):
         self.max_hp = max_hp
         self.mana = mana
         self.lives = lives
+
+    lives = 5
 
     def defend(self):
             self.max_hp = 0
@@ -200,41 +210,42 @@ class Room(object):
 '''
 Item Instantiation 
 '''
-sand = Weapons("Sand", "The grains of sand below your perambulation appendages are your weapon.", "Common", 5)
-spatula = Weapons("Spatula", "The ultimate kitchen appliance is your weapon, the spatula.", "Uncommon", 20*3)
+sand = Weapons("Sand", "The grains of sand below your perambulation appendages are your weapon.\n Common", 1, 5)
+spatula = Weapons("Spatula", "The ultimate kitchen appliance is your weapon, the spatula.\n Uncommon", 2, 20*3)
 neptune_spatula = Weapons("Neptune's Spatula", "The spatula indicating divine culinary potential is your weapon.",
-                          "Legendary", 55)
+                          5, 55)
 hydrodynamic_spatula = Weapons("Hydro-Dynamic Spatula", "A multi-use spatula with utilities such as triple action" 
                                "cooking, a bright, blinking, red light, and more, it is fit for only the most masterful"
-                               "of chef.", "Legendary", 20*3)
-ladle = Weapons("Ladle", "A long, angled spoon is the pinnacle multi-utility, but for your use only a weapon", "Rare",
+                               "of chef.\n Legendary", 5, 20*3)
+ladle = Weapons("Ladle", "A long, angled spoon is the pinnacle multi-utility, but for your use only a weapon\n Rare", 3,
                 20)
-spoon = Weapons("Spoon", "The average scoop.", "Rare", 10)
-le_spatula = LeSpatula("Le Spatula", "A spatula so full of itself that it'll attack whoever sees fit.", "Epic", 60, 20)
+spoon = Weapons("Spoon", "The average scoop.\n Uncommon", 2, 10)
+le_spatula = LeSpatula("Le Spatula", "A spatula so full of itself that it'll attack whoever sees fit.\n Epic", 4, 60,
+                       20)
 #  magic
-wand = Magic("Magic", "A black stick and star on the tip is your weapon.", "Common", 15, 10)
+wand = Magic("Magic", "A black stick and star on the tip is your weapon.\n Common", 1, 15, 10)
 hocus_pocus_kit = Magic("Mr.Magic's Magical Kit", "This kit includes a Book of Spells, a Wand of Whimsy, the beard of"
                         " Rasputin, and a license to practice magic. It possesses the ability to turn anything into"
-                        "mayonnaise", "Rare", 45, 90)
+                        "mayonnaise.\n Rare", 3, 45, 90)
 #  Be able to transform enemy into mayo
 magic_conch = Magic("Magic Conch", "This conch gives you the ultimate advice, telling you how to effectively knock out"
-                    "an enemy", "Legendary", 9999, 100)
-imagination_box = Magic("Imagination Box", "This box gives you as much power as you give it. In this case only 50.",
-                        "Epic", 50, 30)
+                    "an enemy.\n Legendary", 5, 9999, 100)
+imagination_box = Magic("Imagination Box", "This box gives you as much power as you give it. In this case only 50.\n "
+                        "Epic", 4, 50, 30)
 #  armor
-sea_urchin_spikes = Spikes("Sea Urchin Spikes", "A set of spikes for both protection and defense.", "Common", 4, 10)
-metal = Armor("Anti-Rust Metal", "Just some metal that doesn't rust", "Uncommon", 5)
-sponge_absorbtion = Armor("Spongebob's Sponginess", "Spongebob's sponginess reduces damage dealt.", "Legendary", 20)
-fat_flabs = Armor("Patrick's Fat", "Patrick's fat protects him.", "Common", 2)
-krab_shell = Armor("Mr.Krabb's Shell", "Mr. Krabb's molted shell protects is an apt set of armor.", "Epic", 10)
-sponge_abrasion = Spikes("Spongebob's Abrasive Side", "Spongebob's abrasive side barks and bites", "Uncommon", -2, 11)
-pufferfish_spikes = Spikes("Mrs. Puff's Spikes", "In times of distress, Mrs. Puff's spikes inflate.", "Legendary", 20,
+sea_urchin_spikes = Spikes("Sea Urchin Spikes", "A set of spikes for both protection and defense.\n Common", 1, 4, 10)
+metal = Armor("Anti-Rust Metal", "Just some metal that doesn't rust.\n Uncommon", 2, 5)
+sponge_absorbtion = Armor("Spongebob's Sponginess", "Spongebob's sponginess reduces damage dealt.\n Legendary", 5, 20)
+fat_flabs = Armor("Patrick's Fat", "Patrick's fat protects him.\n Common", 2, 11)
+krab_shell = Armor("Mr.Krabb's Shell", "Mr. Krabb's molted shell protects is an apt set of armor.\n Epic", 4, 10)
+sponge_abrasion = Spikes("Spongebob's Abrasive Side", "Spongebob's abrasive tough to both y'all.\n Uncommon", 2, -2, 11)
+pufferfish_spikes = Spikes("Mrs. Puff's Spikes", "In times of distress, Mrs. Puff's spikes inflate.\n Legendary", 5, 20,
                            11)
 #  Heal
-Imagination = Heal("Imagination", "If you believe, you heal.", "Rare", 10)
-Krabby_Patty = Heal("Krabby Patty", "The ultimate food instills belief and health into the consumer.", "Epic", 20)
-Filter_Feed = Heal("Filter Feed", "The water contains healing energies you can use", "Common", 2)
-Mayo = Heal = ("Mayonnaise", "The ultimate substance, capable of preserving fish for eons.", 50, "Legendary")
+Imagination = Heal("Imagination", "If you believe, you heal.\n Rare", 3, 10)
+Krabby_Patty = Heal("Krabby Patty", "The ultimate food instills belief and health into the consumer.\n Epic", 4, 20)
+Filter_Feed = Heal("Filter Feed", "The water contains healing energies you can use.\n Common", 1, 2)
+Mayo = Heal = ("Mayonnaise", "The ultimate substance, capable of preserving fish for eons.\n Legendary", 5, 50)
 
 """
 Characters Instantiation
@@ -245,7 +256,7 @@ Squidward = Character("Sad", "Squidward", "A sad blue octopus. He enjoys playing
                       "simultaneously arrogant and insecure.", 0, 80, 80, 130, 120, 5)
 Patrick = Character("Pink", "Patrick", "A pink starfish. In his nature, blissfully ignorant.", "Fat Flabs", 120, 120,
                     150, 120, 5)
-Spot = Character("Brown", 'Spot', 'A dog/ amoeba.', None, 10, 10, 10, 1000, 5)
+Spot = Character("Brown", 'Spot', 'A dog/amoeba.', None, 10, 10, 10, 1000, 5)
 Karen = Character("Computer", "Karen the Computer", "The computer wife of Sheldon J. Plankton. She has a snarky sense"
                   "of humor, but a caring nature programmed into her by her husband.", None, 100, 120, 130, 170, 5)
 # Nematodes = Character ("Mean", "")
@@ -370,7 +381,7 @@ while True:
     print(current_node.name)
     command = input('>_').lower().strip()
     if command == 'quit':
-        print("Tou just died yourself.")
+        print("Tou just died yourself. Lmao XD")
         quit(0)
 
     if command == "look":  # print the current node
@@ -395,10 +406,46 @@ while True:
 #  Equip
     if command == "pick up" or "equip":
         try:
-            if current_node.item_w.attack >= inventory.weapon.attack:
-                inventory
+            if current_node.item_w.rarity >= inventory.weapon.rarity:
+                inventory.weapon = current_node.space_w  # copy what you have to space
+                current_node.item_w = inventory.weapon  # copy what's in the room to inventory
+                current_node.space_w = current_node.item_w  # put what you HAD into the room
+                current_node.space_w = None  # clear the space for new stuff
 
-        except current_node.item_w is None:
+            elif current_node.item_m.rarity >= inventory.magic.rarity:
+                inventory.magic = current_node.space_m  # copy what you have to space
+                current_node.item_m = inventory.magic  # copy what's in the room to inventory
+                current_node.space_m = current_node.item_m  # put what you HAD into the room
+                current_node.space_m = None  # clear the space for new stuff
+
+            elif current_node.item_a.rarity >= inventory.armor.rarity:
+                inventory.armor = current_node.space_w  # copy what you have to space
+                current_node.item_w = inventory.weapon  # copy what's in the room to inventory
+                current_node.space_w = current_node.item_w  # put what you HAD into the room
+                current_node.space_w = None  # clear the space for new stuff
+
+            elif current_node.item_s.rarity >= inventory.socks.rarity:
+                inventory.socks = current_node.space_s  # copy what you have to space
+                current_node.item_s = inventory.socks  # copy what's in the room to inventory
+                current_node.space_s = current_node.item_s  # put what you HAD into the room
+                current_node.space_s = None  # clear the space for new stuff
+
+            elif current_node.item_h.heal >= inventory.heal.heal:
+                inventory.heal = current_node.space_h  # copy what you have to space
+                current_node.item_h = inventory.heal  # copy what's in the room to inventory
+                current_node.space_h = current_node.item_h  # put what you HAD into the room
+                current_node.space_h = None  # clear the space for new stuff
+
+            elif current_node.item_g.rarity >= inventory.gloves.rarity:
+                inventory.gloves = current_node.space_g  # copy what you have to space
+                current_node.item_g = inventory.gloves  # copy what's in the room to inventory
+                current_node.space_g = current_node.item_g  # put what you HAD into the room
+                current_node.space_g = None  # clear the space for new stuff
+
+# gloves increase damage
+
+        except current_node.item_w or current_node.item_m or current_node.item_a or current_node.item_g or \
+                current_node.item_h or current_node.item_k or current_node.item_s is None:
             print("There's nothing to PICK UP here silly.")
 
 # drop
