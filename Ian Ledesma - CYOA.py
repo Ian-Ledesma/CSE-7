@@ -261,7 +261,7 @@ extrm1 = Room('South of Pineapple', 'intrm1', None, None, 'extrm2', None, None, 
               None)
 extrm2 = Room('West of Pineapple', None, None, "intrm13", None, None, None, "You're near a massive "
               "pineapple\n where eastward is back to the garage, westward is an easter-island-statue-house, and south "
-              "is the road.", None, None, None, None, None, None, None,None, None, None, None, None, None, None, None)
+              "is the road.", None, None, None, None, None, None, None, None, None, None, None, None, None, None, None)
 #  make road and squidward's house later
 extrm3 = Room("North of Pineapple", None, 'extrm4', None, None, None, None, "Around you is sand, all but the window "
               "southward.", None, None, None, None, None, None, None, None, None, None, None, None, None, None, None)

@@ -82,6 +82,9 @@ class Heal(Items):
         self.heal = heal
         self.state = "Eating"
 
+class Socks(Items):
+    def __init__(self, name, description, rarity, fall_soften, kick_damage):
+
 
 '''
 The items themselves 
