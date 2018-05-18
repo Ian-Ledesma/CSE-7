@@ -97,6 +97,12 @@ class Socks(Items):
         super(Socks, self). __init__(name, description, rarity)
         self.fall_soft = fall_soft
 
+#Gloves
+class Gloves(Items):
+    def __init__(self, name, description, rarity, harder_hit):
+        super(Gloves, self). __init__(name, description, rarity)
+        self.harder_hit = harder_hit
+
 
 # Character
 class Character(object):
@@ -233,7 +239,8 @@ magic_conch = Magic("Magic Conch", "This conch gives you the ultimate advice, te
 imagination_box = Magic("Imagination Box", "This box gives you as much power as you give it. In this case only 50.\n "
                         "Epic", 4, 50, 30)
 #Gloves
-infinty_gauntlet = Gloves('Infinity_Gauntlet', )
+infinity_gauntlet = Gloves('Infinity Gauntlet', "With the 6 infinity stones, you can end the world in a SNAP.\n"
+                           "Literally JEEZUS", 6, current_node.enemy_in.health)
 #  armor
 sea_urchin_spikes = Spikes("Sea Urchin Spikes", "A set of spikes for both protection and defense.\n Common", 1, 4, 10)
 metal = Armor("Anti-Rust Metal", "Just some metal that doesn't rust.\n Uncommon", 2, 5)
@@ -382,21 +389,20 @@ all_commands = ['north', 'south', 'east', 'west', 'up', 'down', "fight", "heal",
 while True:
     print(current_node.name)
     command = input('>_').lower().strip()
+#  Quit
     if command == 'quit':
         print("you just died yourself. Lmao XD")
         quit(0)
     if command == "i don't feel so good" or "i don't wanna go":
         print("Thanos just killed half of the universe. You are diagnosed with the dead.")
         quit(0)
-    if command == 'snap'
-        if inventory.gloves = Infin
-
+#  Look
     if command == "look":  # print the current node
         print(current_node.description)
-
-        if command == 'fight':
-            Spongebob.fight(current_node.enemy_in)
-
+#  Attack
+    if command == 'fight':
+        Spongebob.fight(current_node.enemy_in)
+#
     elif command in short_directions:
         #  Finds the command in short directions (index number)
         pos = short_directions.index(command)
@@ -411,9 +417,8 @@ while True:
         print("Command not recognized")
 
 #  Snap
-    if command == "snap"
-        try:
-            if command =
+    if command == "snap":
+        except inventory.gloves(infinty_gauntlet)
 
 #  Equip
     if command == "pick up" or "equip":
