@@ -12,7 +12,7 @@ num = (random.randint(0, 101))
     *same order as above
 4. controller
 """
-
+# Make Spongebob name change to Gooby-Goober Spongebob
 
 class Items(object):
     def __init__(self, name, description, rarity):  # rarity tiers: Common = 1, Uncommon = 2, Rare = 3, Epic = 4,
@@ -104,10 +104,9 @@ class Gloves(Items):
         self.harder_hit = harder_hit
 
 
-# Character
+# Character Class
 class Character(object):
-    def __init__(self, state, name, description, item, attack, health, max_hp, mana, lives):
-        self.state = state
+    def __init__(self, name, description, item, attack, health, max_hp, mana, level, lives, XP, dropXP):
         self.name = name
         self.description = description
         self.item = item
@@ -116,11 +115,18 @@ class Character(object):
         self.max_hp = max_hp
         self.mana = mana
         self.lives = lives
-
+        self.level = level
+        self.XP = XP
+        self.dropXP = dropXP
     lives = 5
+#  Levels
+    def levelUp(self):
+        if self.XP == 10:
+            self.level += 1
+        print("You've leveled up.\n %s is now level %s." %Spongebob.name %self.level)
 
     def defend(self):
-            self.max_hp = 0
+        self.max_hp = 0
 
     def heal(self):
             self.health = 0
@@ -134,44 +140,55 @@ class Character(object):
             self.health = 0
 
     def interact(self):
-        self.state = "Interact"
-        print("Touch")
+        if current_node.
 
     #  def open(self):
+#  Death
     def death(self):
-        if self.health <= 0:
-            self.lives -= 1
-            print("Oof. You Died.")
-
+        self.lives -= 1
+        print("Oof. U is deds.")
+#Game Over
     def game_over(self):
         if self.lives <= 0:
             print("~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~ GAME OVER ~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~")
-
+#Fighting
     def fight(self, enemy):
         try:
-            if enemy == current_node.enemy_in:
-                print("")
+            if current_node.enemy_in is not None:
+                current_node.enemy_in = enemy
+                print("%s challenges you to a d-d-dd-DUEL!" %enemy.name)
+            elif Spongebob.health <= 0:
+                print ("You lost.")
+                Spongebob.death(self)
+                Spongebob.dropXP += enemy.XP
+            elif enemy.health <= 0:
+                print("You won")
+                enemy.dropXP += Spongebob.XP
             while self.health or enemy.health > 0:
                 self.health -= enemy.attack
+                Spongebob.inventory.mana += 10
+                enemy.mana += 10
                 enemy.health -= self.attack
-                print(Spongebob.health)
-                print(enemy.health)
+                print("Health:%s /n Mana:%s" %Spongebob.health %Spongebob.mana)
+                print("~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~"
+                      "~~~~")
+                print("Enemy:%s /n Enemy Mana:%s" %enemy.health %enemy.mana)
 
         except AttributeError:
             print('There is no enemy here.')
 
-
 # inventory
 class Inventory:
-    def __init__(self, weapon, armor, key, magic, heal):
+    def __init__(self, weapon, armor, key, magic, heal, gloves, socks):
         self.weapon = weapon
         self.armor = armor
         self.key = key
         self.magic = magic
         self.heal = heal
+        self.socks = socks
+        self.gloves = gloves
 
-
-inventory = Inventory(None, None, None, None, None)
+inventory = Inventory(None, None, None, None, None, None, None)
 
 """
 Room
@@ -259,17 +276,20 @@ Mayo = Heal = ("Mayonnaise", "The ultimate substance, capable of preserving fish
 """
 Characters Instantiation
 """
-Spongebob = Character("Happy", "Spongebob", "A square, yellow, and porous sponge, gay in his nature.", 10, 100, 100,
-                      130, 120, 5)
-Squidward = Character("Sad", "Squidward", "A sad blue octopus. He enjoys playing the clarinet, and he is"
-                      "simultaneously arrogant and insecure.", 0, 80, 80, 130, 120, 5)
-Patrick = Character("Pink", "Patrick", "A pink starfish. In his nature, blissfully ignorant.", "Fat Flabs", 120, 120,
-                    150, 120, 5)
-Spot = Character("Brown", 'Spot', 'A dog/amoeba.', None, 10, 10, 10, 1000, 5)
-Karen = Character("Computer", "Karen the Computer", "The computer wife of Sheldon J. Plankton. She has a snarky sense"
+Spongebob = Character("Spongebob", "A square, yellow, and porous sponge, gay in his nature.", 10, 100, 100,
+                      100, 150, 0, 5)
+Squidward = Character("Squidward", "A sad blue octopus. He enjoys playing the clarinet, and he is"
+                      "simultaneously arrogant and insecure.", 55, 80, 80, 130, 120, 0, 5)
+Patrick = Character("Patrick", "A pink starfish. In his nature, blissfully ignorant.", "Fat Flabs", 120, 120,
+                    150, 120, 0, 5)
+Spot = Character('Spot', 'A dog/amoeba.', None, 10, 10, 10, 1000, 0, 5)
+Karen = Character("Karen the Computer", "The computer wife of Sheldon J. Plankton. She has a snarky sense"
                   "of humor, but a caring nature programmed into her by her husband.", None, 100, 120, 130, 170, 5)
+Neo-Karen = Character("Neo-Karen", "The evolved form of Karen the computer, ready to take on any foe, including the ultimate foe: Yo Spongebob ")
+Plankton = Character("Sheldon J. Plankton", "A small, green, evil plankton. He's dead set on getting the krabby patty "
+                     "secret formula with the aid of his computer wife, Karen.")
 # Nematodes = Character ("Mean", "")
-Gary = Character("Snail", "Gary the Snail", "A snail", 20, 40, 40, 5, 300, 5)
+Gary = Character("Gary the Snail", "A snail", 20, 40, 40, 5, 300, 5)
 
 
 """
@@ -418,8 +438,12 @@ while True:
 
 #  Snap
     if command == "snap":
-        except inventory.gloves(infinty_gauntlet)
+        try:
+            inventory.gloves(infinity_gauntlet)
 
+        except not inventory.gloves(infinity_gauntlet):
+
+36
 #  Equip
     if command == "pick up" or "equip":
         try:
@@ -463,7 +487,6 @@ while True:
         except current_node.item_w or current_node.item_m or current_node.item_a or current_node.item_g or \
                 current_node.item_h or current_node.item_k or current_node.item_s is None:
             print("There's nothing to PICK UP here silly.")
-
 # drop
     if command == "drop magic":
         try:
@@ -505,4 +528,5 @@ while True:
         except inventory is None:
             print("Spongebob, you can't, you're nonexistent equipment can't go any lower than being your possession.")
 
-
+    if command == "test":
+        XP +=10
