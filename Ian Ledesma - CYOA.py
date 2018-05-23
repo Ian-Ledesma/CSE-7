@@ -1,6 +1,7 @@
 # import webbrowser
 import random
 num = (random.randint(0, 101))
+randnum
 # webbrowser.open_tab(https://www.youtube.com/watch?v=8xn1hRcu18w)
 """
 1. import statements
@@ -32,6 +33,13 @@ class TimeMachine(Key):
     def __init__(self, name, description, rarity, allow_entry):
         super(TimeMachine, self). __init__(name, description, rarity)
         self.allow_entry = allow_entry
+
+    def open(self):
+        while Timemachine in Inventory:
+            if command == "open":
+                Spongebob.location = intrm1
+                print("U opened it lmao XD")
+                self.unlock = True
 
 
 class Radish(Key):
@@ -88,7 +96,6 @@ class Heal(Items):
     def __init__(self, name, description, rarity, heal):
         super(Heal, self). __init__(name, description, rarity)
         self.heal = heal
-        self.state = "Eating"
 
 
 # Socks
@@ -97,7 +104,8 @@ class Socks(Items):
         super(Socks, self). __init__(name, description, rarity)
         self.fall_soft = fall_soft
 
-#Gloves
+
+#  Gloves
 class Gloves(Items):
     def __init__(self, name, description, rarity, harder_hit):
         super(Gloves, self). __init__(name, description, rarity)
@@ -106,8 +114,7 @@ class Gloves(Items):
 
 # Character
 class Character(object):
-    def __init__(self, state, name, description, item, attack, health, max_hp, mana, lives):
-        self.state = state
+    def __init__(self, name, description, item, attack, health, max_hp, mana, lives):
         self.name = name
         self.description = description
         self.item = item
@@ -134,7 +141,6 @@ class Character(object):
             self.health = 0
 
     def interact(self):
-        self.state = "Interact"
         print("Touch")
 
     #  def open(self):
@@ -149,8 +155,12 @@ class Character(object):
 
     def fight(self, enemy):
         try:
-            if enemy == current_node.enemy_in:
-                print("")
+            if current_node.enemy_in is not None:
+                current_node.enemy_in = enemy
+                print("%s challenges you to a d-d-dd-DUEL!" % enemy.name)
+            elif enemy >= 0:
+                enemy.lives -= 1
+
             while self.health or enemy.health > 0:
                 self.health -= enemy.attack
                 enemy.health -= self.attack
@@ -181,7 +191,8 @@ Room
 class Room(object):
     def __init__(self, name, north, south, east, west, up, down, description, enemy_in, item_magic, item_weapon,
                  item_key, item_armor, item_heal, item_socks, item_gloves, space_magic, space_weapon, space_armor,
-                 space_key, space_heal, space_socks, space_gloves):
+                 space_key, space_heal, space_socks, space_gloves, randnum):
+        self.rand = randnum
         self.name = name
         self.north = north
         self.south = south
@@ -238,7 +249,7 @@ magic_conch = Magic("Magic Conch", "This conch gives you the ultimate advice, te
                     "an enemy.\n Legendary", 5, 9999, 100)
 imagination_box = Magic("Imagination Box", "This box gives you as much power as you give it. In this case only 50.\n "
                         "Epic", 4, 50, 30)
-#Gloves
+#  Gloves
 infinity_gauntlet = Gloves('Infinity Gauntlet', "With the 6 infinity stones, you can end the world in a SNAP.\n"
                            "Literally JEEZUS", 6, current_node.enemy_in.health)
 #  armor
@@ -259,17 +270,19 @@ Mayo = Heal = ("Mayonnaise", "The ultimate substance, capable of preserving fish
 """
 Characters Instantiation
 """
-Spongebob = Character("Happy", "Spongebob", "A square, yellow, and porous sponge, gay in his nature.", 10, 100, 100,
+Spongebob = Character("Spongebob", "A square, yellow, and porous sponge, gay in his nature.", 10, 100, 100,
                       130, 120, 5)
-Squidward = Character("Sad", "Squidward", "A sad blue octopus. He enjoys playing the clarinet, and he is"
-                      "simultaneously arrogant and insecure.", 0, 80, 80, 130, 120, 5)
-Patrick = Character("Pink", "Patrick", "A pink starfish. In his nature, blissfully ignorant.", "Fat Flabs", 120, 120,
+Squidward = Character("Squidward", "A sad blue octopus. He enjoys playing the clarinet, and he is"
+                      "simultaneously arrogant and insecure.", 20, 80, 80, 130, 120, 5)
+Patrick = Character("Patrick", "A pink starfish. In his nature, blissfully ignorant.", "Fat Flabs", 120, 120,
                     150, 120, 5)
-Spot = Character("Brown", 'Spot', 'A dog/amoeba.', None, 10, 10, 10, 1000, 5)
-Karen = Character("Computer", "Karen the Computer", "The computer wife of Sheldon J. Plankton. She has a snarky sense"
-                  "of humor, but a caring nature programmed into her by her husband.", None, 100, 120, 130, 170, 5)
-# Nematodes = Character ("Mean", "")
-Gary = Character("Snail", "Gary the Snail", "A snail", 20, 40, 40, 5, 300, 5)
+Spot = Character('Spot', 'A dog/amoeba.', None, 10, 10, 10, 1000, 5)
+Karen = Character("Karen the Computer", "The computer wife of Sheldon J. Plankton. She has a snarky sense of humor, but"
+                  " a caring nature programmed into her by her creator and husband.", None, 100, 120, 130, 170, 5)
+Nematodes = Character("Nematodes", 'They are pale green and dark green worms. They are lead by one leading nematode '
+                      'which calls out things like "hungry," "still hungry," or "thirsty" and leads its followers to '
+                      'foods and drinks.', None, 20, 30, 190, 200, 10)
+Gary = Character("Gary the Snail", "A snail", 20, 40, 40, 5, 300, 5)
 
 
 """
@@ -278,104 +291,106 @@ Room Instantiation
 extrm1 = Room('South of Pineapple', 'intrm1', None, None, 'extrm2', None, None, "You're near a big metal door on a"
               "pine apple.\n North is a living room, south is a road, east is sand, and west is a window into "
               "Squidward's house.", None, None, None, None, None, None, None, None, None, None, None, None, None, None,
-              None)
+              None, 1)
 extrm2 = Room('West of Pineapple', None, None, "intrm13", None, None, None, "You're near a massive "
               "pineapple\n where eastward is back to the garage, westward is an easter-island-statue-house, and south "
-              "is the road.", None, None, None, None, None, None, None, None, None, None, None, None, None, None, None)
+              "is the road.", None, None, None, None, None, None, None, None, None, None, None, None, None, None, None,
+              2)
 #  make road and squidward's house later
 extrm3 = Room("North of Pineapple", None, 'extrm4', None, None, None, None, "Around you is sand, all but the window "
-              "southward.", None, None, None, None, None, None, None, None, None, None, None, None, None, None, None)
+              "southward.", None, None, None, None, None, None, None, None, None, None, None, None, None, None, None, 3)
 intrm1 = Room('Living Room', 'intrm2', 'extrm1', None, None, None, None, "In front of you is a room lined with fishing "
               "and swimming equipment as furniture, helmet for a tv, and a blue bamboo wall.\n To the east is a closet,"
               "and to the north is a kitchen.", None, None, None, None, None, None, None, None, None, None, None,
-              None, None, None, None)
+              None, None, None, None, 4)
 intrm2 = Room('Kitchen', 'extrm3', 'intrm2', None, None, None, None, "There's a kitchen with a metal wall to one"
               "side and bamboo on the other, as well as bamboo cuboards and surf board counters, and a bucket for a "
               "sink.\n Northward is the window, southward is the living room, eastward is another window, ", None, None,
-              None, None, None, None, None, None, None, None, None, None, None, None, None)
+              None, None, None, None, None, None, None, None, None, None, None, None, None, 5)
 intrm3 = Room('Kitchen Window', 'extrm3', 'intrm2', None, None, None, None, "you lean on a metal rimmed, circle window."
               "north, outside of it is the outdoors.", None, None, None, None, None, None, None, None, None, None, None,
-              None, None, None, None)
+              None, None, None, None, 6)
 intrm4 = Room('Closet', None, None, 'intrm1', 'intrm14', None, None, "There's a collection of supplies for literally"
               "every scenario.\n East is the living room, and West is "
               "someone else's room ...", None, None, None, None, None, None, None, None, None, None, None, None, None,
-              None, None)
+              None, None, 7)
 intrm5 = Room('Ladder', None, None, None, None, 'intrm6', 'intrm15', "You're on a bamboo ladder, "
               "\n with the only place to go being up or down.", None, None, None, None, None, None, None, None, None,
-              None, None, None, None, None, None)
+              None, None, None, None, None, None, 8)
 intrm6 = Room('Bedroom', "intrm8", None, "#hallway", None, None, "intrm7", "The room has red bamboo wallpaper on the "
               "right side and blue metal wallpaper on the left.", None, None, None, None, None, None, None, None, None,
-              None, None, None, None, None, None)
+              None, None, None, None, None, None, 9)
 intrm7 = Room('Library', None, None, None, None, 'intrm6', None, "All around you are books, and a recliner in the "
               "middle of it all.", None, None, None, None, None, None, None, None, None, None, None, None, None, None,
-              None)
+              None, 10)
 intrm8 = Room('Bedroom Window', 'extrm4', 'intrm6', None, None, None, None, "outside of the window is a street, sand" 
               "on either side for as afar as the eye can see. northward is a 2 story fall to the outer world", None,
-              None, None, None, None, None, None, None, None, None, None, None, None, None, None)
+              None, None, None, None, None, None, None, None, None, None, None, None, None, None, 11)
 intrm9 = Room('Hallway', None, None, "intrm6", "intrm10", None, None, "", None, None, None, None, None, None, None,
-              None, None, None, None, None, None, None, None)
+              None, None, None, None, None, None, None, None, 12)
 intrm10 = Room('Restroom', 'intrm11', None, 'intrm9', None, None, None, "Around you is a green, floral wall, with a tub"
                "toilet, sink, and a wringer.\n Northward is a window.", None, None, None, None, None, None, None, None,
-               None, None, None, None, None, None, None)
+               None, None, None, None, None, None, None, 13)
 intrm11 = Room('Restroom Window', 'extrm3', 'intrm10', None, None, None, None, "outside of the window is a sandy floor,"
                "with a city far off into the distance. \n South is a 2 story fall to the outer world", None, None, None,
-               None, None, None, None, None, None, None, None, None, None, None, None)
+               None, None, None, None, None, None, None, None, None, None, None, None, 14)
 intrm12 = Room('Kitchen Window', None, 'extrm1', None, "intrm10", None, None, "outside of the window is a street, sand"
                " on either side for as afar as the eye can see. Southward is a 2 story fall to the outer world.", None,
-               None, None, None, None, None, None, None, None, None, None, None, None, None, None)
+               None, None, None, None, None, None, None, None, None, None, None, None, None, None, 15)
 intrm13 = Room('Garage', None, None, 'intrm2', 'extrm2', None, None, "A metal walled room, with tools one one of them"
                "and a large, mobile door.\n Westward is the outdoors, eastward is a return to the hell of a demented "
-               "mind.", None, None, None, None, None, None, None, None, None, None, None, None, None, None, None)
+               "mind.", None, None, None, None, None, None, None, None, None, None, None, None, None, None, None, 16)
 intrm14 = Room("Gary's Shell", None, None, "intrm4", "maze1", None, None, "You enter the pink snail shell and find a"
                "book shelf, a fire place, a recliner. \n Westward, toward the chair, is the snail with a gaze to shake "
                "the most mighty of warriors.", None, None, None, None, None, None, None, None, None, None, None, None,
-               None, None, None)
+               None, None, None, 17)
 intrm15 = Room("Cellar", None, None, None, None, "intrm 5", None, "You see many barrels filled with root beer, from "
                "floor to ceiling,\nwith the only way out being up.", None, None, None, None, None, None, None, None,
-               None, None, None, None, None, None, None)
+               None, None, None, None, None, None, None, 18)
 intrm16 = Room("Sunroof", "extrm3", "extrm1", None, "extrm2", None, "intrm6", "Around you are some big pineapple leaves"
                "and no ceiling.\n All around is a path to freedom, or a painful retreat downward.", None, None, None,
-               None, None, None, None, None, None, None, None, None, None, None, None)
+               None, None, None, None, None, None, None, None, None, None, None, None, 19)
 #  Maze Gary
 maze1 = Room("Gary's Mind", None, None, None, "maze2", None, None, "A disgustingly colorful expansion surrounds"
-             " you., None", None, None, None, None, None, None, None, None, None, None, None, None, None, None, None)
+             " you., None", None, None, None, None, None, None, None, None, None, None, None, None, None, None, None,
+             20)
 maze2 = Room("GAry's Mind", None, "maze3", None, None, None, None, "A disgustingly colorful expansion surrounds"
-             "you.", None, None, None, None, None, None, None, None, None, None, None, None, None, None, None)
+             "you.", None, None, None, None, None, None, None, None, None, None, None, None, None, None, None, 21)
 maze3 = Room("GaRy's Mind", None, None, "maze4", None, None, None, "A disgustingly colorful expansion surrounds"
-             " you.", None, None, None, None, None, None, None, None, None, None, None, None, None, None, None)
+             " you.", None, None, None, None, None, None, None, None, None, None, None, None, None, None, None, 22)
 maze4 = Room("GarY's Mind", None, None, "maze5", None, None, None, "A disgustingly colorful expansion surrounds"
-             " you.", None, None, None, None, None, None, None, None, None, None, None, None, None, None, None)
+             " you.", None, None, None, None, None, None, None, None, None, None, None, None, None, None, None, 23)
 maze5 = Room("Gary'S Mind", None, "maze6", None, None, None, None, "A disgustingly colorful expansion surrounds"
-             " you.", None, None, None, None, None, None, None, None, None, None, None, None, None, None, None)
+             " you.", None, None, None, None, None, None, None, None, None, None, None, None, None, None, None, 24)
 maze6 = Room("Gary's MInd", "maze7", None, None, None, None, None, "A disgustingly colorful expansion surrounds"
-             " you.", None, None, None, None, None, None, None, None, None, None, None, None, None, None, None)
+             " you.", None, None, None, None, None, None, None, None, None, None, None, None, None, None, None, 25)
 maze7 = Room("Gary's MiNd", None, None, None, None, None, "maze8", "A disgustingly colorful expansion surrounds"
-             " you.", None, None, None, None, None, None, None, None, None, None, None, None, None, None, None)
+             " you.", None, None, None, None, None, None, None, None, None, None, None, None, None, None, None, 26)
 maze8 = Room("Gary's MinD", "intrm5", None, None, None, None, None, "A dark void surrounds you.\n but North is a"
              "brilliant light of ignorance and stupidity, in this void of acknowledgement and intelligence.", None,
-             None, None, None, None, None, None, None, None, None, None, None, None, None, None)
+             None, None, None, None, None, None, None, None, None, None, None, None, None, None, 27)
 #  Maze Spongebob
 maze9 = Room("Spongebob's Mind", "maze10", None, None, None, None, None, "A disgustingly colorful expansion surrounds"
-             " you.", None, None, None, None, None, None, None, None, None, None, None, None, None, None, None)
+             " you.", None, None, None, None, None, None, None, None, None, None, None, None, None, None, None, 28)
 maze10 = Room("SPongebob's Mind", None, "maze11", None, None, None, None, "A disgustingly colorful expansion surrounds"
-              " you.", None, None, None, None, None, None, None, None, None, None, None, None, None, None, None)
+              " you.", None, None, None, None, None, None, None, None, None, None, None, None, None, None, None, 29)
 maze11 = Room("SpOngebob's Mind", None, None, None, "maze12", None, None, "A disgustingly colorful expansion surrounds"
-              " you.", None, None, None, None, None, None, None, None, None, None, None, None, None, None, None)
+              " you.", None, None, None, None, None, None, None, None, None, None, None, None, None, None, None, 30)
 maze12 = Room("SpoNgebob's Mind", None, None, None, "maze13", None, None, "A disgustingly colorful expansion surrounds"
-              " you.", None, None, None, None, None, None, None, None, None, None, None, None, None, None, None)
+              " you.", None, None, None, None, None, None, None, None, None, None, None, None, None, None, None, 31)
 maze13 = Room("SponGebob's Mind", None, None, None, None, None, "maze14", "A disgustingly colorful expansion surrounds"
-              " you.", None, None, None, None, None, None, None, None, None, None, None, None, None, None, None)
+              " you.", None, None, None, None, None, None, None, None, None, None, None, None, None, None, None, 32)
 maze14 = Room("SpongEbob's Mind", None, None, None, None, "maze15", None, "A disgustingly colorful expansion surrounds"
-              " you.", None, None, None, None, None, None, None, None, None, None, None, None, None, None, None)
+              " you.", None, None, None, None, None, None, None, None, None, None, None, None, None, None, None, 33)
 maze15 = Room("SpongeBob's Mind", None, None, "maze16", None, None, None, "A disgustingly colorful expansion surrounds"
-              " you.", None, None, None, None, None, None, None, None, None, None, None, None, None, None, None)
+              " you.", None, None, None, None, None, None, None, None, None, None, None, None, None, None, None, 34)
 maze16 = Room("SpongebOb's Mind", None, None, None, None, None, "maze17", "A disgustingly colorful expansion surrounds"
-              " you.", None, None, None, None, None, None, None, None, None, None, None, None, None, None, None)
+              " you.", None, None, None, None, None, None, None, None, None, None, None, None, None, None, None, 35)
 maze17 = Room("SpongeboB's Mind", None, None, None, None, "maze18", None, "A disgustingly colorful expansion surrounds"
-              " you.", None, None, None, None, None, None, None, None, None, None, None, None, None, None, None)
+              " you.", None, None, None, None, None, None, None, None, None, None, None, None, None, None, None, 36)
 maze18 = Room("Spongebob'S Mind", None, None, None, None, None, "extrm2", "A disgustingly colorful expansion surrounds"
               " you.\n But above is relative darkness to this terrifying realm.", None, None, None, None, None, None,
-              None, None, None, None, None, None, None, None, None)
+              None, None, None, None, None, None, None, None, None, 37)
 
 # 4. Controller
 # current_node = None  # Temporary Value
@@ -394,7 +409,7 @@ while True:
         print("you just died yourself. Lmao XD")
         quit(0)
     if command == "i don't feel so good" or "i don't wanna go":
-        print("Thanos just killed half of the universe. You are diagnosed with the dead.")
+        print("Thanos just killed half of the universe. You are diagnosed with the ded.")
         quit(0)
 #  Look
     if command == "look":  # print the current node
@@ -402,6 +417,7 @@ while True:
 #  Attack
     if command == 'fight':
         Spongebob.fight(current_node.enemy_in)
+
 #
     elif command in short_directions:
         #  Finds the command in short directions (index number)
@@ -417,8 +433,8 @@ while True:
         print("Command not recognized")
 
 #  Snap
-    if command == "snap":
-        except inventory.gloves(infinty_gauntlet)
+#     if command == "snap":
+#         except inventory.gloves(infinty_gauntlet)
 
 #  Equip
     if command == "pick up" or "equip":
@@ -505,4 +521,6 @@ while True:
         except inventory is None:
             print("Spongebob, you can't, you're nonexistent equipment can't go any lower than being your possession.")
 
-
+#  Stupid Shiz
+    if command == "think":
+        print("You become a plagiarizer.")
