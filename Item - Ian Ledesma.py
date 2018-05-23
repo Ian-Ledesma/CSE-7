@@ -1,8 +1,3 @@
-import random
-
-while health >= 0: # define in character
-    num = (random.randint(0, 101))
-
 class Items(object):
     def __init__(self, name, description, rarity):
         self.name = name
@@ -43,14 +38,14 @@ class HorseRadish(Key):
 
 #Weapons
 class Weapons(Items):
-    def __init__(self, name, description, rarity, attack):
+    def __init__(self, name, description, rarity, strike):
         super(Weapons, self). __init__(name, description, rarity)
-        self.attack = attack
+        self.strike = strike
 
 
 class LeSpatula(Weapons):
-    def __init__(self, name, description, rarity, attack, self_harm):
-        super(LeSpatula, self). __init__(name, description, attack, rarity)
+    def __init__(self, name, description, rarity, strike, self_harm):
+        super(LeSpatula, self). __init__(name, description, strike, rarity)
         self.self_harm = self_harm
     if num > 20:
         self_harm = False
@@ -59,8 +54,8 @@ class LeSpatula(Weapons):
 
 #Magic
 class Magic(Weapons):
-    def __init__(self, name, description, rarity, attack, mana_use):
-        super(Magic, self). __init__(name, description, attack, rarity)
+    def __init__(self, name, description, rarity, strike, mana_use):
+        super(Magic, self). __init__(name, description, strike, rarity)
         self.mana_use = mana_use
 
 #Armor
@@ -71,9 +66,9 @@ class Armor(Items):
 
 #
 class Spikes(Armor):
-    def __init__(self, name, description, rarity, defense, attack):
+    def __init__(self, name, description, rarity, defense, strike):
         super(Spikes, self).__init__(name, description, rarity, defense)
-        self.attack = attack
+        self.strike = strike
 
 #Heal
 class Heal(Items):
@@ -89,13 +84,13 @@ class Socks(Items):
         self.fall_soft = fall_soft
 
 #Gloves
-class Gloves(Items)
+class Gloves(Items):
     def __init__(self, name, description, rarity, harder_hit):
         super(Gloves, self). __init__(name, description, rarity)
         self.harder_hit = harder_hit
 
 
-
+attack = inventory.item_w.attack + inventory.item_g.harder_hit
 
 """
 The items themselves 

@@ -1,8 +1,13 @@
-# import webbrowser
+#  import webbrowser
 import random
+<<<<<<< HEAD
 num = (random.randint(0, 101))
 randnum
+=======
+>>>>>>> 71e5ed2336d43afa4ff85539d2e2524a6e7ab95d
 # webbrowser.open_tab(https://www.youtube.com/watch?v=8xn1hRcu18w)
+num = (random.randint(0, 101))
+current_node = None  # Temporary Value
 """
 1. import statements
 2. class definitions
@@ -13,6 +18,7 @@ randnum
     *same order as above
 4. controller
 """
+# Make Spongebob name change to Gooby-Goober Spongebob
 
 
 class Items(object):
@@ -105,83 +111,131 @@ class Socks(Items):
         self.fall_soft = fall_soft
 
 
+<<<<<<< HEAD
 #  Gloves
+=======
+# Gloves
+>>>>>>> 71e5ed2336d43afa4ff85539d2e2524a6e7ab95d
 class Gloves(Items):
     def __init__(self, name, description, rarity, harder_hit):
         super(Gloves, self). __init__(name, description, rarity)
         self.harder_hit = harder_hit
 
 
-# Character
+# Character Class
 class Character(object):
+<<<<<<< HEAD
     def __init__(self, name, description, item, attack, health, max_hp, mana, lives):
+=======
+    def __init__(self, name, description, item, strike, health, max_hp, mana, level, lives, xp, dropxp):
+>>>>>>> 71e5ed2336d43afa4ff85539d2e2524a6e7ab95d
         self.name = name
         self.description = description
         self.item = item
-        self.attack = attack
+        self.strike = strike
         self.health = health
         self.max_hp = max_hp
         self.mana = mana
         self.lives = lives
+        self.level = level
+        self.xp = xp
+        self.dropxp = dropxp
 
-    lives = 5
+
+#  Levels
+    def level_up(self):
+        if self.xp == 10:
+            self.level += 1
+        print("You've leveled up.\n %s is now level %s." % Spongebob.name % self.level)
 
     def defend(self):
-            self.max_hp = 0
+        self.max_hp = 0
 
     def heal(self):
             self.health = 0
             print("You healed")
 
-    def take_damage(self):
-        if self.state == "Falling":
-            self.health = 0
-            print("Oof, you fell, you lost 2 HP. You have %s left." % self.health)
-        if self.state == "Attacked":
-            self.health = 0
+    # def take_damage(self):    idk bruh
+    #     SPongebob.
 
+<<<<<<< HEAD
     def interact(self):
         print("Touch")
+=======
+>>>>>>> 71e5ed2336d43afa4ff85539d2e2524a6e7ab95d
 
-    #  def open(self):
+    #  def open(self): (for keys)
+#  Death
     def death(self):
-        if self.health <= 0:
-            self.lives -= 1
-            print("Oof. You Died.")
+        self.lives -= 1
+        print("Oof. Dang breh %s, is pretty ded." % Character.death(self))
 
+
+# Game Over
     def game_over(self):
-        if self.lives <= 0:
-            print("~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~ GAME OVER ~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~")
+        print("~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~ GAME OVER ~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~")
+        quit(0)
 
+
+# Fighting
     def fight(self, enemy):
         try:
             if current_node.enemy_in is not None:
                 current_node.enemy_in = enemy
+<<<<<<< HEAD
                 print("%s challenges you to a d-d-dd-DUEL!" % enemy.name)
             elif enemy >= 0:
                 enemy.lives -= 1
 
             while self.health or enemy.health > 0:
+=======
+                print("%s challenges you to a d-d-dd-DUEL!" %enemy.name)
+            elif Spongebob.health <= 0:
+                print ("You lost.")
+                Spongebob.death()
+                Spongebob.dropxp += enemy.xp
+            elif enemy.health <= 0:
+                print("You won")
+                enemy.dropxp += Spongebob.xp
+            while Spongebob.health or enemy.health > 0:
+>>>>>>> 71e5ed2336d43afa4ff85539d2e2524a6e7ab95d
                 self.health -= enemy.attack
-                enemy.health -= self.attack
-                print(Spongebob.health)
-                print(enemy.health)
+                Spongebob.mana += 10
+                enemy.mana += 10  # Recharge mana between turn
+                enemy.health -= Spongebob.attack
+                print("Health:%s /n Mana:%s" % Spongebob.health % Spongebob.mana)
+                print("~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~"
+                      "~~~~")
+                print("Enemy:%s /n Enemy Mana:%s" %enemy.health %enemy.mana)
 
         except AttributeError:
             print('There is no enemy here.')
 
 
+# Attack
+    def attack_enemy(self):
+        Character.inventory.item_w.attack += Character.inventory.item_g.harder_hit
+
+
+#  Respawn
+def respawn(self, enemy):
+    Character.health = Character.max_hp
+    current_node = (random.choice(nodes))
+
+
 # inventory
 class Inventory:
-    def __init__(self, weapon, armor, key, magic, heal):
+    def __init__(self, weapon, armor, key, magic, heal, gloves, socks):
         self.weapon = weapon
         self.armor = armor
         self.key = key
         self.magic = magic
         self.heal = heal
+        self.socks = socks
+        self.gloves = gloves
 
 
-inventory = Inventory(None, None, None, None, None)
+inventory = Inventory(None, None, None, None, None, None, None)
 
 """
 Room
@@ -249,9 +303,13 @@ magic_conch = Magic("Magic Conch", "This conch gives you the ultimate advice, te
                     "an enemy.\n Legendary", 5, 9999, 100)
 imagination_box = Magic("Imagination Box", "This box gives you as much power as you give it. In this case only 50.\n "
                         "Epic", 4, 50, 30)
+<<<<<<< HEAD
 #  Gloves
+=======
+# Gloves
+>>>>>>> 71e5ed2336d43afa4ff85539d2e2524a6e7ab95d
 infinity_gauntlet = Gloves('Infinity Gauntlet', "With the 6 infinity stones, you can end the world in a SNAP.\n"
-                           "Literally JEEZUS", 6, current_node.enemy_in.health)
+                           "Literally JEEZUS", 6, current_node.enemy_in.health * 1/2)
 #  armor
 sea_urchin_spikes = Spikes("Sea Urchin Spikes", "A set of spikes for both protection and defense.\n Common", 1, 4, 10)
 metal = Armor("Anti-Rust Metal", "Just some metal that doesn't rust.\n Uncommon", 2, 5)
@@ -271,6 +329,7 @@ Mayo = Heal = ("Mayonnaise", "The ultimate substance, capable of preserving fish
 Characters Instantiation
 """
 Spongebob = Character("Spongebob", "A square, yellow, and porous sponge, gay in his nature.", 10, 100, 100,
+<<<<<<< HEAD
                       130, 120, 5)
 Squidward = Character("Squidward", "A sad blue octopus. He enjoys playing the clarinet, and he is"
                       "simultaneously arrogant and insecure.", 20, 80, 80, 130, 120, 5)
@@ -282,6 +341,21 @@ Karen = Character("Karen the Computer", "The computer wife of Sheldon J. Plankto
 Nematodes = Character("Nematodes", 'They are pale green and dark green worms. They are lead by one leading nematode '
                       'which calls out things like "hungry," "still hungry," or "thirsty" and leads its followers to '
                       'foods and drinks.', None, 20, 30, 190, 200, 10)
+=======
+                      100, 150, 0, 5, 0, 25)
+Squidward = Character("Squidward", "A sad blue octopus. He enjoys playing the clarinet, and he is"
+                      "simultaneously arrogant and insecure.", 55, 80, 80, 130, 120, 0, 5, 0)
+Patrick = Character("Patrick", "A pink starfish. In his nature, blissfully ignorant.", fat_flabs, 120, 120,
+                    150, 120, 0, 5, 0, 15)
+Spot = Character('Spot', 'A dog/amoeba.', None, 10, 10, 10, 1000, 0, 5)
+Karen = Character("Karen the Computer", "The computer wife of Sheldon J. Plankton. She has a snarky sense"
+                  "of humor, but a caring nature programmed into her by her husband.", None, 100, 120, 130, 170, 5)
+NeoKaren = Character("Neo-Karen", "The evolved form of Karen the computer, ready to take on any foe, including the "
+                      "ultimate foe: Spongebob- Goofy Goober", None, 10000, 10000, 1000, 1000, 100, 2, 1000, 500)
+Plankton = Character("Sheldon J. Plankton", "A small, green, evil plankton. He's dead set on getting the krabby patty "
+                     "secret formula with the aid of his computer wife, Karen.")
+# Nematodes = Character ("Mean", "")
+>>>>>>> 71e5ed2336d43afa4ff85539d2e2524a6e7ab95d
 Gary = Character("Gary the Snail", "A snail", 20, 40, 40, 5, 300, 5)
 
 
@@ -390,10 +464,16 @@ maze17 = Room("SpongeboB's Mind", None, None, None, None, "maze18", None, "A dis
               " you.", None, None, None, None, None, None, None, None, None, None, None, None, None, None, None, 36)
 maze18 = Room("Spongebob'S Mind", None, None, None, None, None, "extrm2", "A disgustingly colorful expansion surrounds"
               " you.\n But above is relative darkness to this terrifying realm.", None, None, None, None, None, None,
+<<<<<<< HEAD
               None, None, None, None, None, None, None, None, None, 37)
 
+=======
+              None, None, None, None, None, None, None, None, None)
+nodes = [extrm1, extrm2, extrm3, intrm1, intrm2, intrm3, intrm4, intrm5, intrm6, intrm7, intrm8, intrm9, intrm10,
+         intrm11, intrm12, intrm13, intrm14, intrm15, intrm16, maze1, maze2, maze3, maze4, maze5, maze6, maze7, maze9,
+         maze10, maze11, maze12, maze13, maze14, maze15, maze16, maze17, maze18]
+>>>>>>> 71e5ed2336d43afa4ff85539d2e2524a6e7ab95d
 # 4. Controller
-# current_node = None  # Temporary Value
 respawn_point = intrm1
 current_node = extrm1
 directions = ['north', 'south', 'east', 'west', 'up', 'down']
@@ -414,11 +494,18 @@ while True:
 #  Look
     if command == "look":  # print the current node
         print(current_node.description)
+        print(current_node.enemy_in)
+        print(current_node.item_m, ",", current_node.item_w, ",", current_node.item_a, ",", current_node.item_k, ",",
+              current_node.item_h, ",", current_node.item_s, ",", current_node.item_g)
 #  Attack
     if command == 'fight':
         Spongebob.fight(current_node.enemy_in)
+<<<<<<< HEAD
 
 #
+=======
+# Short commands
+>>>>>>> 71e5ed2336d43afa4ff85539d2e2524a6e7ab95d
     elif command in short_directions:
         #  Finds the command in short directions (index number)
         pos = short_directions.index(command)
@@ -432,10 +519,13 @@ while True:
     elif command not in all_commands:
         print("Command not recognized")
 
+<<<<<<< HEAD
 #  Snap
 #     if command == "snap":
 #         except inventory.gloves(infinty_gauntlet)
 
+=======
+>>>>>>> 71e5ed2336d43afa4ff85539d2e2524a6e7ab95d
 #  Equip
     if command == "pick up" or "equip":
         try:
@@ -479,7 +569,6 @@ while True:
         except current_node.item_w or current_node.item_m or current_node.item_a or current_node.item_g or \
                 current_node.item_h or current_node.item_k or current_node.item_s is None:
             print("There's nothing to PICK UP here silly.")
-
 # drop
     if command == "drop magic":
         try:
@@ -521,6 +610,22 @@ while True:
         except inventory is None:
             print("Spongebob, you can't, you're nonexistent equipment can't go any lower than being your possession.")
 
+<<<<<<< HEAD
 #  Stupid Shiz
     if command == "think":
         print("You become a plagiarizer.")
+=======
+# game over
+    if Spongebob.lives >= 0:
+        Spongebob.game_over(self)
+
+#  Easter eggs
+#  Snap
+#     if command == "snap":
+#         try:
+#              inventory.gloves(infinity_gauntlet)
+#
+#         except not inventory.gloves(infinity_gauntlet):
+    if command == "test":
+        Spongebob.xp += 10
+>>>>>>> 71e5ed2336d43afa4ff85539d2e2524a6e7ab95d
