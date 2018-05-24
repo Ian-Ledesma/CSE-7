@@ -136,10 +136,6 @@ class Character(object):
             self.health = 0
             print("You healed")
 
-    # def take_damage(self):    idk bruh
-    #     SPongebob.
-
-
     #  def open(self): (for keys)
 #  Death
     def death(self):
@@ -147,48 +143,48 @@ class Character(object):
         print("Oof. Dang breh %s, is pretty ded." % Character.death(self))
 
 
-# Game Over
+# Game Over (static is ok)
     def game_over(self):
         print("~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~ GAME OVER ~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~")
         quit(0)
 
 
-# Fighting
-    def fight(self, enemy):
-        try:
-            if current_node.enemy_in is not None:
-                current_node.enemy_in = enemy
-                print("%s challenges you to a d-d-dd-DUEL!" %enemy.name)
-            elif Spongebob.health <= 0:
-                print ("You lost.")
-                Spongebob.death()
-                Spongebob.dropxp += enemy.xp
-            elif enemy.health <= 0:
-                print("You won")
-                enemy.dropxp += Spongebob.xp
-            while Spongebob.health or enemy.health > 0:
-                self.health -= enemy.attack
-                Spongebob.mana += 10
-                enemy.mana += 10  # Recharge mana between turn
-                enemy.health -= Spongebob.attack
-                print("Health:%s /n Mana:%s" % Spongebob.health % Spongebob.mana)
-                print("~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~"
-                      "~~~~")
-                print("Enemy:%s /n Enemy Mana:%s" %enemy.health %enemy.mana)
-
-        except AttributeError:
-            print('There is no enemy here.')
-
-
 # Attack
-    def attack_enemy(self):
-        Character.inventory.item_w.attack += Character.inventory.item_g.harder_hit
+def attack_subject(character):
+    character.inventory.weapon.attack += character.inventory.gloves.harder_hit and character.strike
+
+
+# Fighting
+def fight(self, enemy):
+    try:
+        if current_node.enemy_in is not None:
+            current_node.enemy_in = enemy
+            print("%s challenges you to a d-d-dd-DUEL!" % enemy.name)
+        elif Spongebob.health <= 0:
+            print("You lost.")
+            Spongebob.death()
+            Spongebob.dropxp += enemy.xp
+        elif enemy.health <= 0:
+            print("You won")
+            enemy.dropxp += Spongebob.xp
+        while Spongebob.health or enemy.health > 0:
+            Spongebob.health -= enemy.attack_subject
+            Spongebob.mana += 10
+            enemy.mana += 10  # Recharge mana between turn
+            enemy.health -= self.attack_subject
+            print("Health:%s /n Mana:%s" % Spongebob.health % Spongebob.mana)
+            print("~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~"
+                  "~~~~")
+            print("Enemy:%s /n Enemy Mana:%s" % enemy.health % enemy.mana)
+
+    except AttributeError:
+        print('There is no enemy here.')
 
 
 #  Respawn
-def respawn(self, enemy):
-    Character.health = Character.max_hp
-    current_node = (random.choice(nodes))
+def respawn(character):
+    character.health = character.max_hp
+    character.location = (random.choice(nodes))
 
 
 # inventory
@@ -439,7 +435,7 @@ while True:
         print(current_node.enemy_in)
         print(current_node.item_m, ",", current_node.item_w, ",", current_node.item_a, ",", current_node.item_k, ",",
               current_node.item_h, ",", current_node.item_s, ",", current_node.item_g)
-#  Attack
+#  Attack ?
     if command == 'fight':
         Spongebob.fight(current_node.enemy_in)
 # Short commands
@@ -542,7 +538,7 @@ while True:
 
 # game over
     if Spongebob.lives >= 0:
-        Spongebob.game_over(self)
+        Spongebob.game_over()
 
 #  Easter eggs
 #  Snap

@@ -36,13 +36,14 @@ class Time (Key):
         self.allow_entry = allow_entry
 
 #gotta make a couple for the special keys
-def open(self):
-    while Time or Radish in Inventory:
-        if command == "open":
-            Spongebob.location = intrm1
-            print("U opened it lmao XD")
-            self.unlock = True
-
+def open_time(self):
+    while Time in Inventory:
+        Spongebob.location = intrm1
+        print("U opened it lmao XD")
+        self.unlock = True
+def open_radish(self):
+    while Radish in Inventory:
+        Spongebob.location =
 
 class Radish(Key):
     def __init__(self, name, description, rarity, allow_entry):
@@ -116,7 +117,7 @@ class Gloves(Items):
 
 # Character Class
 class Character(object):
-    def __init__(self, name, description, item, strike, health, max_hp, mana, level, lives, xp, dropxp):
+    def __init__(self, name, description, item, strike, health, max_hp, mana, level, lives, xp, dropxp, location):
         self.name = name
         self.description = description
         self.item = item
@@ -128,7 +129,7 @@ class Character(object):
         self.level = level
         self.xp = xp
         self.dropxp = dropxp
-
+        self.location = location
 
 #  Levels
     def level_up(self):
@@ -160,7 +161,7 @@ class Character(object):
 
 # Attack
     def attack_enemy(self):
-        Character.inventory.item_w.attack += Character.inventory.item_g.harder_hit
+        Character.inventory.item_w.attack += Character.inventory.item_g.harder_hit and Character.strike
 
 
 # Fighting
@@ -184,7 +185,7 @@ class Character(object):
                 Spongebob.health -= enemy.attack
                 Spongebob.mana += 10
                 enemy.mana += 10  # Recharge mana between turn
-                enemy.health -= Spongebob.attack
+                enemy.health -= Spongebob.attack_enemy()
                 print("Health:%s /n Mana:%s" % Spongebob.health % Spongebob.mana)
                 print("~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~"
                       "~~~~")
@@ -340,12 +341,15 @@ Gary = Character("Gary the Snail", "A snail", 20, 40, 40, 5, 300, 5)
 """
 Room Instantiation
 """
+"""
+Room Instantiation
+"""
 extrm1 = Room('South of Pineapple', 'intrm1', None, None, 'extrm2', None, None, "You're near a big metal door on a"
-              " pineapple. North is a living room, south is a road, east is sand, and west is a window into " \
+              "pine apple.\n North is a living room, south is a road, east is sand, and west is a window into "
               "Squidward's house.", None, None, None, None, None, None, None, None, None, None, None, None, None, None,
               None)
-extrm2 = Room('West of Pineapple', None, None, "intrm13", None, None, None, "You're near a massive pineapple\n where "
-              "eastward is back to the garage, westward is an easter-island-statue-house, and south "
+extrm2 = Room('West of Pineapple', None, None, "intrm13", None, None, None, "You're near a massive "
+              "pineapple\n where eastward is back to the garage, westward is an easter-island-statue-house, and south "
               "is the road.", None, None, None, None, None, None, None, None, None, None, None, None, None, None, None)
 #  make road and squidward's house later
 extrm3 = Room("North of Pineapple", None, 'extrm4', None, None, None, None, "Around you is sand, all but the window "
