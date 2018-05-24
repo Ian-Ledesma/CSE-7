@@ -30,10 +30,18 @@ class Key(Items):
         self.unlock = False
 
 
-class TimeMachine(Key):
+class Time (Key):
     def __init__(self, name, description, rarity, allow_entry):
-        super(TimeMachine, self). __init__(name, description, rarity)
+        super(Time, self). __init__(name, description, rarity)
         self.allow_entry = allow_entry
+
+#gotta make a couple for the special keys
+def open(self):
+    while Time or Radish in Inventory:
+        if command == "open":
+            Spongebob.location = intrm1
+            print("U opened it lmao XD")
+            self.unlock = True
 
 
 class Radish(Key):
@@ -90,7 +98,6 @@ class Heal(Items):
     def __init__(self, name, description, rarity, heal):
         super(Heal, self). __init__(name, description, rarity)
         self.heal = heal
-        self.state = "Eating"
 
 
 # Socks
@@ -139,7 +146,6 @@ class Character(object):
     # def take_damage(self):    idk bruh
     #     SPongebob.
 
-
     #  def open(self): (for keys)
 #  Death
     def death(self):
@@ -150,7 +156,11 @@ class Character(object):
 # Game Over
     def game_over(self):
         print("~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~ GAME OVER ~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~")
-        quit(0)
+        exit(0)
+
+# Attack
+    def attack_enemy(self):
+        Character.inventory.item_w.attack += Character.inventory.item_g.harder_hit
 
 
 # Fighting
@@ -158,8 +168,12 @@ class Character(object):
         try:
             if current_node.enemy_in is not None:
                 current_node.enemy_in = enemy
+                print("%s challenges you to a d-d-dd-DUEL!" % enemy.name)
+            elif enemy >= 0:
+                enemy.lives -= 1
+            while self.health or enemy.health > 0:
                 print("%s challenges you to a d-d-dd-DUEL!" %enemy.name)
-            elif Spongebob.health <= 0:
+            if Spongebob.health <= 0:
                 print ("You lost.")
                 Spongebob.death()
                 Spongebob.dropxp += enemy.xp
@@ -167,7 +181,7 @@ class Character(object):
                 print("You won")
                 enemy.dropxp += Spongebob.xp
             while Spongebob.health or enemy.health > 0:
-                self.health -= enemy.attack
+                Spongebob.health -= enemy.attack
                 Spongebob.mana += 10
                 enemy.mana += 10  # Recharge mana between turn
                 enemy.health -= Spongebob.attack
@@ -180,15 +194,20 @@ class Character(object):
             print('There is no enemy here.')
 
 
-# Attack
-    def attack_enemy(self):
-        Character.inventory.item_w.attack += Character.inventory.item_g.harder_hit
-
-
-#  Respawn
+# Respawn
 def respawn(self, enemy):
     Character.health = Character.max_hp
     current_node = (random.choice(nodes))
+# Look
+def look(self):
+    try:
+        print(current_node.description)
+        print(current_node.item_m, ",", current_node.item_w, ",", current_node.item_a, ",", current_node.item_k, ",",
+            current_node.item_h, ",", current_node.item_s, ",", current_node.item_g)
+        if current_node.enemy_in is not None:
+            print(current_node.enemy_in.name)
+
+    except AttributeError:
 
 
 # inventory
@@ -270,7 +289,7 @@ magic_conch = Magic("Magic Conch", "This conch gives you the ultimate advice, te
                     "an enemy.\n Legendary", 5, 9999, 100)
 imagination_box = Magic("Imagination Box", "This box gives you as much power as you give it. In this case only 50.\n "
                         "Epic", 4, 50, 30)
-# Gloves
+#  Gloves
 infinity_gauntlet = Gloves('Infinity Gauntlet', "With the 6 infinity stones, you can end the world in a SNAP.\n"
                            "Literally JEEZUS", 6, current_node.enemy_in.health * 1/2)
 #  armor
@@ -292,7 +311,17 @@ Mayo = Heal = ("Mayonnaise", "The ultimate substance, capable of preserving fish
 Characters Instantiation
 """
 Spongebob = Character("Spongebob", "A square, yellow, and porous sponge, gay in his nature.", 10, 100, 100,
-                      100, 150, 0, 5, 0, 25)
+                      130, 120, 5)
+Squidward = Character("Squidward", "A sad blue octopus. He enjoys playing the clarinet, and he is"
+                      "simultaneously arrogant and insecure.", 20, 80, 80, 130, 120, 5)
+Patrick = Character("Patrick", "A pink starfish. In his nature, blissfully ignorant.", "Fat Flabs", 120, 120,
+                    150, 120, 5)
+Spot = Character('Spot', 'A dog/amoeba.', None, 10, 10, 10, 1000, 5)
+Karen = Character("Karen the Computer", "The computer wife of Sheldon J. Plankton. She has a snarky sense of humor, but"
+                  " a caring nature programmed into her by her creator and husband.", None, 100, 120, 130, 170, 5)
+Nematodes = Character("Nematodes", 'They are pale green and dark green worms. They are lead by one leading nematode '
+                      'which calls out things like "hungry," "still hungry," or "thirsty" and leads its followers to '
+                      'foods and drinks.', None, 20, 30, 190, 200, 10, 100, 150, 0)
 Squidward = Character("Squidward", "A sad blue octopus. He enjoys playing the clarinet, and he is"
                       "simultaneously arrogant and insecure.", 55, 80, 80, 130, 120, 0, 5, 0)
 Patrick = Character("Patrick", "A pink starfish. In his nature, blissfully ignorant.", fat_flabs, 120, 120,
@@ -312,11 +341,11 @@ Gary = Character("Gary the Snail", "A snail", 20, 40, 40, 5, 300, 5)
 Room Instantiation
 """
 extrm1 = Room('South of Pineapple', 'intrm1', None, None, 'extrm2', None, None, "You're near a big metal door on a"
-              "pine apple.\n North is a living room, south is a road, east is sand, and west is a window into "
+              " pineapple. North is a living room, south is a road, east is sand, and west is a window into " \
               "Squidward's house.", None, None, None, None, None, None, None, None, None, None, None, None, None, None,
               None)
-extrm2 = Room('West of Pineapple', None, None, "intrm13", None, None, None, "You're near a massive "
-              "pineapple\n where eastward is back to the garage, westward is an easter-island-statue-house, and south "
+extrm2 = Room('West of Pineapple', None, None, "intrm13", None, None, None, "You're near a massive pineapple\n where "
+              "eastward is back to the garage, westward is an easter-island-statue-house, and south "
               "is the road.", None, None, None, None, None, None, None, None, None, None, None, None, None, None, None)
 #  make road and squidward's house later
 extrm3 = Room("North of Pineapple", None, 'extrm4', None, None, None, None, "Around you is sand, all but the window "
@@ -431,17 +460,15 @@ while True:
         print("you just died yourself. Lmao XD")
         quit(0)
     if command == "i don't feel so good" or "i don't wanna go":
-        print("Thanos just killed half of the universe. You are diagnosed with the dead.")
+        print("Thanos just killed half of the universe. You are diagnosed with the ded.")
         quit(0)
 #  Look
     if command == "look":  # print the current node
-        print(current_node.description)
-        print(current_node.enemy_in)
-        print(current_node.item_m, ",", current_node.item_w, ",", current_node.item_a, ",", current_node.item_k, ",",
-              current_node.item_h, ",", current_node.item_s, ",", current_node.item_g)
+        Spongebob.look()
 #  Attack
     if command == 'fight':
         Spongebob.fight(current_node.enemy_in)
+
 # Short commands
     elif command in short_directions:
         #  Finds the command in short directions (index number)
@@ -455,6 +482,10 @@ while True:
             print("You cannot go that way.")
     elif command not in all_commands:
         print("Command not recognized")
+
+#  Snap
+#     if command == "snap":
+#         except inventory.gloves(infinty_gauntlet)
 
 #  Equip
     if command == "pick up" or "equip":
@@ -540,9 +571,12 @@ while True:
         except inventory is None:
             print("Spongebob, you can't, you're nonexistent equipment can't go any lower than being your possession.")
 
+#  Stupid Shiz
+    if command == "think":
+        print("You become a plagiarizer.")
 # game over
-    if Spongebob.lives >= 0:
-        Spongebob.game_over(self)
+    if Spongebob.lives <= 0:
+        Spongebob.game_over()
 
 #  Easter eggs
 #  Snap
