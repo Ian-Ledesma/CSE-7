@@ -168,6 +168,8 @@ def fight(self, enemy):
             print("You won")
             enemy.dropxp += Spongebob.xp
         while Spongebob.health or enemy.health > 0:
+            if Character.inventory.magic.mana >= Character.inventory.magic.mana_use
+                #uh shiz gotta fix tomorrow
             Spongebob.health -= enemy.attack_subject
             Spongebob.mana += 10
             enemy.mana += 10  # Recharge mana between turn
