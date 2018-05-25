@@ -149,6 +149,21 @@ class Character(object):
         quit(0)
 
 
+# inventory
+class Inventory:
+    def __init__(self, weapon, armor, key, magic, heal, gloves, socks):
+        self.weapon = weapon
+        self.armor = armor
+        self.key = key
+        self.magic = magic
+        self.heal = heal
+        self.socks = socks
+        self.gloves = gloves
+
+
+inventory = Inventory(None, None, None, None, None, None, None)
+
+
 # Attack
 def attack_subject(character):
     character.inventory.weapon.attack += character.inventory.gloves.harder_hit and character.strike
@@ -168,8 +183,8 @@ def fight(self, enemy):
             print("You won")
             enemy.dropxp += Spongebob.xp
         while Spongebob.health or enemy.health > 0:
-            if Character.inventory.magic.mana >= Character.inventory.magic.mana_use
-                #uh shiz gotta fix tomorrow
+            if Spongebob.mana >= inventory.magic.mana_use:
+                enemy.health -= inventory.magic.attack
             Spongebob.health -= enemy.attack_subject
             Spongebob.mana += 10
             enemy.mana += 10  # Recharge mana between turn
@@ -189,19 +204,6 @@ def respawn(character):
     character.location = (random.choice(nodes))
 
 
-# inventory
-class Inventory:
-    def __init__(self, weapon, armor, key, magic, heal, gloves, socks):
-        self.weapon = weapon
-        self.armor = armor
-        self.key = key
-        self.magic = magic
-        self.heal = heal
-        self.socks = socks
-        self.gloves = gloves
-
-
-inventory = Inventory(None, None, None, None, None, None, None)
 
 """
 Room
@@ -259,7 +261,7 @@ spoon = Weapons("Spoon", "The average scoop.\n Uncommon", 2, 10)
 le_spatula = LeSpatula("Le Spatula", "A spatula so full of itself that it'll attack whoever sees fit.\n Epic", 4, 60,
                        20)
 #  magic
-wand = Magic("Magic", "A black stick and star on the tip is your weapon.\n Common", 1, 15, 10)
+wand = Magic("Magic", "A black stick and star on the tip is your weapon.\n Common", 1, 150, 10)
 hocus_pocus_kit = Magic("Mr.Magic's Magical Kit", "This kit includes a Book of Spells, a Wand of Whimsy, the beard of"
                         " Rasputin, and a license to practice magic. It possesses the ability to turn anything into"
                         "mayonnaise.\n Rare", 3, 45, 90)

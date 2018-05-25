@@ -27,35 +27,30 @@ class Items(object):
 class Key(Items):
     def __init__(self, name, description, rarity):
         super(Key, self).__init__(name, description, rarity)
-        self.unlock = False
 
 
-class Time (Key):
+class Time(Key):
     def __init__(self, name, description, rarity, allow_entry):
         super(Time, self). __init__(name, description, rarity)
         self.allow_entry = allow_entry
 
-#gotta make a couple for the special keys
+
 def open_time(self):
-    while Time in Inventory:
+    while Time in Inventory and Spongebob.location == maze9 and command == "north" or "n":
         Spongebob.location = intrm1
         print("U opened it lmao XD")
         self.unlock = True
-def open_radish(self):
-    while Radish in Inventory:
-        Spongebob.location =
+
 
 class Radish(Key):
     def __init__(self, name, description, rarity, allow_entry):
         super(Radish, self). __init__(name, description, rarity)
         self.allow_entry = allow_entry
 
-    def open(self):
-        while Radish in Inventory:
-            if command == "open":
-                Spongebob.location = intrm1
-                print("U opened it lmao XD")
-                self.unlock = True
+
+def open_radish(spongebob):
+    while Radish in Inventory and spongebob.location == intrm14 and command == "north" or "n":
+        Spongebob.location = intrm15
 
 
 # Weapons
@@ -117,7 +112,7 @@ class Gloves(Items):
 
 # Character Class
 class Character(object):
-    def __init__(self, name, description, item, strike, health, max_hp, mana, level, lives, xp, dropxp, location):
+    def __init__(self, name, description, item, strike, health, max_hp, mana, level, lives, xp, dropxp):
         self.name = name
         self.description = description
         self.item = item
@@ -129,7 +124,6 @@ class Character(object):
         self.level = level
         self.xp = xp
         self.dropxp = dropxp
-        self.location = location
 
 #  Levels
     def level_up(self):
@@ -144,10 +138,7 @@ class Character(object):
             self.health = 0
             print("You healed")
 
-    # def take_damage(self):    idk bruh
-    #     SPongebob.
 
-    #  def open(self): (for keys)
 #  Death
     def death(self):
         self.lives -= 1
@@ -160,55 +151,14 @@ class Character(object):
         exit(0)
 
 # Attack
-    def attack_enemy(self):
-        Character.inventory.item_w.attack += Character.inventory.item_g.harder_hit and Character.strike
-
-
-# Fighting
-    def fight(self, enemy):
-        try:
-            if current_node.enemy_in is not None:
-                current_node.enemy_in = enemy
-                print("%s challenges you to a d-d-dd-DUEL!" % enemy.name)
-            elif enemy >= 0:
-                enemy.lives -= 1
-            while self.health or enemy.health > 0:
-                print("%s challenges you to a d-d-dd-DUEL!" %enemy.name)
-            if Spongebob.health <= 0:
-                print ("You lost.")
-                Spongebob.death()
-                Spongebob.dropxp += enemy.xp
-            elif enemy.health <= 0:
-                print("You won")
-                enemy.dropxp += Spongebob.xp
-            while Spongebob.health or enemy.health > 0:
-                Spongebob.health -= enemy.attack
-                Spongebob.mana += 10
-                enemy.mana += 10  # Recharge mana between turn
-                enemy.health -= Spongebob.attack_enemy()
-                print("Health:%s /n Mana:%s" % Spongebob.health % Spongebob.mana)
-                print("~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~"
-                      "~~~~")
-                print("Enemy:%s /n Enemy Mana:%s" %enemy.health %enemy.mana)
-
-        except AttributeError:
-            print('There is no enemy here.')
-
+    def attack_enemy(self, character):    # Static is ok
+        character.inventory.item_w.attack += character.inventory.item_g.harder_hit and character.strike
 
 # Respawn
-def respawn(self, enemy):
-    Character.health = Character.max_hp
-    current_node = (random.choice(nodes))
-# Look
-def look(self):
-    try:
-        print(current_node.description)
-        print(current_node.item_m, ",", current_node.item_w, ",", current_node.item_a, ",", current_node.item_k, ",",
-            current_node.item_h, ",", current_node.item_s, ",", current_node.item_g)
-        if current_node.enemy_in is not None:
-            print(current_node.enemy_in.name)
-
-    except AttributeError:
+def respawn(character):
+    global rand_node
+    character.health = character.max_hp
+    rand_node = current_node
 
 
 # inventory
@@ -291,12 +241,14 @@ magic_conch = Magic("Magic Conch", "This conch gives you the ultimate advice, te
 imagination_box = Magic("Imagination Box", "This box gives you as much power as you give it. In this case only 50.\n "
                         "Epic", 4, 50, 30)
 #  Gloves
-infinity_gauntlet = Gloves('Infinity Gauntlet', "With the 6 infinity stones, you can end the world in a SNAP.\n"
-                           "Literally JEEZUS", 6, current_node.enemy_in.health * 1/2)
+# infinity_gauntlet = Gloves('Infinity Gauntlet', "With the 6 infinity stones, you can end the world in a SNAP.\n"
+#                            "Literally JEEZUS", 6, current_node.enemy.health * 1/2)
+sterile = Gloves("Don't Touch Me I'm Sterile", "These gloves give you the capacity to be sterile and dangerous.\n "
+                 "Common", 3, 20)
 #  armor
 sea_urchin_spikes = Spikes("Sea Urchin Spikes", "A set of spikes for both protection and defense.\n Common", 1, 4, 10)
 metal = Armor("Anti-Rust Metal", "Just some metal that doesn't rust.\n Uncommon", 2, 5)
-sponge_absorbtion = Armor("Spongebob's Sponginess", "Spongebob's sponginess reduces damage dealt.\n Legendary", 5, 20)
+sponge_absorption = Armor("Spongebob's Sponginess", "Spongebob's sponginess reduces damage dealt.\n Legendary", 5, 20)
 fat_flabs = Armor("Patrick's Fat", "Patrick's fat protects him.\n Common", 2, 11)
 krab_shell = Armor("Mr.Krabb's Shell", "Mr. Krabb's molted shell protects is an apt set of armor.\n Epic", 4, 10)
 sponge_abrasion = Spikes("Spongebob's Abrasive Side", "Spongebob's abrasive tough to both y'all.\n Uncommon", 2, -2, 11)
@@ -306,36 +258,40 @@ pufferfish_spikes = Spikes("Mrs. Puff's Spikes", "In times of distress, Mrs. Puf
 Imagination = Heal("Imagination", "If you believe, you heal.\n Rare", 3, 10)
 Krabby_Patty = Heal("Krabby Patty", "The ultimate food instills belief and health into the consumer.\n Epic", 4, 20)
 Filter_Feed = Heal("Filter Feed", "The water contains healing energies you can use.\n Common", 1, 2)
-Mayo = Heal = ("Mayonnaise", "The ultimate substance, capable of preserving fish for eons.\n Legendary", 5, 50)
+Mayo = Heal("Mayonnaise", "The ultimate substance, capable of preserving fish for eons.\n Legendary", 5, 50)
+
 
 """
 Characters Instantiation
 """
 Spongebob = Character("Spongebob", "A square, yellow, and porous sponge, gay in his nature.", 10, 100, 100,
-                      130, 120, 5)
+                      130, 120, 5, 5, 50, 20)
 Squidward = Character("Squidward", "A sad blue octopus. He enjoys playing the clarinet, and he is"
-                      "simultaneously arrogant and insecure.", 20, 80, 80, 130, 120, 5)
+                      "simultaneously arrogant and insecure.", 20, 80, 80, 130, 120, 2, 5, 20, 20)
 Patrick = Character("Patrick", "A pink starfish. In his nature, blissfully ignorant.", "Fat Flabs", 120, 120,
-                    150, 120, 5)
-Spot = Character('Spot', 'A dog/amoeba.', None, 10, 10, 10, 1000, 5)
+                    150, 120, 5, 5, 50, 50)
+Spot = Character('Spot', 'A dog/amoeba.', None, 10, 10, 10, 1000, 5, 50, 50, 50)
 Karen = Character("Karen the Computer", "The computer wife of Sheldon J. Plankton. She has a snarky sense of humor, but"
-                  " a caring nature programmed into her by her creator and husband.", None, 100, 120, 130, 170, 5)
+                  "a caring nature programmed into her by her creator and husband.", None, 100, 120, 130, 170, 30, 10,
+                  300, 150)
 Nematodes = Character("Nematodes", 'They are pale green and dark green worms. They are lead by one leading nematode '
                       'which calls out things like "hungry," "still hungry," or "thirsty" and leads its followers to '
                       'foods and drinks.', None, 20, 30, 190, 200, 10, 100, 150, 0)
-Squidward = Character("Squidward", "A sad blue octopus. He enjoys playing the clarinet, and he is"
-                      "simultaneously arrogant and insecure.", 55, 80, 80, 130, 120, 0, 5, 0)
-Patrick = Character("Patrick", "A pink starfish. In his nature, blissfully ignorant.", fat_flabs, 120, 120,
-                    150, 120, 0, 5, 0, 15)
-Spot = Character('Spot', 'A dog/amoeba.', None, 10, 10, 10, 1000, 0, 5)
-Karen = Character("Karen the Computer", "The computer wife of Sheldon J. Plankton. She has a snarky sense"
-                  "of humor, but a caring nature programmed into her by her husband.", None, 100, 120, 130, 170, 5)
+# Squidward = Character("Squidward", "A sad blue octopus. He enjoys playing the clarinet, and he is"
+#                       "simultaneously arrogant and insecure.", 55, 80, 80, 130, 120, 1, 5, 10, 10)
+# Patrick = Character("Patrick", "A pink starfish. In his nature, blissfully ignorant.", fat_flabs, 120, 120,
+#                     150, 120, 0, 5, 0, 15)
+# Spot = Character('Spot', 'A dog/amoeba.', None, 10, 10, 10, 1000, 0, 5)
+# Karen = Character("Karen the Computer", "The computer wife of Sheldon J. Plankton. She has a snarky sense"
+#                   "of humor, but a caring nature programmed into her by her husband.", None, 100, 120, 130, 170, 2, 5,
+#                   20, 20)
 NeoKaren = Character("Neo-Karen", "The evolved form of Karen the computer, ready to take on any foe, including the "
-                      "ultimate foe: Spongebob- Goofy Goober", None, 10000, 10000, 1000, 1000, 100, 2, 1000, 500)
+                     "ultimate foe: Spongebob- Goofy Goober", None, 10000, 10000, 1000, 1000, 100, 2, 1000, 500)
 Plankton = Character("Sheldon J. Plankton", "A small, green, evil plankton. He's dead set on getting the krabby patty "
-                     "secret formula with the aid of his computer wife, Karen.")
+                     "secret formula with the aid of his computer wife, Karen.", wand, 40, 250, 300, 300, 45, 5, 450,
+                     220)
 # Nematodes = Character ("Mean", "")
-Gary = Character("Gary the Snail", "A snail", 20, 40, 40, 5, 300, 5)
+Gary = Character("Gary the Snail", "A snail", wand, 300, 300, 300, 300, 50, 5, 3000, 300)
 
 
 """
@@ -346,8 +302,8 @@ Room Instantiation
 """
 extrm1 = Room('South of Pineapple', 'intrm1', None, None, 'extrm2', None, None, "You're near a big metal door on a"
               "pine apple.\n North is a living room, south is a road, east is sand, and west is a window into "
-              "Squidward's house.", None, None, None, None, None, None, None, None, None, None, None, None, None, None,
-              None)
+              "Squidward's house.", Squidward, None, None, None, None, None, None, None, None, None, None, None,
+              None, None, None)
 extrm2 = Room('West of Pineapple', None, None, "intrm13", None, None, None, "You're near a massive "
               "pineapple\n where eastward is back to the garage, westward is an easter-island-statue-house, and south "
               "is the road.", None, None, None, None, None, None, None, None, None, None, None, None, None, None, None)
@@ -384,8 +340,8 @@ intrm8 = Room('Bedroom Window', 'extrm4', 'intrm6', None, None, None, None, "out
 intrm9 = Room('Hallway', None, None, "intrm6", "intrm10", None, None, "", None, None, None, None, None, None, None,
               None, None, None, None, None, None, None, None)
 intrm10 = Room('Restroom', 'intrm11', None, 'intrm9', None, None, None, "Around you is a green, floral wall, with a tub"
-               "toilet, sink, and a wringer.\n Northward is a window.", None, None, None, None, None, None, None, None,
-               None, None, None, None, None, None, None)
+               "toilet, sink, and a wringer.\n Northward is a window.", None, None, None, None, None, None, sterile,
+               None, None, None, None, None, None, None, None)
 intrm11 = Room('Restroom Window', 'extrm3', 'intrm10', None, None, None, None, "outside of the window is a sandy floor,"
                "with a city far off into the distance. \n South is a 2 story fall to the outer world", None, None, None,
                None, None, None, None, None, None, None, None, None, None, None, None)
@@ -397,8 +353,8 @@ intrm13 = Room('Garage', None, None, 'intrm2', 'extrm2', None, None, "A metal wa
                "mind.", None, None, None, None, None, None, None, None, None, None, None, None, None, None, None)
 intrm14 = Room("Gary's Shell", None, None, "intrm4", "maze1", None, None, "You enter the pink snail shell and find a"
                "book shelf, a fire place, a recliner. \n Westward, toward the chair, is the snail with a gaze to shake "
-               "the most mighty of warriors.", None, None, None, None, None, None, None, None, None, None, None, None,
-               None, None, None)
+               "the most mighty of warriors. You need a key to cross the realm", None, None, None, None, None, None,
+               None, None, None, None, None, None, None, None, None)
 intrm15 = Room("Cellar", None, None, None, None, "intrm 5", None, "You see many barrels filled with root beer, from "
                "floor to ceiling,\nwith the only way out being up.", None, None, None, None, None, None, None, None,
                None, None, None, None, None, None, None)
@@ -448,6 +404,8 @@ maze18 = Room("Spongebob'S Mind", None, None, None, None, None, "extrm2", "A dis
 nodes = [extrm1, extrm2, extrm3, intrm1, intrm2, intrm3, intrm4, intrm5, intrm6, intrm7, intrm8, intrm9, intrm10,
          intrm11, intrm12, intrm13, intrm14, intrm15, intrm16, maze1, maze2, maze3, maze4, maze5, maze6, maze7, maze9,
          maze10, maze11, maze12, maze13, maze14, maze15, maze16, maze17, maze18]
+rand_node = (random.choice(nodes))
+
 # 4. Controller
 respawn_point = intrm1
 current_node = extrm1
@@ -459,22 +417,8 @@ all_commands = ['north', 'south', 'east', 'west', 'up', 'down', "fight", "heal",
 while True:
     print(current_node.name)
     command = input('>_').lower().strip()
-#  Quit
-    if command == 'quit':
-        print("you just died yourself. Lmao XD")
-        quit(0)
-    if command == "i don't feel so good" or "i don't wanna go":
-        print("Thanos just killed half of the universe. You are diagnosed with the ded.")
-        quit(0)
-#  Look
-    if command == "look":  # print the current node
-        Spongebob.look()
-#  Attack
-    if command == 'fight':
-        Spongebob.fight(current_node.enemy_in)
-
-# Short commands
-    elif command in short_directions:
+    # Short commands
+    if command in short_directions:
         #  Finds the command in short directions (index number)
         pos = short_directions.index(command)
         command = directions[pos]
@@ -487,12 +431,66 @@ while True:
     elif command not in all_commands:
         print("Command not recognized")
 
-#  Snap
-#     if command == "snap":
-#         except inventory.gloves(infinty_gauntlet)
 
-#  Equip
-    if command == "pick up" or "equip":
+#  Quit
+    if command == 'quit':
+        print("you just died yourself. Lmao XD")
+        quit(0)
+    if command == "i don't feel so good" or "i don't wanna go":
+        print("Thanos just killed half of the universe. You are diagnosed with the ded.")
+        quit(0)
+#  Look
+    if command == "look":  # print the current node
+        try:
+            print(current_node.description)
+            print(current_node.item_m, ",", current_node.item_w, ",", current_node.item_a, ",", current_node.item_k,
+                  ",",
+                  current_node.item_h, ",", current_node.item_s, ",", current_node.item_g)
+            if current_node.enemy_in is not None:
+                print(current_node.enemy_in.name)
+
+        except AttributeError:
+            print("There's no enemy here.")
+#  Attack
+    if command == 'fight':
+    #   Fighting
+#  def fight(self, spongebob, enemy):
+
+        try:
+            if current_node.enemy_in is not None:
+                enemy = current_node.enemy_in
+                print("%s challenges you to a d-d-dd-DUEL!" % enemy.name)
+            elif enemy >= 0:
+                enemy.lives -= 1
+            while Spongebob.health or enemy.health > 0:
+                print("%s challenges you to a d-d-dd-DUEL!" % enemy.name)
+            if Spongebob.health <= 0:
+                print("You lost.")
+                Spongebob.death()
+                Spongebob.dropxp += enemy.xp
+            elif enemy.health <= 0:
+                print("You won")
+                enemy.dropxp += Spongebob.xp
+            while Spongebob.health or enemy.health > 0:
+                if Spongebob.mana >= inventory.magic.mana_use:
+                    enemy.health -= inventory.magic.attack
+                if enemy.mana >= enemy.inventory.magic.mana_use:
+                    Spongebob.health -= enemy.inventory.magic.attack
+                Spongebob.health -= enemy.attack
+                Spongebob.mana += 10
+                enemy.mana += 10  # Recharge mana between turn
+                enemy.health -= Spongebob.attack_enemy(enemy)
+                print("Health:%s /n Mana:%s" % Spongebob.health % Spongebob.mana)
+                print("~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~"
+                        "~~~~")
+                print("Enemy:%s /n Enemy Mana:%s" % enemy.health % enemy.mana)
+
+        except AttributeError:
+            print('There is no enemy here.')
+
+
+
+    if command == "pick up" or "equip": #Equip
         try:
             if current_node.item_w.rarity >= inventory.weapon.rarity:
                 inventory.weapon = current_node.space_w  # copy what you have to space
@@ -534,7 +532,7 @@ while True:
         except current_node.item_w or current_node.item_m or current_node.item_a or current_node.item_g or \
                 current_node.item_h or current_node.item_k or current_node.item_s is None:
             print("There's nothing to PICK UP here silly.")
-# drop
+
     if command == "drop magic":
         try:
             inventory.magic = None
@@ -581,6 +579,7 @@ while True:
 # game over
     if Spongebob.lives <= 0:
         Spongebob.game_over()
+        exit()
 
 #  Easter eggs
 #  Snap
@@ -589,5 +588,5 @@ while True:
 #              inventory.gloves(infinity_gauntlet)
 #
 #         except not inventory.gloves(infinity_gauntlet):
-    if command == "test":
-        Spongebob.xp += 10
+#     if command == "test":
+#         Spongebob.xp += 10
